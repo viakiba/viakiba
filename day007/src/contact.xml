@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GBK"?>
+<contactList>
+	<contact id="001">
+		<name>eric</name>
+		<age>20</age>
+		<phone>134222223333</phone>
+		<email>zhangsan@qq.com</email>
+		<qq>432221111</qq>
+	</contact>
+	<contact id="002">
+		<name>eric</name>
+		<age>20</age>
+		<phone>134222225555</phone>
+		<email>lisi@qq.com</email>
+		<qq>432222222</qq>
+	</contact>
+</contactList>
