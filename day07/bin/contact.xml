@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<contactList> 
+  <contact id="2"> 
+    <name>sda</name>  
+    <gender>女</gender>  
+    <age>0</age>  
+    <phone>45454</phone>  
+    <email>84546@qq.com</email>  
+    <qq>545131</qq> 
+  </contact>  
+  <contact id="54"> 
+    <name>sda</name>  
+    <gender>女</gender>  
+    <age>0</age>  
+    <phone>45454</phone>  
+    <email>84546@qq.com</email>  
+    <qq>545131</qq> 
+  </contact>  
+  <contact id="21"> 
+    <name>sda</name>  
+    <gender>女</gender>  
+    <age>0</age>  
+    <phone>45454</phone>  
+    <email>84546@qq.com</email>  
+    <qq>545131</qq> 
+  </contact>  
+  <contact id="22"> 
+    <name>aaa'sa'saasdasda</name>  
+    <gender>da</gender>  
+    <age>22</age>  
+    <phone>da</phone>  
+    <email>adsad</email>  
+    <qq>22</qq> 
+  </contact>  
+  <contact id="11">
+    <name>fee</name>
+    <gender>as</gender>
+    <age>15</age>
+    <phone>0222</phone>
+    <email>adada</email>
+    <qq>adadadada</qq>
+  </contact>
+</contactList>
