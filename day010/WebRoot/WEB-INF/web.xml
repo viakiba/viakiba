@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<context-param>
+		<param-name>AAA</param-name>
+		<param-value>AAA's value</param-value>
+	</context-param>
+	<context-param>
+		<param-name>BBB</param-name>
+		<param-value>BBB's value</param-value>
+	</context-param>
+	<context-param>
+		<param-name>CCC</param-name>
+		<param-value>CCC's value</param-value>
+	</context-param>
+ 
+  <servlet>
+    <servlet-name>FirstServlet</servlet-name>
+    <servlet-class>haust.viakiba.a_servlet.FirstServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Demo1</servlet-name>
+    <servlet-class>haust.viakiba.b_mapping.Demo1</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Demo2</servlet-name>
+    <servlet-class>haust.viakiba.b_mapping.Demo2</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LifeDemo</servlet-name>
+    <servlet-class>haust.vaikiba.c_life.LifeDemo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LifeDemo2</servlet-name>
+    <servlet-class>haust.vaikiba.c_life.LifeDemo2</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>InitDemo</servlet-name>
+    <servlet-class>haust.viakiba.d_init.InitDemo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ThreadDemo</servlet-name>
+    <servlet-class>viakiba.haust.e_thread.ThreadDemo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ConfigDemo</servlet-name>
+    <servlet-class>haust.viakiba.f_config.ConfigDemo</servlet-class>
+  	<init-param>
+    	<param-name>path</param-name>
+    	<param-value>e:/b.txt</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>ContextDemo1</servlet-name>
+    <servlet-class>haust.viakiba.f_context.ContextDemo1</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ContextDemo2</servlet-name>
+    <servlet-class>haust.viakiba.f_context.ContextDemo2</servlet-class>
+  	<init-param>
+    	<param-name>path</param-name>
+    	<param-value>e:/b.txt</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>ContextDemo3</servlet-name>
+    <servlet-class>haust.viakiba.f_context.ContextDemo3</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ContextDemo4</servlet-name>
+    <servlet-class>haust.viakiba.f_context.ContextDemo4</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ForwordDemo1</servlet-name>
+    <servlet-class>haust.viakiba.g_forword.ForwordDemo1</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetDataServlet</servlet-name>
+    <servlet-class>haust.viakiba.g_forword.GetDataServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RediredDemo1</servlet-name>
+    <servlet-class>haust.viakiba.g_forword.RediredDemo1</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>FirstServlet</servlet-name>
+    <url-pattern>/FirstServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Demo1</servlet-name>
+    <url-pattern>/Demo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Demo2</servlet-name>
+    <url-pattern>/Demo2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LifeDemo</servlet-name>
+    <url-pattern>/LifeDemo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LifeDemo2</servlet-name>
+    <url-pattern>/LifeDemo2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InitDemo</servlet-name>
+    <url-pattern>/InitDemo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ThreadDemo</servlet-name>
+    <url-pattern>/ThreadDemo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConfigDemo</servlet-name>
+    <url-pattern>/ConfigDemo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ContextDemo1</servlet-name>
+    <url-pattern>/ContextDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ContextDemo2</servlet-name>
+    <url-pattern>/ContextDemo2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ContextDemo3</servlet-name>
+    <url-pattern>/ContextDemo3</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ContextDemo4</servlet-name>
+    <url-pattern>/ContextDemo4</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ForwordDemo1</servlet-name>
+    <url-pattern>/ForwordDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetDataServlet</servlet-name>
+    <url-pattern>/GetDataServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RediredDemo1</servlet-name>
+    <url-pattern>/RediredDemo1</url-pattern>
+  </servlet-mapping>
+
+</web-app>
