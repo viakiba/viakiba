@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <servlet>
+    <servlet-name>PathDemo</servlet-name>
+    <servlet-class>haust.vk.a_path.PathDemo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ReaourseDemo</servlet-name>
+    <servlet-class>haust.vk.b_resource.ReaourseDemo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CookieDemo1</servlet-name>
+    <servlet-class>haust.vk.c_cookie.CookieDemo1</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteCookie</servlet-name>
+    <servlet-class>haust.vk.c_cookie.DeleteCookie</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HistServlet</servlet-name>
+    <servlet-class>haust.vk.c_cookie.HistServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SessionDemo1</servlet-name>
+    <servlet-class>haust.vk.d_session.SessionDemo1</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SessionDemo2</servlet-name>
+    <servlet-class>haust.vk.d_session.SessionDemo2</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteSession</servlet-name>
+    <servlet-class>haust.vk.d_session.DeleteSession</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>PathDemo</servlet-name>
+    <url-pattern>/PathDemo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReaourseDemo</servlet-name>
+    <url-pattern>/ReaourseDemo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CookieDemo1</servlet-name>
+    <url-pattern>/CookieDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteCookie</servlet-name>
+    <url-pattern>/DeleteCookie</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HistServlet</servlet-name>
+    <url-pattern>/HistServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SessionDemo1</servlet-name>
+    <url-pattern>/SessionDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SessionDemo2</servlet-name>
+    <url-pattern>/SessionDemo2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteSession</servlet-name>
+    <url-pattern>/DeleteSession</url-pattern>
+  </servlet-mapping>
+
+</web-app>
