@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+    
+ <!-- 标签库版本 -->
+  <tlib-version>1.2</tlib-version>
+  <!-- 标签库前缀 prefix -->
+  <short-name>vk</short-name>
+  <!-- 标签的uri tld的唯一标记 -->
+  <uri>http://haust.vk.cn</uri>
+
+
+  <tag>
+  <!-- 标签名称 -->
+    <name>showIp</name>
+    <!-- 标签处理器的全名  包名+类名-->
+    <tag-class>haust.vk.a_tag.ShowIpTag</tag-class>
+   <!-- 输出标签体内容的格式 -->
+    <body-content>scriptless</body-content>
+  </tag>
+  
+    <tag>
+  <!-- 标签名称 -->
+    <name>demoTag</name>
+    <!-- 标签处理器的全名  包名+类名-->
+    <tag-class>haust.vk.a_tag.DemoTag</tag-class>
+   <!-- 输出标签体内容的格式 -->
+    <body-content>scriptless</body-content>
+   <!-- 属性声明 -->
+	   <attribute>
+		   	<!-- 属性名称 -->
+		   	<name>num</name>
+		   	<!-- 是否必填 -->
+		   	<required>true</required>
+		   	<!-- 是否支持el表达式 -->
+		   	<rtexprvalue>true</rtexprvalue>
+	   </attribute>
+  </tag>
+  
+  <tag>
+  <!-- 标签名称 -->
+    <name>LoginTag</name>
+    <!-- 标签处理器的全名  包名+类名-->
+    <tag-class>haust.vk.b_cases.LoginTag</tag-class>
+   <!-- 输出标签体内容的格式 -->
+    <body-content>scriptless</body-content>
+   <!-- 属性声明 -->
+	   <attribute>
+		   	<!-- 属性名称 -->
+		   	<name>username</name>
+		   	<!-- 是否必填 -->
+		   	<required>true</required>
+		   	<!-- 是否支持el表达式 -->
+		   	<rtexprvalue>false</rtexprvalue>
+	   </attribute>
+	<!-- 属性声明 -->
+	   <attribute>
+		   	<!-- 属性名称 -->
+		   	<name>password</name>
+		   	<!-- 是否必填 -->
+		   	<required>true</required>
+		   	<!-- 是否支持el表达式 -->
+		   	<rtexprvalue>false</rtexprvalue>
+	   </attribute>
+  </tag>
+  
+  <tag>
+  <!-- 标签名称 -->
+    <name>if</name>
+    <!-- 标签处理器的全名  包名+类名-->
+    <tag-class>haust.vk.b_cases.IfTag</tag-class>
+   <!-- 输出标签体内容的格式 -->
+    <body-content>scriptless</body-content>
+   <!-- 属性声明 -->
+	   <attribute>
+		   	<!-- 属性名称 -->
+		   	<name>test</name>
+		   	<!-- 是否必填 -->
+		   	<required>true</required>
+		   	<!-- 是否支持el表达式 -->
+		   	<rtexprvalue>true</rtexprvalue>
+	   </attribute>
+  </tag>
+  
+  <tag>
+  <!-- 标签名称 -->
+    <name>choose</name>
+    <!-- 标签处理器的全名  包名+类名-->
+    <tag-class>haust.vk.b_cases.ChooseTag</tag-class>
+   <!-- 输出标签体内容的格式 -->
+    <body-content>scriptless</body-content>
+  </tag>
+  
+  <tag>
+  <!-- 标签名称 -->
+    <name>when</name>
+    <!-- 标签处理器的全名  包名+类名-->
+    <tag-class>haust.vk.b_cases.WhenTag</tag-class>
+   <!-- 输出标签体内容的格式 -->
+    <body-content>scriptless</body-content>
+   <!-- 属性声明 -->
+	   <attribute>
+		   	<!-- 属性名称 -->
+		   	<name>test</name>
+		   	<!-- 是否必填 -->
+		   	<required>true</required>
+		   	<!-- 是否支持el表达式 -->
+		   	<rtexprvalue>true</rtexprvalue>
+	   </attribute>
+  </tag>
+  
+  <tag>
+  <!-- 标签名称 -->
+    <name>otherwhise</name>
+    <!-- 标签处理器的全名  包名+类名-->
+    <tag-class>haust.vk.b_cases.OtherwiseTag</tag-class>
+   <!-- 输出标签体内容的格式 -->
+    <body-content>scriptless</body-content>
+  </tag>
+  
+  <tag>
+  <!-- 标签名称 -->
+    <name>forEach</name>
+    <!-- 标签处理器的全名  包名+类名-->
+    <tag-class>haust.vk.b_cases.ForEachTag</tag-class>
+   <!-- 输出标签体内容的格式 -->
+    <body-content>scriptless</body-content>
+   <!-- 属性声明 -->
+	   <attribute>
+		   	<!-- 属性名称 -->
+		   	<name>items</name>
+		   	<!-- 是否必填 -->
+		   	<required>true</required>
+		   	<!-- 是否支持el表达式 -->
+		   	<rtexprvalue>true</rtexprvalue>
+	   </attribute>
+	   
+	   <!-- 属性声明 -->
+	   <attribute>
+		   	<!-- 属性名称 -->
+		   	<name>var</name>
+		   	<!-- 是否必填 -->
+		   	<required>true</required>
+		   	<!-- 是否支持el表达式 -->
+		   	<rtexprvalue>true</rtexprvalue>
+	   </attribute>
+  </tag>
+  
+</taglib>
