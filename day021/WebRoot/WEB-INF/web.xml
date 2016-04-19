@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>day021</display-name>
+  <servlet>
+    <servlet-name>ServletDemo</servlet-name>
+    <servlet-class>day021.ServletDemo</servlet-class>
+  </servlet>
+
+<filter>
+	<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+	</init-param>
+	<init-param>
+			<param-name>path</param-name>
+			<param-value>c:/...</param-value>
+	</init-param>
+	<filter-name>GelloFilter1</filter-name>
+	<filter-class>day021.GelloFilter1</filter-class>
+</filter>
+
+<filter-mapping>
+	<filter-name>GelloFilter1</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+<filter>
+	<filter-name>hellofilter2</filter-name>
+	<filter-class>day021.HelloFilter2</filter-class>
+</filter>
+
+<filter-mapping>
+ 
+	<filter-name>hellofilter2</filter-name>
+	<!--
+	<url-pattern>/*</url-pattern>
+	拦截所有 -->
+	
+	<!-- 拦截指定的jsp 
+	<url-pattern>/index.jsp</url-pattern>
+	<url-pattern>/list.jsp</url-pattern>
+	-->
+	<!-- 拦截所哟的jsp
+	<url-pattern>*.jsp</url-pattern>
+	 -->
+	 <!-- 拦截servle（指定的） -->
+	 <url-pattern>/ServletDemo</url-pattern>
+	 <!-- 拦截指定的类型，比如亲求，转发等 -->
+	 <dispatcher>REQUEST</dispatcher>
+</filter-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ServletDemo</servlet-name>
+    <url-pattern>/ServletDemo</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
