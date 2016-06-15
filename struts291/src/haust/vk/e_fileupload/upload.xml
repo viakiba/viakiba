@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="upload" extends="struts-default" namespace="/">
+		<!-- 主义：action的名称不能有关键字 ”FileUpload“ -->
+		<action name="fileup1" class="haust.vk.e_fileupload.FileUpload">
+			<interceptor-ref name="defaultStack">
+				<!-- 限制运行的文件的扩展名 -->
+				<param name="fileUpload.allowedExtensions">txt,jpg,jar</param>
+				
+				<!-- 限制运行的类型   【与上面同时使用，取交集】
+				<param name="fileUpload.allowedTypes">text/plain</param>
+				-->
+			</interceptor-ref>
+			<result name="success">/error/success.jsp</result>
+			<result name="input">/error/error.jsp</result>
+		</action>
+		
+		<action name="down_*" class="haust.vk.e_fileupload.DownAction" method="{1}">
+			<result name="List">/error/list.jsp</result>
+			
+			<result name="download" type="stream">
+			
+				<!-- 运行下载的文件的类型:指定为所有的二进制文件类型 -->
+			   <param name="contentType">application/octet-stream</param>
+			   
+			   <!-- 对应的是Action中属性： 返回流的属性【其实就是getAttrInputStream()】 -->
+			   <param name="inputName">attrInputStream</param>
+			   
+			   <!-- 下载头，包括：浏览器显示的文件名 -->
+			   <param name="contentDisposition">attachment;filename=${downFileName}</param>
+			 
+			 	<!-- 缓冲区大小设置 -->
+			   <param name="bufferSize">1024</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="name" extends="struts-default" namespace="/" >
+		<global-results>
+			<result name="success">/data.jsp</result>
+		</global-results>
+		
+		<action name="data" class="haust.vk.c_data.DataAction">
+		
+		</action>
+		<action name="data1" class="haust.vk.c_data.DataAction_bak">
+		
+		</action>
+	</package>
+
+</struts>

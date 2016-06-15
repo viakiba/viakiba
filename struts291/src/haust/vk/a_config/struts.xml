@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="login" extends="struts-default" namespace="/">
+	<!-- 
+	<default-action-ref name="sasa"></default-action-ref>
+		  -->
+		<action name="login" class="haust.vk.a_config.UserAction1" method="login">
+			<result name="login">/login.jsp</result>
+		</action>
+		<action name="register" class="haust.vk.a_config.UserAction1" method="register">
+			<result name="register">/index.jsp</result>
+		</action>
+	 
+	 <!-- 使用通配符优化上面的步骤 -->
+	 <!-- http://localhost:8080/struts291/user_login -->
+	
+	
+	<!-- 
+	<action name="user_*" class="haust.vk.a_config.UserAction" method="{1}">
+		<result name="{1}">/{1}.jsp</result>
+	</action>
+	
+	 -->
+	</package>
+</struts>

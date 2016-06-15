@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 0. 请求数据编码 -->
+	 <constant name="struts.i18n.encoding" value="UTF-8"/>
+	<!-- 1. 修改Struts默认的访问后缀 -->
+	<constant name="struts.action.extension" value="action,do,"></constant>
+	<!-- 2. 修改xml自动重新加载 -->
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	<!-- 3. 开启动态方法调用 (默认不开启)-->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<!-- 4. 修改上传文件的最大大小为30M -->
+	<constant name="struts.multipart.maxSize" value="31457280"/>
+	
+	
+</struts>

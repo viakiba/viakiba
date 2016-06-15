@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="b_config" extends="struts-default" namespace="/">
+		<!-- 动态方法的调用
+		
+		<action name="he" class="haust.vk.b_config.UserAction">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		 -->
+		 <!-- 全局跳转视图的配置 -->
+		 <global-results>
+		 	<result name="success">/login.jsp</result>
+		 </global-results>
+		 
+		 <!-- 全局跳转视图的测试      success表姐妹找到则全局生效 -->
+		 
+		 <action name="he" class="haust.vk.b_config.UserAction" >
+		 	
+		 </action>
+		<!-- 通配符的联系    *  {1}  省略 -->
+		
+		<!-- action 的各个参数的默认值
+			name  只配置了访问路径名称
+		 	 class 默认执行的action在struts-default有配置
+		 	 		<default-class-ref class="com.opensymphony.xwork2.ActionSupport" />
+		 	 method  默认为execute
+		 	 默认的方法execute返回值为success,对应的页面去全局视图找。
+		 -->
+	</package>
+</struts>

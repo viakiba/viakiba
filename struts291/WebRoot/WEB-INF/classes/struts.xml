@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!-- 总配置文件：引入其他所有的配置文件 -->
+	<include file="constant.xml"></include>
+	<include file="haust/vk/a_config/struts.xml" ></include>
+	<include file="haust/vk/b_config/config.xml"></include>
+	<include file="haust/vk/c_data/data.xml"></include>
+	<include file="haust/vk/d_type/type.xml"></include>
+	<include file="haust/vk/e_fileupload/upload.xml"></include>
+</struts>
