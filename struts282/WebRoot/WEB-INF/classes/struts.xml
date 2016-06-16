@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- struts在运行时候会加载这个总配置文件： src/struts.xml -->    
+	<!-- 总配置文件中引入其他所有的配置文件 -->
+	
+	<include file="haust/vk/b_action/hello.xml"></include>
+	<include file="haust/vk/c_action/config.xml"></include>
+</struts>

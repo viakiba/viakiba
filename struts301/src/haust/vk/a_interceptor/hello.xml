@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="hello" extends="struts-default">
+		<interceptors>
+			<interceptor name="helloInterceptor" class="haust.vk.a_interceptor.HelloInterceptor"></interceptor>
+			<interceptor-stack name="helloStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="helloInterceptor"></interceptor-ref>
+			</interceptor-stack>
+		
+		</interceptors>
+	
+	<default-interceptor-ref name="helloStack"></default-interceptor-ref>
+	
+	<action name="hello" class="haust.vk.a_interceptor.HelloAction">
+		<result name="success">/index.jsp</result>
+	</action>
+	</package>
+
+</struts>
