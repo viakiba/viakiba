@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.custom.i18n.resources" value="haust.vk.config.msg"></constant>
+	
+	<package name="user" extends="struts-default" namespace="/">
+		<interceptors>
+		
+			<interceptor name="loginCheck" class="haust.vk.interceptor.UserCheckInterceptor"></interceptor>
+			
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="loginCheck"></interceptor-ref>
+			</interceptor-stack>
+			
+		</interceptors>
+		
+		<global-results>
+		
+			<result name="error">/error.jsp</result>
+			
+		</global-results>
+		
+		<action name="user_*" class="haust.vk.action.UserAction" method="{1}">
+		
+			<interceptor-ref name="myStack"></interceptor-ref>
+			
+			<result name="input">/login.jsp</result>
+			
+			<result name="loginSuccess" type="redirectAction">user_list</result>
+			
+			<result name="list">/WEB-INF/list.jsp</result>
+		
+		</action>
+	</package>
+	
+
+
+
+</struts>
