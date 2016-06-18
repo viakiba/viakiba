@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 更改主题 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	
+	<package name="emp" extends="struts-default">
+		<!-- 配置全局错误视图 -->
+		<global-results>
+			<result name="error">/error.jsp</result>
+		</global-results>
+		<!-- 请求处理动作 -->
+		<action name="emp_*" method="{1}" class="haust.vk.action.EmployeeAction">
+			
+			<!-- 防止表单重复提交，第二步： 配置防止表单重复提交的拦截器 -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="token">
+				<param name="includeMethods">save</param>
+			</interceptor-ref>
+			
+			<!-- 防止表单重复提交，第三步：如果用户重复提交了跳转到指定的错误页面 -->
+			<result name="invalid.token" type="redirectAction">emp_list</result>
+			
+			<!-- 首页显示 -->
+			<result name="list">/WEB-INF/list.jsp</result>
+		
+			<!-- 进入修改页面 -->
+			<result name="update">/WEB-INF/update.jsp</result>
+		</action>
+	</package>
+</struts>
