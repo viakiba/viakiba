@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="haust.vk.d_compositeKey" auto-import="true">
+	
+	<class name="User">
+		<composite-id name="keys">
+			<key-property name="userName" type="string"></key-property>
+			<key-property name="address" type="string"></key-property>
+		</composite-id>	
+		
+		<property name="age" type="int"></property>
+	</class>
+
+</hibernate-mapping>

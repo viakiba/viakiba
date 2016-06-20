@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping package="haust.vk.c_hbm_config" auto-import="true">
+
+	<class name="Employee" table="employee">
+		<id name="empId" column="id">
+			 <generator class="uuid" />
+		</id>
+		<!--  
+		<property name="empName" column="empName" type="java.lang.String" length="20"></property>
+		<property name="workDate" column="java.util.Date"></property>
+		<property name="desc" column="`desc`" type="java.lang.String"></property>
+	-->
+		<property name="empName" column="empName" type="java.lang.String" length="20"></property>
+		<property name="workDate" type="java.util.Date"></property>
+		<property name="desc" column="`desc`" type="java.lang.String"></property>
+		
+	
+	</class>
+
+
+</hibernate-mapping>
