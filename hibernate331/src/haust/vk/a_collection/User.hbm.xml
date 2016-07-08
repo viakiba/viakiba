@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="haust.vk.a_collection">
+	<class name="User" table="t_user">
+		<id name="userId" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="userName"></property>
+		
+		<!-- 
+		set集合属性的映射
+				name 指定要映射的set集合的属性
+				table 集合属性要映射到的表
+				key  指定集合表(t_address)的外键字段
+				element 指定集合表的其他字段
+					type 元素类型，一定要指定
+		 -->
+		 <set name="addressSet" table="t_addressSet">
+		 	<key column="uid"></key>
+		 	<element column="address" type="string"></element>
+		 </set>
+		 
+		 <!-- 
+		 	list集合映射
+		 		list-index  指定的是排序列的名称 (因为要保证list集合的有序)
+		  -->
+		  <list name="addressList" table="t_addressList">
+		  	<key column="uid"></key>
+		  	<list-index column="idx"></list-index>
+		  	<element column="address" type="string"></element>
+		  </list>
+		  
+		 <!-- 
+		 
+		  -->
+		  <map name="addressMap" table="t_addressMap">
+		  	<key column="uid"></key>
+		  	<map-key column="shortName" type="string"></map-key>
+		  	<element column="addressMap" type="string"> </element>
+		  </map>
+		</class> 
+
+</hibernate-mapping>

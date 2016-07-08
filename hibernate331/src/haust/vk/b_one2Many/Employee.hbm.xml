@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="haust.vk.b_one2Many">
+	<class name="Employee" table="t_employee">
+		<id name="empId">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="salary" type="double"></property>
+		<property name="empName" length="20"></property>
+		
+		<!-- 
+		多对一映射配置
+			Employee 映射关键点：
+			1.  映射的部门属性  ：  dept
+			2.  映射的部门属性，对应的外键字段: dept_id
+			3.  部门的类型
+		 -->
+		 <many-to-one name="dept" column="dept_id"  class="Dept" ></many-to-one>
+	</class>
+</hibernate-mapping> 

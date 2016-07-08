@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="haust.vk.b_one2Many">
+	<class name="Dept" table="t_dept">
+		<id name="deptId">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="deptName" length="20"></property>
+		
+		<!-- 
+			一对多关联映射配置  （通过部门管理到员工）
+			Dept 映射关键点：
+			1.  指定 映射的集合属性： "emps"
+			2.  集合属性对应的集合表： "t_employee"
+			3.  集合表的外键字段   "t_employee. dept_id"
+			4.  集合元素的类型
+			
+			inverse=false  set集合映射的默认值； 表示有控制权
+		 -->
+		 
+		 <set name="emps" table="t_employee" cascade="save-update,delete" inverse="false">
+		 	<key column="dept_id"></key>
+		 	<one-to-many class="Employee" />
+		 </set>
+	</class>
+
+</hibernate-mapping>

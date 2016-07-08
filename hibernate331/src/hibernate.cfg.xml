@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///day33</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		
+		<!-- 
+			数据库方法的配置，hibernate在运行时，会根据不同的方言生成符合当前数据库语法的sql语句
+		 -->
+		 <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		 
+		 <!-- 
+		 	其他
+		  -->
+		  <!-- 其他配置  -->
+		  <!-- 显示hibernate在运行时执行的sql语句 -->
+		  <property name="hibernate.show_sql">true</property>
+		  <!-- 
+		  <property name="hibernate.format_sql">true</property>
+		   -->
+		  <property name="hibernate.hbm2ddl.auto">update</property>
+		  
+	</session-factory>
+</hibernate-configuration>
