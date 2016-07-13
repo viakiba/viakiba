@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<!-- 通常，一个session-factory节点代表一个数据库 -->
+	<session-factory>
+	
+		<!-- 1. 数据库连接配置 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///day34</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<!-- 
+			数据库方法配置， hibernate在运行的时候，会根据不同的方言生成符合当前数据库语法的sql
+		 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		
+		
+		<!-- 2. 其他相关配置 -->
+		<!-- 2.1 显示hibernate在运行时候执行的sql语句 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 2.2 格式化sql
+		<property name="hibernate.format_sql">true</property>  -->
+		<!-- 2.3 自动建表  -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		
+		
+		<!-- 3. 加载所有映射 
+		<mapping resource="haust/vk/a_status/Employee.hbm.xml"/>
+		-->
+	</session-factory>
+</hibernate-configuration>

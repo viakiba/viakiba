@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 
+	简单继承
+ -->
+ <hibernate-mapping package="haust.vk.e_extends1">
+ 	<class name="Cat" table="t_cat">
+ 		<id name="id">
+ 		<!-- 简单继承映射： 父类属性直接写 -->
+ 			<generator class="native"></generator>
+ 		</id>
+ 		
+ 		<property name="name" length="20"></property>
+ 		
+ 		<property name="eatMouse"></property>
+ 	</class>
+ </hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 
+	继承映射， 所有的子类都映射到一张表
+ -->
+ 
+ <hibernate-mapping package="haust.vk.e_extends2">
+ 	<class name="Animal" table="t_animal">
+ 		<id name="id">
+ 			<generator class="native"></generator>
+ 		</id>
+ 		<!-- 指定鉴别器字段(区分不同的子类) -->
+ 		<discriminator column="type_"></discriminator>
+ 		<property name="name" length="20"></property>
+ 		<!-- 
+ 			子类：猫
+				每个子类都用subclass节点映射
+				注意：一定要指定鉴别器字段，否则报错！
+				鉴别器字段：作用是在数据库中区别每一个子类的信息， 就是一个列
+			discriminator-value="cat_"
+				指定鉴别器字段,即type_字段的值
+				如果不指定，默认为当前子类的全名
+ 		 -->
+ 		 <subclass name="Cat" discriminator-value="cat_">
+ 		 	<property name="eatMouse"></property>
+ 		 </subclass>
+ 		 <!-- 子类 -->
+ 		 <subclass name="Monkey" discriminator-value="monkey_">
+ 		 	<property name="eatBanana"></property>
+ 		 </subclass>
+ 	</class>
+ </hibernate-mapping>

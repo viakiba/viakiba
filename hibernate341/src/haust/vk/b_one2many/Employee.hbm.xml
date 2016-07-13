@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="haust.vk.b_one2many">
+	<class name="Employee" table="t_emp">
+		<id name="empId" column="eid">
+			<generator class="native"></generator>
+		</id>
+		<property name="empName" length="20"></property>
+		<property name="salary" type="double"></property>
+		
+		<many-to-one name="dept" class="Dept" column="did"></many-to-one>
+	</class>
+
+</hibernate-mapping>

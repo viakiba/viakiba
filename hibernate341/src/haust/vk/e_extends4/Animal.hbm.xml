@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 
+	继承映射， 所有的子类都映射到一张表
+ -->
+ 
+ <hibernate-mapping package="haust.vk.e_extends4">
+ 	<!-- 
+		abstract="true"  指定实体类对象不对应表，即在数据库段不生成表
+	 -->
+	 <class name="Animal" abstract="true">
+	 <!-- 如果用union-subclass节点，主键生成策略不能为自增长！ -->
+	 	<id name="id">
+	 		<generator class="uuid"></generator>
+	 	</id>
+	 	<property name="name"></property>
+	 	<!-- 
+			子类：猫  t_cat
+			union-subclass  
+				table 指定为表名, 表的主键即为id列
+		-->
+		<union-subclass name="Cat" table="t_cat">
+			<property name="eatMouse"></property>
+		</union-subclass>
+		
+		<!-- 子类：猴子  t_monkey -->
+		<union-subclass name="Monkey" table="t_monkey">
+			<property name="eatBanana"></property>
+		</union-subclass>
+		
+	 </class>
+ </hibernate-mapping>

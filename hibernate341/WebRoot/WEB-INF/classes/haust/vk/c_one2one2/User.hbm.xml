@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="haust.vk.c_one2one2">
+	<class name="User" table="t_user">
+		<id name="userId">
+			<generator class="native"></generator>
+		</id>
+		<property name="userName" length="20"></property>
+		<!-- 
+			一对一的映射没有外键方
+		 -->
+		<one-to-one name="idCard" class="IdCard"></one-to-one>
+	</class>
+
+</hibernate-mapping>

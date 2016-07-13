@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="haust.vk.c_one2one2">
+	<class name="IdCard" table="t_idcard">
+		<id name="user_id"> 
+		<!-- 
+		id 节点指定的是主键映射, 即user_id是主键
+                主键生成方式： foreign  即把别的表的主键作为当前表的主键；
+                        property (关键字不能修改)指定引用的对象     
+                 对象的全名 cn..User、  对象映射 cn.User.hbm.xml、   table(id)
+		 -->
+			<generator class="foreign">
+				<param name="property">user</param>
+			</generator>
+		</id>
+		<property name="cardNum" length="20"></property>
+		<property name="place" length="20"></property>
+		<!-- 
+			一对一映射，有外键方
+                      （基于主键的映射）
+            constrained="true"  指定在主键上添加外键约束
+		 -->
+		 <one-to-one name="user" class="User" constrained="true" cascade="save-update"> </one-to-one>
+	</class>
+
+</hibernate-mapping>

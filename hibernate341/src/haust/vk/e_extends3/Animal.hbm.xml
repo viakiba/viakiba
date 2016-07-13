@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 
+	继承映射， 所有的子类都映射到一张表
+ -->
+ 
+ <hibernate-mapping package="haust.vk.e_extends3">
+ 	<class name="Animal" table="t_animal">
+ 		<id name="id">
+ 			<generator class="native"></generator>
+ 		</id>
+ 		<property name="name"></property>
+ 		<!-- 
+ 			子类：猫 t_cat
+ 			key 指定_cat表的外键字段
+ 		 -->
+ 		 <joined-subclass name="Cat" table="t_cat">
+ 		 	<key column="t_animal_id"></key>
+ 		 	<property name="eatMouse"></property>
+ 		 </joined-subclass>
+ 		 
+ 		 <joined-subclass name="Monkey" table="t_monkey">
+ 		 	<key column="t_animal_id"></key>
+ 		 	<property name="eatBanana"></property>
+ 		 </joined-subclass>
+ 	</class>
+ </hibernate-mapping>
