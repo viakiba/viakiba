@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="haust.vk.b_second_cache">
+	<class name="Employee" table="t_employee">
+			<id name="empId" >
+				<generator class="native"></generator>
+			</id>
+			<property name="empName" length="20"></property>
+			<property name="salary" type="double"></property>
+			<many-to-one name="dept" class="Dept" cascade="save-update" column="dept_id"></many-to-one>
+	</class>
+</hibernate-mapping>
