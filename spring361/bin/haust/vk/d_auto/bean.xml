@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd" 
+        default-autowire="byType">
+
+	<!-- ###############自动装配############### -->
+	<bean id="userDao" class="haust.vk.d_auto.UserDao"></bean>
+	<bean id="userService" class="haust.vk.d_auto.UserService"></bean>
+	
+	<!-- 如果根据类型自动装配： 必须确保IOC容器中只有一个该类型的对象 -->
+	<bean id="userAction" class="haust.vk.d_auto.UserAction"></bean>
+	
+	<!--   报错： 因为上面已经有一个该类型的对象，且使用了根据类型自动装配 -->
+	  
+</beans>

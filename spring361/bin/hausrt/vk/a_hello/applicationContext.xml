@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+<!-- ioc 容器的配置：要创建的所有对象都配置在这里 -->
+
+<bean id="user" class="hausrt.vk.a_hello.User" init-method="init_user" destroy-method="destory_user" lazy-init="false" scope="prototype"></bean>
+
+<bean id="user1" class="hausrt.vk.a_hello.User" scope="singleton"></bean> 
+</beans>

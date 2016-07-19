@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- ===================对象属性的赋值============== -->
+	
+	<!-- 1) 通过构造函数 -->
+	<bean id="user1" class="haust.vk.c_property.User" scope="prototype" >
+		<!-- 下面的写法经顺序    如果声明index 可不讲顺序-->
+		<constructor-arg value="100"></constructor-arg>
+		<constructor-arg value="Tom"></constructor-arg>
+	</bean>	
+	
+	<!-- 2) 通过set方法给属性注入值 -->
+	<bean id="user2" class="haust.vk.c_property.User" scope="prototype">
+		<property name="id" value="101"></property>
+		<property name="name" value="jacks"></property>
+	</bean>
+	
+	<!-- 
+		案例：
+			action/service/dao
+	 -->
+	<!-- dao instance -->
+	<bean id="userDao" class="haust.vk.c_property.UserDao"></bean>
+	
+	<!-- service instance -->
+	<bean id="userService" class="haust.vk.c_property.UserService">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<!-- action instance -->
+	<bean id="userAction1" class="haust.vk.c_property.UserAction">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	
+	<!-- ==============内部bean================== -->
+	<bean id="userAction2" class="haust.vk.c_property.UserAction">
+		<property name="userService">
+			<bean id="userService" class="haust.vk.c_property.UserService">
+				<property name="userDao">
+					<bean id="userDao" class="haust.vk.c_property.UserDao"></bean>
+				</property>
+			</bean>
+		</property>
+	
+	</bean>
+</beans>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- ###############对象属性赋值############### -->
+	<!-- 
+		给对象属性注入值：
+			# p 名称空间给对象的属性注入值
+			 (spring3.0以上版本才支持)
+	 -->
+	<bean id="userDao" class="haust.vk.c_property.UserDao"></bean>
+	
+	<bean id="userService" class="haust.vk.c_property.UserService" p:userDao-ref="userDao"></bean>
+	
+	<bean id="userAction" class="haust.vk.c_property.UserAction" p:userService-ref="userService"></bean>
+	
+	<!-- 传统的注入： 
+	 <bean id="user" class="cn.itcast.c_property.User" >
+	 	<property name="name" value="xxx"></property>
+	 </bean>
+	-->
+	<bean id="user" class="haust.vk.c_property.User" p:name="jack"></bean>
+</beans>
