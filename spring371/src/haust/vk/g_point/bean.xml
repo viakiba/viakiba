@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        
+	<!-- dao实例 -->
+	<bean id="userDao" class="haust.vk.g_point.UserDao"></bean>
+	<bean id="orderDao" class="haust.vk.g_point.OrderDao"></bean>
+	
+	<!-- 切面类 -->
+	<bean id="aop" class="haust.vk.g_point.Aop"></bean>
+	
+	<!-- Aop配置 -->
+	<aop:config>
+		<!-- 定义一个切入点表达式： 拦截哪些方法 -->
+		<!--<aop:pointcut expression="execution(* cn.itcast.g_pointcut.*.*(..))" id="pt"/>-->
+		
+		<!-- 【拦截所有public方法】 -->
+		<!--<aop:pointcut expression="execution(public * *(..))" id="pt"/>-->
+		
+		<!-- 【拦截所有save开头的方法 】 -->
+		<!--<aop:pointcut expression="execution(* save*(..))" id="pt"/>-->
+		
+		<!-- 【拦截指定类的指定方法, 拦截时候一定要定位到方法】 -->
+		<!--<aop:pointcut expression="execution(public * cn.itcast.g_pointcut.OrderDao.save(..))" id="pt"/>-->
+		
+		<!-- 【拦截指定类的所有方法】 -->
+		<!--<aop:pointcut expression="execution(* cn.itcast.g_pointcut.UserDao.*(..))" id="pt"/>-->
+		
+		<!-- 【拦截指定包，以及其自包下所有类的所有方法】 -->
+		<!--<aop:pointcut expression="execution(* cn..*.*(..))" id="pt"/>-->
+		
+		<!-- 【多个表达式】 -->
+		<!--<aop:pointcut expression="execution(* cn.itcast.g_pointcut.UserDao.save()) || execution(* cn.itcast.g_pointcut.OrderDao.save())" id="pt"/>-->
+		<!--<aop:pointcut expression="execution(* cn.itcast.g_pointcut.UserDao.save()) or execution(* cn.itcast.g_pointcut.OrderDao.save())" id="pt"/>-->
+		<!-- 下面2个且关系的，没有意义 -->
+		<!--<aop:pointcut expression="execution(* cn.itcast.g_pointcut.UserDao.save()) &amp;&amp; execution(* cn.itcast.g_pointcut.OrderDao.save())" id="pt"/>-->
+		<!--<aop:pointcut expression="execution(* cn.itcast.g_pointcut.UserDao.save()) and execution(* cn.itcast.g_pointcut.OrderDao.save())" id="pt"/>-->
+		
+		<!-- 【取非值】 -->
+		<!--<aop:pointcut expression="!execution(* cn.itcast.g_pointcut.OrderDao.save())" id="pt"/>-->
+		<aop:pointcut expression=" not execution(* cn.itcast.g_pointcut.OrderDao.save())" id="pt"/>
+		
+		<!-- 切面 -->
+		<aop:aspect ref="aop">
+			<!-- 环绕通知 -->
+			<aop:around method="around" pointcut-ref="pt"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
