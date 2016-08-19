@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <package name="emp" extends="struts-default">
+                <!-- 拦截器配置 -->
+                <interceptors>
+                        <interceptor name="userInterceptor" class="haust.vk.action.UserInterceptor"></interceptor>
+                        <interceptor-stack name="myStack">
+                                <interceptor-ref name="defaultStack"></interceptor-ref>
+                                <interceptor-ref name="userInterceptor"></interceptor-ref>
+                        </interceptor-stack>
+                </interceptors>
+
+                <!-- 指定拦截器 -->
+                <default-interceptor-ref name="myStack"></default-interceptor-ref>
+
+                <!-- 全局视图 -->
+                <global-results>
+                        <result name="success">/index.jsp</result>
+                        <result name="login" type="redirect">/login.jsp</result>
+                        <!-- 错误视图配置 -->
+                        <result name="null">/error/null.jsp</result>
+                        <result name="error">/error/error.jsp</result>
+                </global-results>
+
+                <!-- 全局异常 -->
+                <global-exception-mappings>
+                        <exception-mapping exception="java.lang.NullPointerException" result="null"></exception-mapping>
+                        <exception-mapping exception="java.lang.Exception" result="error"></exception-mapping>
+                </global-exception-mappings>
+
+                <!-- action 实例交给 spring 容器进行创建 -->
+                <!-- 员工 action -->
+                <action name="emp_*" class="employeeAction" method="{1}">
+                        <result name="list" >/WEB-INF/list.jsp</result>
+                        <result name="add" >/WEB-INF/add.jsp</result>
+                        <result name="listAction" type="redirectAction">emp_list</result>
+                        <result name="edit" >/WEB-INF/edit.jsp</result>
+                </action>
+
+                <!-- 管理员 action -->
+                <action name="admin_*" class="adminAction" method="{1}">
+                        <!-- 登录失败 -->
+                        <result name="loginFaild">/login.jsp</result>
+                        <!-- 登录成功 -->
+                        <result name="index" type="redirectAction" >emp_list</result>
+                </action>
+
+        </package>
+
+</struts>
