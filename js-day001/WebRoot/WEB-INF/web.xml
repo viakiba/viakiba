@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>js-day001</display-name>
+  
+  <servlet>
+  	<servlet-name>AjaxTimeServlet</servlet-name>
+  	<servlet-class>haust.vk.time.AjaxTimeServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>AjaxTimeServlet</servlet-name>
+  	<url-pattern>/AjaxTimeServlet</url-pattern>
+ 	</servlet-mapping>
+  <servlet>
+  	<servlet-name>TimeServlet</servlet-name>
+  	<servlet-class>haust.vk.time.TimeServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>TimeServlet</servlet-name>
+  	<url-pattern>/TimeServlet</url-pattern>
+  	</servlet-mapping>
+  	  <servlet>
+  	<servlet-name>UserServlet</servlet-name>
+  	<servlet-class>haust.vk.time.UserServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UserServlet</servlet-name>
+  	<url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  
+  	  <servlet>
+  	<servlet-name>ProvinceCityServlet</servlet-name>
+  	<servlet-class>haust.vk.provincecity.ProvinceCityServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ProvinceCityServlet</servlet-name>
+  	<url-pattern>/ProvinceCityServlet</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
