@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>01_type</title>
+  </head>
+  
+  <body>
+  
+  	<script type="text/javascript">
+    	// 测试访问   下     数据
+    	//	alert(typeof(b));//  undefined
+    </script>
+    <script type="text/javascript">
+    	var num = 80;
+    	//alert(typeof(num));//number
+    	
+    	var str = "String";
+    	//alert(typeof(str));//string
+    	
+    	var b = true;
+    	//alert(typeof(b));//boolean
+    	
+    </script>
+    
+    <script type="text/javascript">
+    	// 测试访问   上     数据
+    	//  alert(typeof(b));//boolean
+    </script>
+    
+    <script type="text/javascript">
+   		 var person = null;
+   		 var card;
+   		 
+   		// alert(typeof(person));// object
+   		// alert(typeof(card));//  undefined
+   		
+   		/*
+   		undefined 怒视一个字符串，是一种类型，未进行声明 即类型未知  person == undefined 这样判断
+   		*/
+   		if(person == undefined){
+   			alert("card 为 未声明 对象");
+   			alert(card);
+   			alert(person);
+   		}else{
+   			alert(card);
+   		}
+    </script>
+  </body>
+</html>

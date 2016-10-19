@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    
+    <title>My JSP 'index.jsp' starting page</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+  </head>
+  
+  <body>
+   	<script type="text/javascript">
+		var p = {
+			id:1,
+			name:'哈哈',
+			isLove:true,
+			home:['湘潭','长沙','广州'],
+			show:function(str){ 
+				alert("你是"+str);
+			}
+		};
+		document.write(p.isLove?"已婚":"单身"+"</br>");
+		p.show("赵军");
+   	</script>
+   	
+  </body>
+</html>
