@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>ready.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+  </head>
+  <body>
+  	
+  	<form action="06.html" method="post">
+		用户名：<input type="text"/>
+		<input type="submit" value="表单提交"/>
+	</form>
+
+
+	<script type="text/javascript">
+		//浏览器加载web页面时触发
+		$(function(){
+			//将光标定位于文本框中
+			$(":text").focus();
+		});		
+	</script>
+
+	<script type="text/javascript">
+		//检测是否为中文，true表示是中文，false表示非中文
+		function isChinese(str){
+			if(/^[\u3220-\uFA29]+$/.test(str)){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	</script>
+
+	<script type="text/javascript">
+		//当表单提交前检测
+		$("form").submit(function(){
+			var flag = false;
+			//获取文本框的中内容
+			var name = $(":text").val();
+			//去二边的空格
+			name = $.trim(name);
+			//如果没有填内容
+			if(name.length == 0){
+				alert("用户名必填");
+				//将光标定位于文本框中
+				$(":text").focus();
+				//清空文本框中的内容
+				$(":text").val("");
+			}else{
+				//调用方法
+				flag = isChinese(name);
+				//如果不是中文
+				if(!flag){
+					alert("用户名必须填中文");
+					//将光标定位于文本框中
+					$(":text").focus();
+					//清空文本框中的内容
+					$(":text").val("");
+				}
+			}
+			return flag;
+		});
+	</script>
+	
+  </body>
+</html>
+
+
+
+
+
+

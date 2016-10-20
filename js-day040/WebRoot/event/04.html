@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>focus.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+  </head>
+  <body>
+
+	<script type="text/javascript">
+		//当按键弹起时，显示所按键的unicode码
+		$(function(){
+			//IE浏览器会自动创建event这个事件对象，那么程序员可以根据需要来使用该event对象
+			$(document).keyup(function(){
+				//获取按钮的unicode编码
+				var code = event.keyCode; 
+				alert(code);
+			});
+		});
+	</script>
+
+  </body>
+</html>
