@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>04_exe.html</title>
+    <script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+  </head>
+  
+  <body>
+   <div>	
+	  	<select style="width:60px" multiple size="10" id="leftID">
+	  		<option>选项A</option>
+	  		<option>选项B</option>
+	  		<option>选项C</option>
+	  		<option>选项D</option>
+	  		<option>选项E</option>
+	  		<option>选项F</option>
+	  		<option>选项G</option>
+	  		<option>选项H</option>
+	  		<option>选项I</option>
+	  		<option>选项J</option>
+	  	</select>
+  	</div> 
+  	
+  	<div style="position:absolute;left:100px;top:60px">
+  		<input type="button" value="批量右移" id="rightMoveID"/>
+  	</div>
+  	<div style="position:absolute;left:100px;top:90px">
+  		<input type="button" value="全部右移" id="rightMoveAllID"/>
+  	</div>
+  	<div style="position:absolute;left:220px;top:20px">	
+	  	<select multiple size="10" style="width:60px" id="rightID">
+	  	</select>
+  	</div>
+  </body>
+  
+  <script type="text/javascript">
+  	$("#leftID").dblclick(function(){
+  		var $option = $("#leftID option:selected");
+  		$("#rightID").append($option);
+  	});
+  
+  	$("#rightMoveID").click(function(){
+		var $option = $("#leftID option:selected");
+		$("#rightID").append($option);
+	  	});
+	  	
+	$("#rightMoveAllID").click(function(){
+		var $option = $("#leftID option");
+		$("#rightID").append($option);
+	});
+  </script>
+</html>

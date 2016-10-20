@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>03_exe.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  	<script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+  </head>
+  
+  
+  <body>
+    <input type="checkbox" value="篮球"/>篮球
+	<input type="checkbox" value="排球"/>排球	
+	<input type="checkbox" value="羽毛球"/>羽毛球	
+	<input type="checkbox" value="乒乓球"/>乒乓球
+	
+	<input type="button" value="选中的个数"/>
+	<input type="button" value="依次显示选中的value"/>
+	
+	<script type="text/javascript">
+		$(":button:first").click(function(){
+			var size = $(":checkbox:checked").size();
+			if(size == 0){
+				alert("未选中");
+			}else{
+				alert("你选中了"+size+"个项目");
+			}
+		});
+		
+		$(":button:last").click(function(){
+			var $checkbox = $(":checkbox:checked");
+			$checkbox.each(function(){
+				alert(this.value);
+			});
+		});
+	</script>
+  </body>
+</html>

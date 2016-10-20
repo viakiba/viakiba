@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>02_exe.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+  </head>
+  
+  <body>
+    <form >
+    	<table border="1" align="center" width="70%">
+    		<tr>
+				<th>用户名</th>
+				<th>密码</th>
+				<th>0</th>
+			</tr>
+			<tr>
+				<td>张三</td>
+				<td>123456</td>
+				<th>1</th>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>654321</td>
+				<th>2</th>
+			</tr>
+			<tr>
+				<td>王五</td>
+				<td>162534</td>
+				<th>3</th>
+			</tr>
+    	</table>
+    
+    <script type="text/javascript">
+    	$("table tr:odd").css("background-color","blue");
+    	$("table tr:even").css("background-color","yellow");
+    	$("table tr:first").css("background-color","pink");
+    </script>
+    </form>
+  </body>
+</html>

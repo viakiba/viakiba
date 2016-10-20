@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>05_exe.html</title>
+    <script type="text/javascript" src="../js/jquery-1.8.2.js"></script> 
+  </head>
+  
+  <body>
+    <table id="tableID" border="1" align="center" width="60%">
+    	<thead>
+    		<tr>
+    			<th>用户名</th>
+    			<th>密码</th>
+    			<th>操作</th>
+    		</tr>
+    	</thead>
+    	
+    	<tbody id="tbodyID">
+    		
+    	
+    	</tbody>
+    </table>
+    
+    <hr></hr>
+    用户名：<input type="text" id="usernameID">
+   密码：<input type="text" id="passwordID">
+   <input type="button" value="增加" id="addID">
+  </body>
+  
+  <script type="text/javascript">
+  	$("#addID").click(function(){
+  		//
+  		var username = $("#usernameID").val();
+  		var password = $("#passwordID").val();
+  		
+  		//
+  		username = $.trim(username);
+  		password = $.trim(password);
+  		//
+  		if(username.length == 0 || password.length == 0){
+  			alert("用户名或密码没有填");
+  		}else{
+  			var $tr = $("<tr></tr>");
+  			
+  			var $td1 = $("<td>"+username+"</td>");
+  			var $td2 = $("<td>"+password+"</td>");
+  			var $td3 = $("<td></td>");
+  			
+  			var $del = $("<input type='button' value='删除'>");
+  			
+  			$del.click(function(){
+  				$tr.remove();
+  			});
+  			
+  			$td3.append($del);
+  			
+  			$tr.append($td1);
+  			$tr.append($td2);
+  			$tr.append($td3);
+  			
+  			$("#tbodyID").append($tr);
+  			$("#usernameID").val("");
+  			$("#passwordID").val("");
+  		}
+  	});
+  </script>
+</html>

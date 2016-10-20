@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+  </head>
+  <body>
+   		<div id="div1ID">div1</div>
+   		<div id="div2ID">div2</div>
+   		<span class="myeclipse">span</span>
+   		<p>pp</p>
+   		
+   		<script type="text/javascript">
+   			//1)查找ID为"div1ID"的元素个数
+   			//alert($("#div1ID").size());
+   			
+   			//2)查找DIV元素的个数
+   			//alert($("div").length);
+   			
+   			//3)查找所有样式是"myeclipse"的元素的个数
+   			//alert($(".myeclipse").length);	
+   			
+   			
+   			//4)查找所有DIV,SPAN,P元素的个数
+   			//alert($("div,span,p").length);
+   			
+   			//5)查找所有ID为div1ID,CLASS为myClass,P元素的个数
+   			alert($("#div1ID,.myeclipse,p").size());
+   			
+   		</script>
+  </body>
+</html>

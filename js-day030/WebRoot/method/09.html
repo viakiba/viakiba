@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>method_1.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+  </head>
+  <body>
+	<table border="1" align="center">
+		<tr>
+			<td>
+				<div style="width:165px;height:23px">
+					双击会被替换成文本框
+				</div>
+			</td>
+			<td>
+				不会变
+			</td>
+		</tr>
+	</table>
+	
+	<script type="text/javascript">
+		//双击<div>中的文本，用文本框替换文本
+		$("div").dblclick( function(){
+			var $text = $("<input type='text' style='width:165px;height:23px'/>");
+			//文本框替代div标签
+			$(this).replaceWith( $text );
+		} );
+	</script>
+	
+  </body>
+</html>
+
+
+
+

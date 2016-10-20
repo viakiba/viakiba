@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  	<script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+  </head>
+  <body>
+	
+	<div>
+	  <p>Hello!</p>
+	</div>
+	<div id="test2"></div>
+	
+	<input type="checkbox" name="newsletter" value="Hot Fuzz"/>
+	<input id="myID" type="checkbox" name="newsletter" value="Cold Fusion" />
+	<input type="checkbox" name="newsaccept" value="Evil Plans" />
+	
+	<!-- 
+	<input type="checkbox" name="letternews" value="Hot Fuzz"/>
+	<input id="myID" type="checkbox" name="letnewster" value="Cold Fusion" />
+	<input type="checkbox" name="accNEWSept" value="Evil Plans" />
+	-->
+	
+	<script type="text/javascript">
+	
+		//1)查找所有含有id属性的div元素个数
+		//alert($("div[id]").size());	
+	 	//2)查找所有name属性是newsletter的input元素，并将其选中
+	 	//$("input[name='newsletter']").attr("checked","checked");
+	  	//3)查找所有name属性不是newsletter的input元素，并将其选中
+		/*
+			请问：在JS中如下符号表示什么意思
+			1)=/==/===
+			2)!=/!==
+			明天讲解
+		 */
+	  	//4)查找所有name属性以'news'开头的input元素，并将其选中
+			//$("input[name^='news']").attr("checked","checked");  	
+	  	//5)查找所有name属性以'letter'结尾的input元素，并将其选中
+	  	//$("input[name$='letter']").attr("checked","checked"); 
+	  	//6)查找所有name属性包含'news'的input元素，并将其选中
+	  	//$("input[name*='letter']").attr("checked","checked"); 
+	  	//7)找到所有含有id属性，并且它的name属性是以"letter"结尾的input元素，并将其选中
+	  	$("input[id][name$='letter']").attr("checked","checked"); 
+	  	
+	</script>
+	
+  </body>
+</html>
+
+
+
+
+
+ 

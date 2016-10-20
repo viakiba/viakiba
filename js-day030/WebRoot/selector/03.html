@@ -1,0 +1,69 @@
+ <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  	<script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
+  </head>
+  <body>
+     <ul>
+	    <li>list item 1</li>
+	    <li>list item 2</li>
+	    <li>list item 3</li>
+	    <li>list item 4</li>
+	    <li>list item 5</li>
+	</ul>
+	
+	<input type="checkbox" checked/>
+	<input type="checkbox" checked/>
+	<input type="checkbox"/>
+	
+	<table border="1">
+	  <tr><td>line1[0]</td></tr>
+	  <tr><td>line2[1]</td></tr>
+	  <tr><td>line3[2]</td></tr>
+	  <tr><td>line4[3]</td></tr>
+	  <tr><td>line5[4]</td></tr>
+	  <tr><td>line6[5]</td></tr>
+	</table>	
+	
+	<h1>h1</h1>
+	<h2>h2</h2> 
+	<h3>h3</h3>
+	
+	<p>p</p>
+	
+	<script type="text/javascript">
+		//1)查找UL中第一个LI元素的内容
+			//html()要用于html/jsp，不能用在xml
+			//text()既能用于html/jsp，且能用于xml
+		//alert($("ul li:first").text());
+	  	//2)查找UL中最后个元素的内容
+	  	   //alert($("ul li:last").text());
+	  	
+	  	//4)查找表格的索引号为1、3、5...奇数行个数，索引号从0开始
+	  		//alert($("table tr:odd").length);
+	  	
+	  	//5)查找表格的索引号为2、4、6...偶数行个数，索引号从0开始
+	  		//alert($("table tr:even").length);
+	  	
+	  	
+	  	//6)查找表格中第二行的内容，从索引号0开始，这是一种祖先 后代 的变化形式
+	  		//html()：强调的是标签中的内容，即便标签中的子标签，也会显示出来
+	  		//text()：强调的是标签中的文本内容，即便标签中的子标签，也只会显示出文本内容，不会显示子标签
+	  //	alert($("table tr:eq(1)").text());
+	  	//alert($("table tr:eq(1)").text());
+	  	
+	  	//7)查找表格中第二第三行的个数，即索引值是1和2，也就是比0大
+	  //	alert($("table tr:gt(0)").text());
+	  		
+	  	//8)查找表格中第一第二行的个数，即索引值是0和1，也就是比2小
+	  		//alert($("table tr:lt(2)").text());
+	  	
+	  	//9)给页面内所有标题<h1><h2><h3>加上红色背景色，且文字加蓝色
+	  		//$(":header").css("background", "#EEE").css("color","#ffff33");
+	  	
+	  	//3)查找所有[未]选中的input为checkbox的元素个数
+			alert($("input:checked").size());
+			
+	</script>
+  </body>
+</html>
