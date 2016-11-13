@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+      xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xmlns:mvc="http://www.springframework.org/schema/mvc"
+      xmlns:context="http://www.springframework.org/schema/context"
+      xsi:schemaLocation="
+	  http://www.springframework.org/schema/beans 
+	  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.0.xsd
+      ">
+      
+      <!-- 注册适配器 -->
+      <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+      	<property name = "messageConverters">
+      		<list>
+      			<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+      		</list>
+      	</property>
+      	
+      </bean>
+     <!-- 注册EmpAction -->
+     <context:component-scan base-package="haust.vk"/>
+     <!--让springioc容器去解析@Resource这些解的含义，可省 -->
+     <context:annotation-config/>
+</beans>      
+	

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<default-config>
+		<!-- 驱动 -->
+		<property name="driverClass">oracle.jdbc.driver.OracleDriver</property>
+		<!-- 设置odbc的链接方式 -->
+		<property name="jdbcUrl">jdbc:oracle:thin:@127.0.0.1:1521:orcl</property>
+		<!-- 用户名 -->
+		<property name="user">scott</property>
+		<property name="password">123456</property>
+		<!-- 每次增加的连接数 -->
+		<property name="acquireIncrement">2</property>
+		<!-- 初始化 -->
+		<property name="initialPoolSize">5</property>
+		<!-- 最小 -->
+		<property name="minPoolSize">1</property>
+		<!-- 最大 -->
+		<property name="maxPoolSize">5</property>
+	</default-config>
+</c3p0-config>
+
+
+
