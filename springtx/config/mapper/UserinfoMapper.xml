@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="haust.vk.dao.UserDao" >
+	<select id="selectUser" parameterType="java.util.Map" resultType="java.util.Map">
+		select * from user 
+	</select>
+
+	<update id="updateUserById" parameterType="java.util.Map">
+		update user set username = #{username} where uid = #{uid}		
+	</update>
+	
+	<delete id="deleteUserById" parameterType="string">
+		delete from user where uid = #{uid}		
+	</delete>
+</mapper>
