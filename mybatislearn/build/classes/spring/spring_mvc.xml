@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+	
+	<!-- 本配置文件 mvc-dispatcher的DispatcherServlet使用， 提供其相关的Spring MVC配置-->
+	<context:annotation-config />   
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	  <property name="messageConverters">
+	   <list>
+	    <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" >
+	    	<property name="supportedMediaTypes" value="application/json;charset=UTF-8">  	</property>
+	    </bean>
+	   </list>
+	  </property>
+ 	</bean>
+	<!--  注册controller DispatcherServlet上下文， 只管理@Controller类型的bean， 忽略其他型的bean, 如@Service -->
+	<context:component-scan base-package="haust.vk.*">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan> 
+	
+	<!-- HandlerMapping, 无需配置， Spring MVC可以默认启动。 DefaultAnnotationHandlerMappingannotation-driven HandlerMapping -->
+	<!-- 扩充了注解驱动，可以将请求参数绑定到控制器参数 -->
+	<mvc:annotation-driven />
+	
+	<!-- 配置ViewResolver。 可以用多个ViewResolver。 使用order属性排序。 InternalResourceViewResolver放在最后。 -->
+	<!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	<property name="prefix" value="/"></property>
+    	<property name="suffix" value=".jsp"></property>
+    </bean>
+    
+     <!-- 文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	   	<!-- 控制最大的文件大小 -->
+	   	<property name="maxUploadSize" value="62914560"></property>
+    </bean>  
+    
+    <!-- SpringMVC在超出上传文件限制时，会抛出org.springframework.web.multipart.MaxUploadSizeExceededException -->  
+    <!-- 该异常是SpringMVC在检查上传的文件信息时抛出来的，而且此时还没有进入到Controller方法中 -->  
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+        <property name="exceptionMappings">  
+            <props>  
+                <!-- 遇到MaxUploadSizeExceededException异常时，自动跳转到/WEB-INF/error_fileupload.jsp页面 -->  
+                <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">WEB-INF/error_fileupload</prop>  
+                <!-- 处理其它异常(包括Controller抛出的) -->  
+                <!-- <prop key="java.lang.Throwable">WEB-INF/500</prop>  --> 
+            </props>  
+        </property>  
+    </bean>  
+    <!-- 由于web.xml中设置是：由SpringMVC拦截所有请求,于是在读取静态资源文件的时候就会受到影响(说白了就是读不到) -->  
+    <!-- 经过下面的配置，该标签的作用就是：所有页面中引用"/js/**"的资源，都会从"/static/js/"里面进行查找 -->  
+    <!-- 我们可以访问http://IP:8080/xxx/js/my.css和http://IP:8080/xxx/static/js/my.css对比出来 -->  
+    <!-- 
+    <mvc:resources mapping="/js/*.js" location="/static/js/" cache-period="5000"/> 
+    <mvc:resources mapping="/jslayer/*.js" location="/static/js/jslayer/" cache-period="5000"/>  
+     -->
+</beans>
+
+
