@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <display-name>vkdemo</display-name>
+    
+    <welcome-file-list>
+        <welcome-file>/</welcome-file>
+    </welcome-file-list>
+    <!--验证码 kapucha-->
+    <servlet>
+        <servlet-name>kaptcha</servlet-name>
+        <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+        <init-param>
+            <param-name>kaptcha.border</param-name>
+            <param-value>no</param-value>
+        </init-param>
+        <init-param>
+            <param-name>kaptcha.border.color</param-name>
+            <param-value>105,179,90</param-value>
+        </init-param>
+        <init-param>
+            <param-name>kaptcha.textproducer.font.color</param-name>
+            <param-value>black</param-value>
+        </init-param>
+        <init-param>
+            <param-name>kaptcha.image.width</param-name>
+            <param-value>250</param-value>
+        </init-param>
+        <init-param>
+            <param-name>kaptcha.image.height</param-name>
+            <param-value>90</param-value>
+        </init-param>
+        <init-param>
+            <param-name>kaptcha.textproducer.font.size</param-name>
+            <param-value>70</param-value>
+        </init-param>
+        <init-param>
+            <param-name>kaptcha.session.key</param-name>
+            <param-value>kap</param-value>
+        </init-param>
+        <init-param>
+            <param-name>kaptcha.textproducer.char.length</param-name>
+            <param-value>6</param-value>
+        </init-param>
+        <init-param>
+            <param-name>kaptcha.textproducer.font.names</param-name>
+            <param-value>宋体</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>kaptcha</servlet-name>
+        <url-pattern>/logincode.jpg</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:applicationcontext.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <!-- /和/*效果不一样 -->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress SpringFacetInspection -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/util
+	    http://www.springframework.org/schema/util/spring-util.xsd
+	    http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+
+    <!--开启注解驱动-->
+    <mvc:annotation-driven/>
+
+    <!--开启组件扫描-->
+    <context:component-scan base-package="haust.vk.*"></context:component-scan>
+
+    <!-- 开启注解 -->
+    <context:annotation-config></context:annotation-config>
+
+    <!--数据源  C3P0 连接池-->
+    <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="user" value="root"></property>
+        <property name="password" value="951357qaz"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/test"></property>
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="initialPoolSize" value="3"></property>
+    </bean>
+
+    <!--配置mybatis   sqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="datasource"></property>
+        <property name="configLocation" value="classpath:mybatis.xml"></property>
+        <property name="mapperLocations" value="classpath*:mappper/*.xml"></property>
+    </bean>
+
+    <!--配置mapper 映射-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="haust.vk.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+
+    <!-- 配置Mybatis的事务管理器，即因为Mybatis底层用的jdbc事务管理器，所以在这里配置依然是jdbc事务管理器 -->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="datasource"></property>
+    </bean>
+
+    <!-- 配置事务通知  即让那些方法需要事务 -->
+    <tx:advice id="tx" transaction-manager="dataSourceTransactionManager">
+        <tx:attributes>
+            <!-- 匹配方法   需要修改 -->
+            <tx:method name="*" propagation="REQUIRED" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 配置事务切面 即让指定的包下的类需要事务 -->
+    <aop:config>
+        <aop:pointcut expression="execution(* haust.vk.dao.*.*(..))" id="pointcut"/>
+        <aop:advisor advice-ref="tx" pointcut-ref="pointcut"/>
+    </aop:config>
+
+    <!--配置 视图映射-->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+
+    <!-- 文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+
+    <!--静态资源映射-->
+    <mvc:resources mapping="/static/javascripts/**" location="/static/javascripts/"></mvc:resources>
+    <mvc:resources mapping="/static/css/**" location="/static/css/"></mvc:resources>
+    <mvc:resources mapping="/static/fonts/**" location="/static/fonts/"></mvc:resources>
+    <mvc:resources mapping="/static/images/**" location="/static/images/"></mvc:resources>
+    <mvc:resources mapping="/static/htmltemplate/**" location="/static/htmltemplate/"></mvc:resources>
+</beans>
