@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>FoodTypeServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.FoodTypeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.IndexServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FoodServlet</servlet-name>
+    <servlet-class>cn.itcast.servlet.FoodServlet</servlet-class>
+  </servlet>
+
+
+
+  <servlet-mapping>
+    <servlet-name>FoodTypeServlet</servlet-name>
+    <url-pattern>/foodType</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FoodServlet</servlet-name>
+    <url-pattern>/food</url-pattern>
+  </servlet-mapping>
+  <!-- 默认首页是列表展示servlet  -->
+  <!-- 跳转到首页servlet，注意不需要加/ -->
+  <welcome-file-list>
+    <welcome-file>index</welcome-file>
+  </welcome-file-list>
+</web-app>

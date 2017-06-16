@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+
+    <tx:annotation-driven />
+
+    <import resource="classpath:spring/applicationContext-xypj.xml" />
+
+    <!-- 配置DataSource数据源 -->  
+    <bean id="dataSource"  
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+        <property name="url" value="jdbc:mysql://localhost:3306/xypj" />  
+        <property name="username" value="root" />  
+        <property name="password" value="root" />  
+    </bean>  
+  
+    <!--创建sqlSessionFactory -->  
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+        <property name="configLocation" value="classpath:mybatis-config.xml" />  
+        <property name="dataSource" ref="dataSource" />  
+        <property name="mapperLocations" value="classpath:sqlMap/*.xml" />  
+    </bean>  
+  
+    <!-- 配置SqlSessionTemplate -->  
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">  
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />  
+    </bean> 
+ 
+    <!-- 配置事务管理器，注意这里的dataSource和SqlSessionFactoryBean的dataSource要一致，不然事务就没有作用了 -->  
+    <bean id="transactionManager"  
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+        <property name="dataSource" ref="dataSource" />  
+    </bean>  
+  
+    <!-- 配置事务的传播特性 -->  
+    <bean id="baseTransactionProxy"  
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"  
+        abstract="true">  
+        <property name="transactionManager" ref="transactionManager" />  
+        <property name="transactionAttributes">  
+            <props>  
+                <prop key="add*">PROPAGATION_REQUIRED</prop>  
+                <prop key="edit*">PROPAGATION_REQUIRED</prop>  
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>  
+                <prop key="insert*">PROPAGATION_REQUIRED</prop>  
+                <prop key="update*">PROPAGATION_REQUIRED</prop>  
+                <prop key="del*">PROPAGATION_REQUIRED</prop>  
+                <prop key="*">readOnly</prop>  
+            </props>  
+        </property>  
+    </bean>  
+
+</beans>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="default" location="165,165" size="715,423">
+    <action name="user" location="555,47" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="main.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="menu" location="555,163" size="150,40" />
+    <action name="dept_*" location="310,163" size="150,40" />
+    <action name="job_*" location="65,163" size="150,40" />
+    <action name="emp_*" location="65,268" size="150,40" />
+    <action name="jobChange_*" location="0,0" size="0,0" />
+    <action name="rec_*" location="0,0" size="0,0" />
+    <action name="train_*" location="0,0" size="0,0" />
+    <action name="tRecord_*" location="0,0" size="0,0" />
+    <action name="*" location="65,372" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="{1}.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="main.jsp" path="main.jsp" location="745,10" size="150,55" />
+  <webResource name="index.jsp" path="index.jsp" location="10,185" size="150,55" />
+  <webResource name="{1}.jsp" path="{1}.jsp" location="990,500" size="150,55" />
+</Struts2Diagram>
+

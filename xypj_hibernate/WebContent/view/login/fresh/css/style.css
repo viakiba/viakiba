@@ -1,0 +1,65 @@
+body{
+	background: url(images/bg22.jpg) repeat-x top left;
+    font-weight: 300;
+	font-family: Microsoft Yahei; ;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.container{ 
+	background:url(images/login-content22.png) no-repeat; 
+	width:960px; 
+	overflow:hidden;
+	height:609px; 
+	margin:0 auto;
+}
+.login-text{ 
+	width:400px;
+	float:left;
+	padding-top:30px!important;
+	padding-top:25px;
+	margin:0px auto 0 300px!important;
+	margin:0px auto 0 150px;
+}
+.login-k{ 
+	font-size:12px; 
+	color:#000; 
+	margin-bottom:10px!important;
+	margin-bottom:6px;
+}
+.login-k p{ 
+	margin:0px; 
+	padding:0; 
+	width:60px;
+	color:#000; 
+	font-size:14px;
+	line-height:30px;
+    float:left;
+}
+.login-k input{ 
+	width:200px; 
+	height:25px; 
+	line-height:28px;
+	border:1px solid #bec7d0; 
+}
+.login-dl{ 
+	background:url(images/button22.png) no-repeat top left; 
+	width:70px; 
+	height:26px; 
+	float:left; 
+	line-height:26px; 
+	text-align:center; 
+	font-weight:bold;
+	text-decoration:none;
+    color:#036; 
+	font-size:12px;
+	font-family: Microsoft Yahei; 
+}
+.login-dl:hover{background:url(images/button22-link.png) no-repeat bottom left; 
+	width:70px;font-weight:bold; 
+	height:26px;  
+}
+.tishi{ color:#900; font-size:12px; line-height:26px; margin-left:10px;}
+.footer{ position:absolute; bottom:10px;left:auto!important;left:230px;  width:960px!important; font-size:12px;  text-align:center; float:left; margin:auto!important; color:#369;}
+.login-new-logo22{ float:left; margin:200px auto auto 260px!important;margin:200px auto auto 130px; width:100%;height:68px;}

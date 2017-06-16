@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.devMode" value="false"/>
+	<package name="default" extends="struts-default,jasperreports-default" namespace="/">
+		<global-results >
+			<result name="input">error.jsp</result>
+		</global-results>
+		
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="success" type="redirect">jsp/main.jsp</result>
+			<result name="input">index.jsp</result>
+			<result name="exit" type="redirect">index.jsp</result>
+		</action>
+		<action name="menu" class="menuAction" method="load"></action>
+		<action name="dept_*" class="deptAction" method="{1}"></action>
+		<action name="job_*" class="jobAction" method="{1}"></action>
+		<action name="emp_*" class="empAction" method="{1}">
+			<param name="savePath">photo</param>
+			<result name="detailPdf" type="jasper">
+				<param name="location">jasperreport/detailEmp.jasper</param>
+				<param name="dataSource">empBeans</param>
+				<param name="format">PDF</param>
+			</result>
+			<result name="simplePdf" type="jasper">
+				<param name="location">jasperreport/simpleEmp.jasper</param>
+				<param name="dataSource">empBeans</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<action name="jobChange_*" class="jobChangeAction" method="{1}"></action>
+		<action name="rec_*" class="recruitmentAction" method="{1}"></action>
+		<action name="train_*" class="trainAction" method="{1}"></action>
+		<action name="tRecord_*" class="tRecordAction" method="{1}"></action>
+		<action name="ePunish_*" class="ePunishAction" method="{1}"></action>
+		<action name="revenue_*" class="revenueAction" method="{1}"></action>
+		<action name="boon_*" class="boonAction" method="{1}"></action>
+		<action name="salBasic_*" class="salaryBasicAction" method="{1}"></action>
+		<action name="salary_*" class="salaryAction" method="{1}">
+			<result name="salView" type="jasper">
+				<param name="location">jasperreport/salary.jasper</param>
+				<param name="dataSource">salBeans</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+		<action name="permission_*" class="permissionAction" method="{1}"></action>
+		<action name="role_*" class="roleAction" method="{1}"></action>
+		<action name="rolePer_*" class="rolePermissionAction" method="{1}"></action>
+		<action name="recruitment_*" class="recruitmentAction" method="{1}"></action>
+		<action name="*">
+			<result>{1}.jsp</result>
+		</action>
+	</package>
+</struts>    

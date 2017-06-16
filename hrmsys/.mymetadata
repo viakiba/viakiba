@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="hrmsys"
+  id="myeclipse.1294494105371"
+  context-root="/hrmsys"
+  j2ee-spec="5.0"
+  archive="hrmsys.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

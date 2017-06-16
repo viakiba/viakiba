@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="User"> 
+      <resultMap type="com.hisoft.xypj.login.bean.UserInfo" id="userInfo" >
+        <result property="userId" column="userId"  javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="userName" column="userName"  javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="password" column="password"  javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="userRights" column="userRights"  javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="mechanismId" column="mechanismId"  javaType="java.lang.String" jdbcType="CHAR"/>
+        <result property="createPerson" column="createPerson"  javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="createTime" column="createTime"  javaType="java.util.Date" jdbcType="DATE"/>
+        <result property="updateTime" column="updateTime"  javaType="java.util.Date" jdbcType="DATE"/>
+      </resultMap>
+
+      <resultMap type="com.hisoft.xypj.login.bean.EvaluationStatus" id="evaluationStatus" >
+        <!-- <result property="id" column="id" javaType="java.lang.String" jdbcType="VARCHAR"/> -->
+        <result property="mechanismId" column="mechanismId" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="mechanismName" column="mechanismName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="enterpriseId" column="enterpriseId" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="enterpriseName" column="enterpriseName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="evaluationPersonId" column="evaluationPersonId" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="evaluationPersonName" column="evaluationPersonName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="evaluationDate" column="evaluationDate" javaType="java.util.Date" jdbcType="DATE"/>
+        <result property="evaluationStatus" column="evaluationStatus" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      </resultMap>
+
+    <select id="getUserInfo" parameterType="com.hisoft.xypj.login.bean.UserInfo" resultMap="userInfo">  
+        select * from User where userId=#{userId} and password=#{password}
+    </select>
+
+    <select id="getEvaluationMechanism" parameterType="com.hisoft.xypj.login.bean.UserInfo" resultType="com.hisoft.xypj.login.bean.EvaluationMechanism">  
+        select * from evaluationMechanism where responsiblePersonId=#{mechanismId}
+    </select>
+
+    <select id="getUserInfoList" parameterType="com.hisoft.xypj.login.bean.UserInfo" resultMap="userInfo">  
+        select * from User where userId &lt;&gt; #{userId}
+    </select>
+    
+    <select id="getEvaluationStatusList" parameterType="com.hisoft.xypj.login.bean.UserInfo" resultMap="evaluationStatus">  
+        SELECT
+            en.id AS mechanismId,
+            en.name AS mechanismName,
+            ep.id AS enterpriseId,
+            ep.name AS enterpriseName,
+            u.userId AS evaluationPersonId,
+            u.userName AS evaluationPersonName,
+            s.evaluationDate AS evaluationDate,
+            (CASE s.evaluationStatus
+            WHEN 0 THEN
+                '待评价' 
+            WHEN 1 THEN
+                '评价中' 
+            WHEN 2 THEN
+                '待审批'
+            ELSE '' END) AS evaluationStatus
+        FROM
+            evaluationStatus AS s,
+            enterpriseTable AS ep,
+            evaluationMechanism AS en,
+            USER AS u
+        <where>
+            <if test="userRights == 3">
+                  u.userId = #{userId}
+            </if>
+            <if test="userRights == 2">
+                  u.mechanismId = #{mechanismId}
+            </if>
+                AND u.mechanismId = en.id
+                AND u.userId = s.evaluationPersonId
+                AND u.mechanismId = s.mechanismId
+                AND s.enterpriseId = ep.id
+        </where>
+
+
+    </select>
+</mapper> 

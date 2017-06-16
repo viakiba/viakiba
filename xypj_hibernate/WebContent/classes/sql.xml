@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC   
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"   
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- SQL -->
+	<sql-query name="sql_demo">
+	<![CDATA[select sysdate timenow from dual
+	]]>
+	</sql-query>
+	<sql-query name="getControlPersonList">
+	<![CDATA[
+     select p_name,p_sfzh,p_xb,p_controlreason,p_adddw,p_gkqy,p_gk_starttime,p_gk_endtime from T_LSBK_CONTROLPERSON t
+	]]>
+	</sql-query>
+	<sql-query name="getDepartTreeList">
+	<![CDATA[
+	select t.code as id,t.parent_id as Pid ,t.name from T_DEPARTMENT t order by t.code
+	]]>
+	</sql-query>
+	
+	<sql-query name="insertModelConfigByRes">
+		<![CDATA[
+insert into model_config(m_id,res_objid,res_mtlid) select replace(uuid(), '-','') as id,t.others_id,(select tt.others_id from res_others tt WHERE tt.others_name = concat(substring_index(t.others_name,'.','1'),'.mtl')) as mtl_id from res_others t where t.others_id not in (select m.res_objid from model_config m) and substring_index(t.others_name,'.','-1') = 'obj'		]]>
+	</sql-query>
+</hibernate-mapping>

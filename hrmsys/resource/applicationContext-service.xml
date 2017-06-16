@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	
+	<!-- follow is service bean -->
+	<bean id="userService" class="com.hrmsys.service.impl.UserServiceImpl">
+		<property name="userDAO" ref="userDAO"/>
+	</bean>
+	<bean id="menuService" class="com.hrmsys.service.impl.MenuServiceImpl">
+		<property name="menuDAO" ref="menuDAO"/>
+		<property name="permissionDAO" ref="permissionDAO"/>
+		<property name="rolePermissionDAO" ref="rolePermissionDAO"/>
+	</bean>
+	<bean id="empService" class="com.hrmsys.service.impl.EmpServiceImpl">
+		<property name="empDAO" ref="employeeDAO"/>
+	</bean>
+	<bean id="deptService" class="com.hrmsys.service.impl.DeptServiceImpl">
+		<property name="deptDAO" ref="departmentDAO"/>
+		<property name="empService" ref="empService"/>
+	</bean>
+	<bean id="jobService" class="com.hrmsys.service.impl.JobServiceImpl">
+		<property name="jobDAO" ref="jobDAO"/>
+	</bean>
+	<bean id="jobChangeService" class="com.hrmsys.service.impl.JobChangeServiceImpl">
+		<property name="jobChangeDAO" ref="jobChangeDAO"/>
+		<property name="empDAO"  ref="employeeDAO"/>
+	</bean>
+	<bean id="tRecordService" class="com.hrmsys.service.impl.TrainRecordServiceImpl">
+		<property name="tRecordDAO" ref="tRecordDAO"/>
+	</bean>
+	<bean id="trainService" class="com.hrmsys.service.impl.TrainServiceImpl">
+		<property name="trainDAO" ref="trainDAO"/>
+	</bean>
+	<bean id="ePunishService" class="com.hrmsys.service.impl.EncouragePunishServiceImpl">
+		<property name="ePunishDAO" ref="encouragePunishDAO"/>
+	</bean>
+	<bean id="revenueService" class="com.hrmsys.service.impl.RevenueServiceImpl">
+		<property name="revenueDAO" ref="revenueDAO"/>
+	</bean>
+	<bean id="boonService" class="com.hrmsys.service.impl.BoonServiceImpl">
+		<property name="boonDAO" ref="boonDAO"/>
+	</bean>
+	<bean id="salaryBasicService" class="com.hrmsys.service.impl.SalaryBasicServiceImpl">
+		<property name="salaryBasicDAO" ref="salaryBasicDAO"/>
+	</bean>
+	<bean id="salaryService" class="com.hrmsys.service.impl.SalaryServiceImpl">
+		<property name="salaryDAO" ref="salaryDAO"/>
+		<property name="deptDAO" ref="departmentDAO"/>
+		<property name="salBasicDAO" ref="salaryBasicDAO"/>
+		<property name="revenueDAO" ref="revenueDAO"/>
+		<property name="boonDAO" ref="boonDAO"/>
+		<property name="empDAO" ref="employeeDAO"/>
+	</bean>
+	<bean id="permissionService" class="com.hrmsys.service.impl.PermissionServiceImpl">
+		<property name="permissionDAO" ref="permissionDAO"/>
+		<property name="menuDAO" ref="menuDAO"/>
+		<property name="rolePerDAO" ref="rolePermissionDAO"/>
+	</bean>
+	<bean id="rolePermissionService" class="com.hrmsys.service.impl.RolePermissionServiceImpl">
+		<property name="rolePerDAO" ref="rolePermissionDAO"/>
+	</bean>
+	<bean id="roleService" class="com.hrmsys.service.impl.RoleServiceImpl">
+		<property name="roleDAO" ref="roleDAO"/>
+		<property name="userDAO" ref="userDAO"/>
+		<property name="rolePerDAO" ref="rolePermissionDAO"/>
+	</bean>
+	<bean id="recruitmentService" class="com.hrmsys.service.impl.RecruitmentServiceImpl">
+		<property name="recruitmentDAO" ref="recruitmentDAO"/>
+	</bean>
+</beans>

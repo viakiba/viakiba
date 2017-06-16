@@ -1,0 +1,11 @@
+.clear{clear: both;}
+.err_con{background: #f7f7f7;border:2px solid #e3e3e3;min-height: 300px;width:980px;
+    margin-left:auto;margin-right:auto;margin-top:130px;padding-top: 100px;padding-bottom: 100px;
+    border-radius: 10px;-webkit-border-radius: 10px;-moz-border-radius: 10px;-khtml-border-radius: 10px;}
+.err_con_left{float: left;display:inline-block;width: 210px;}
+.err_con_right{float: left;display:inline-block;padding-left:35px;width: 620px;}
+.err_icon{background:url("images/error_img.png") no-repeat;width:86px;height:73px;display: inline-block;margin-left:120px;}
+.err_title{color: red;font-weight: bold;font-size: 24px;}
+.err_info{color: #333;font-size: 14px;margin-top:20px;line-height: 22px;border-bottom: 1px solid #ccc;padding-bottom: 20px;}
+.other_title{margin-top:20px;color: #999;font-size: 12px;}
+.other_handle{margin-top:10px;color: #999;font-size: 12px;line-height: 22px;}

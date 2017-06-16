@@ -1,0 +1,357 @@
+<div id="test" data-toggle="context" data-target="#context-menu">
+	<!-- 查询栏 -->
+	<div class="panel panel-default searchPanel">
+		<div class="panel-body">
+			<form class="form-inline" role="form">
+			    <div class="form-group" style="padding-left: 15px;">
+					所属项目：
+					<div class="input-group">
+						<select id="project_id"  class="selectBoxIt" data-size="8">
+							<option value="">全部</option>
+							<#if projectInfoBeans??>
+								<#list projectInfoBeans as projectInfoBean>
+									<option value="${projectInfoBean.project_id}">${projectInfoBean.project_name}</option>
+								</#list>
+							</#if>
+						</select>
+					</div>
+				</div>
+				<!-- 搜索 -->	
+				<div class="form-group"  style="padding-left: 15px;">
+					文件名称：
+					<input type="text" class="form-control input-sm" id="resName" placeholder="请输入栏目名称">
+				</div>
+				<div class="form-group" style = "float:right;margin-right:20px">				
+					<button type="button" id="searchBtn" class="btn btn-info glyphicon glyphicon-search btn-sm">&nbsp;搜索</button>&nbsp;&nbsp;
+					<button type="button" id="resetBtn" class="btn btn-primary glyphicon glyphicon-retweet btn-sm">&nbsp;重置</button>&nbsp;&nbsp;
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- 列表 -->
+<div class="listTable" >
+	<table id="columnTable" class="table table-striped table-bordered" style="text-align:center">
+		<thead>
+			<tr class="tableInfo" >	
+				<th style="text-align:center">项目名称</th>
+				<th style="text-align:center">文件名</th>
+				<th style="text-align:center">模型名称</th>
+				<th style="text-align:center">模型编号</th>
+				<th style="text-align:center">模型类别</th>
+				<th style="text-align:center">模型级次</th>
+				<th style="text-align:center">距离</th>
+				<th style="text-align:center">位置坐标</th>
+				<th style="text-align:center">配置</th>
+			</tr>
+		</thead>	
+	</table>
+</div>
+
+<script type="text/javascript">
+
+	var tableDialog,columnTable,columnDetailDialog,tableAddDialog,loadingDialog;
+	$(function(){
+		//下拉列表
+		$('.selectBoxIt').selectBoxIt();
+		
+		//输入框placeholder的IE兼容处理
+		placeholder();
+		
+        var checkin = $('#createTimeStart3').datepicker({
+            onRender: function(date) {
+                if(date && $('#createTimeEnd3').val()) {
+                    return date.valueOf() > checkout.date.valueOf()-1 ? 'disabled' : '';
+                }
+            }
+        }).on('changeDate', function(ev) {
+            checkin.hide();
+            checkout.update(ev.date.valueOf());
+        }).data('datepicker');
+
+        var checkout = $('#createTimeEnd3').datepicker({
+            onRender: function(date) {
+                if($('#createTimeStart3').val()) {
+                    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+                }
+            }
+        }).on('changeDate', function(ev) {
+            checkout.hide();
+            checkin.update(ev.date.valueOf());
+        }).data('datepicker');
+		
+		//清空按钮事件
+		$("#resetBtn").click(function(){
+			$(".form-inline").resetForm();
+ 			$("#project_id").data("selectBox-selectBoxIt").setOption("","全部");
+ 			$("#type3").data("selectBox-selectBoxIt").setOption("0","全部");
+ 			$("#status3").data("selectBox-selectBoxIt").setOption("0","全部");
+            checkout.update(null);
+            checkin.update(null);
+		});
+		$("#project_id").change(function(){
+			columnTable.fnDraw();
+		});
+		
+		//搜索按钮事件
+		$("#searchBtn").click(function(){
+			columnTable.fnDraw();
+		});
+		
+		//点击回车键响应事件
+		$("#resName").bind('keypress',function(event){
+	    	var e = event || window.event || arguments.callee.caller.arguments[0];
+	        if(e && e.keyCode==13){//回车
+	        	columnTable.fnDraw();
+	        }
+   		})
+   		
+		
+		//dateTable
+		var tableHeight = calcDataTablesHeight($(".dashbord-main"), $(".searchPanel"));//高度
+	 	columnTable = $("#columnTable").dataTable({
+			scrollY : tableHeight,
+			//aaSorting:[[1,'desc']],
+			ajax : {
+				type : "post",
+				url : "${path}/ModelConfig/getModelConfigList.do",
+				data : function(a){
+ 					a.res_name = $("#resName").val();
+ 					a.project_id = $("#project_id").val();
+				}
+			},
+			columns : [{
+				data : "resObjOthers.projectInfo.project_name",
+				width : "110",
+				orderable: false
+			} , {
+				data : "resObjOthers.others_name",
+				width : "110",
+				orderable: false
+			}, {
+				data : "m_name",
+				width : "110",
+				orderable: false
+			}, {
+				data : "m_code",
+				width : "110",
+				orderable: false
+			}, {
+				data : "m_type_name",
+				width : "110",
+				orderable: false
+			}, {
+				data : "m_level_name",
+				width : "110",
+				orderable: false
+			}, {
+				data : "m_distance",
+				width : "110",
+				orderable: false
+			}, {
+				data : "m_position",
+				width : "110",
+				orderable: false
+			}, {
+				data : "m_id",//编辑，查看详情按钮
+				width : "110",
+				orderable: false,
+				render : function (data, type, row){
+				return '<button type="button" class="btn btn-warning btn-sm glyphicon glyphicon-pencil"' 
+						+ 'onclick="toEdit(&quot;'+data+'&quot;)" >&nbsp;编辑</button>';
+				}
+			}],
+			ordering : true,
+			//启用禁用按钮
+			fnDrawCallback: function(oSettings) {
+				$("input[id= 'column_status']").bootstrapSwitch({
+		        	onText:'启用',
+		        	offText:'禁用',
+		        	onColor:'info',		//primary深蓝色,info淡蓝,success绿色,warning橘色,danger红色
+		        	offColor:'danger',
+		        	animate:false,		//动画效果
+		        	disabled:false		//不可用
+		        });
+				
+				$("input[id='column_status']").on('switchChange.bootstrapSwitch', function(event, state) {
+					var status = state ? 1 : 2;
+					var obj = $(this);
+					var columnId = obj.attr('columnId');
+					var info = state ? "确定启用吗?" : "确定禁用吗?";
+
+					//第二个参数true代表switchChange事件不执行
+					obj.bootstrapSwitch('toggleState', true);
+					
+					bootbox.confirm(info,function(result) {
+						if(result) {
+							obj.bootstrapSwitch('toggleState', true, state);
+							$.ajax({
+								type: "POST",
+								url: "${path}/pub/column/changeColumnStatus.do",
+								data: "columnId="+columnId+"&status="+status,
+								success: function(){
+									Messenger({extraClasses: 'messenger-fixed messenger-on-top'}).post({
+										message:"操作成功",
+										hideAfter: 2,
+										type:'info'
+									});
+								}
+							});
+						} 
+					});
+			     });
+			}
+		});//datatable结束
+		
+	})//function()结束
+	
+		//编辑按钮的toEdit方法
+	 	function toEdit(id){
+			tableDialog = bootbox.extDialog({
+				load : "${path}/ModelConfig/toEditModelConfig.do?m_id="+id,
+				title : "模型配置",
+				width : 680,
+				height : 520,
+				buttons: {
+					success: {
+						label: "保存",
+						className: "btn-success",
+						callback: function(b) {
+							$("#modelconfig_edit_form").ajaxSubmit({
+								url: "${path}/ModelConfig/editModelConfig.do",
+								type: "post",
+								beforeSubmit: function(formData, jqForm, options) {
+									var m_level = $("#m_level").val();
+									var m_type = $("#m_type").val();
+									if(m_type == "" || m_level==""){
+										Messenger({extraClasses: 'messenger-fixed messenger-on-top'}).post({
+											message:"模型类别或模型级次不能为空",
+											hideAfter: 2,
+											type:'info'
+										});
+										return false;
+									}
+									
+
+
+									var valid = jqForm.validate();
+ 									if(valid) {
+										loadingDialog = bootbox.loading("正在提交...");
+									} 
+									return valid;
+								},
+								timeout: 6000,
+								success: function(response, status, xhr){
+									//隐藏加载框
+									bootbox.hide(loadingDialog);
+									Messenger({extraClasses: 'messenger-fixed messenger-on-top'}).post({
+										 message:response.message,
+										type:response.success ? 'success' : 'error',
+										hideAfter: 2
+									});
+									if(response.success) {
+										bootbox.hide(tableDialog);
+										// 刷新表格数据 
+										columnTable.fnDraw();
+									}
+								},
+ 								error : function(data) {
+									bootbox.hide(loadingDialog);
+								} 
+							});
+							return false;
+						}
+					},
+					danger: {
+						label: "取消",
+						className: "btn-danger"
+					}
+				}
+			})
+		};
+		
+		//详情按钮的detailDialog方法
+		function detailDialog(b) {
+			columnDetailDialog = bootbox.extDialog({
+				load:"${path}/pub/column/detail.do?columnId="+b,
+				title: "栏目详情",
+				width: 610,
+				height: 372,
+				buttons: {
+					success: {
+						label: "关闭",
+						className: "btn-danger",
+						callback: function() {							
+						}
+					}
+				}
+			});
+		}
+		
+		//栏目抓取配置对话框
+		function grabConfigDialog(b) {
+			columnGrabConfigDialog = bootbox.extDialog({
+				load:"${path}/pub/column/toGrabConfig.do?columnId="+b,
+				title: "栏目抓取配置",
+				width: 700,
+				height: 400,
+				buttons: {
+					success: {
+						label: "保存",
+						className: "btn-success",
+						callback: function(b) {
+							$("#column_grabConfig_form").ajaxSubmit({
+								url: "${path}/pub/column/grabConfig.do",
+								type: "post",
+								beforeSubmit: function(formData, jqForm, options) {
+									var valid = jqForm.validate();
+ 									if(valid) {
+										loadingDialog = bootbox.loading("正在提交...");
+									} 
+									return valid;
+								},
+								timeout: 6000,
+								success: function(response, status, xhr){     
+									//隐藏加载框
+									bootbox.hide(loadingDialog);
+									Messenger({extraClasses: 'messenger-fixed messenger-on-top'}).post({
+										 message:response.message,
+										type:response.success ? 'success' : 'error',
+										hideAfter: 2
+									});
+									if(response.success) {
+										bootbox.hide(columnGrabConfigDialog);
+										// 刷新表格数据 
+										columnTable.fnDraw();
+									}
+								},
+ 								error : function(data) {
+									bootbox.hide(loadingDialog);
+								}
+							});
+							return false;
+						}
+					},
+					danger: {
+						label: "关闭",
+						className: "btn-danger",
+						callback: function() {
+						}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					}
+				}//buttons结束
+				
+			});
+		}
+		
+
+</script>

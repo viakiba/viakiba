@@ -1,0 +1,101 @@
+.index{
+	background-image: url(../img/index.jpg);
+	width: 720px; 
+	height: 350px;
+	top: 10%;
+	left: 20%;
+	position: absolute;
+}
+.login{
+	top:10%;
+    left:60%;
+    position: absolute;
+}
+.index_bottom{
+	background-image: url(../img/index_bottom.jpg);
+	width: 100%;
+	height: 70px;
+	top: 90%;
+	position: absolute;
+	padding: 6px 0px 0px 15px;
+	text-align: left;
+	font-size: 14px;
+}
+#user_header{
+	text-align: right;
+	padding:40px 10px 0px 0px;
+	font-size: 15;
+	font-weight: bold;
+}
+.header{
+	width: 100%;
+	background-image: url(../img/header_02.gif);
+	top: 0px;
+	left: 0px;
+	height: 65px;
+	position: absolute;
+}
+.header_left{
+	background-image: url(../img/header_01.gif);
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	padding: 0;
+	margin: 0;
+	width: 590px;
+}
+.header_center{
+	width: auto;
+	border-left: 1px solid #ffffff;
+	border-right: 1px solid #ffffff;
+}
+.header_right{
+	background-image: url(../img/header_03.gif);
+	background-repeat: no-repeat;
+	width: 370px;
+	background-position:0px 0px;
+}
+.main_content{
+	background-image: url(../img/main.gif);
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+	text-align: center;
+}
+.fristTable{
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	background-color: #dfe8f6;
+	border: 0px;
+	width: 100%;
+	height: 100%;
+}
+.fristTable .title{
+	font: bold 16px Arial;
+	margin-left: 10px;
+	background-color: #d4e0f2;
+	width: 440px;
+}
+.fristTable .content{
+	margin-top:10px;
+	padding-top:15px;
+	font: 15px Arial;
+	margin-left: 10px;
+	width: 430px;
+	height: 150px;
+	border: 1px solid #8db2e3;
+	background-color: #ddeefb;
+	padding-left: 10px;
+}
+.fristTable .userContent{
+	margin-top: 10px;
+	padding-top:15px;
+	font: 15px Arial;
+	margin-left: 10px;
+	width: 430px;
+	height: 85%;
+	border: 1px solid #8db2e3;
+	background-color: #ddeefb;
+	padding-left: 10px;
+}

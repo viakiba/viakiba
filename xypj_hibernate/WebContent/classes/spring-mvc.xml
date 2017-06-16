@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	     http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	             http://www.springframework.org/schema/context
+	                    http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	                            http://www.springframework.org/schema/tx
+	                                http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 对包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
+
+	<context:component-scan base-package="com.tdvm.*" />
+
+
+	<!-- 加载配置文件 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		p:location="classpath:datasource.properties"
+		p:ignoreUnresolvablePlaceholders="true" />
+	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref local="openSessionInViewInterceptor" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${db.driverClassName}"></property>
+		<property name="jdbcUrl" value="${db.url}"></property>
+		<property name="user" value="${db.username}"></property>
+		<property name="password" value="${db.password}"></property>
+		<!-- 连接关闭时默认将所有未提交的操作回滚。默认为false -->
+		<property name="autoCommitOnClose" value="${autoCommitOnClose}" />
+		<!-- 连接池中保留的最小连接数 -->
+		<property name="minPoolSize" value="${minPoolSize}" />
+		<!-- 连接池中保留的最大连接数。默认为15 -->
+		<property name="maxPoolSize" value="${maxPoolSize}" />
+		<!-- 初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。默认为3 -->
+		<property name="initialPoolSize" value="${initialPoolSize}" />
+		<!-- 最大空闲时间，超过空闲时间的连接将被丢弃。为0或负数则永不丢弃。默认为0秒 -->
+		<property name="maxIdleTime" value="${maxIdleTime}" />
+		<!-- 当连接池中的连接用完时，C3P0一次性创建新连接的数目。默认为3 -->
+		<property name="acquireIncrement" value="${acquireIncrement}" />
+		<!-- 定义在从数据库获取新连接失败后重复尝试获取的次数，默认为30 -->
+		<property name="acquireRetryAttempts" value="${acquireRetryAttempts}" />
+		<!-- 当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出SQLException，如设为0则无限期等待。单位毫秒，默认为0 -->
+		<property name="checkoutTimeout" value="${checkoutTimeout}" />
+	</bean>
+
+	<!-- 设置sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>sql.xml</value>
+			</list>
+		</property>
+		<property name="configurationClass">
+			<value>org.hibernate.cfg.AnnotationConfiguration</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop><!-- validate,update,create,create-drop -->
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.use_sql_comments">${hibernate.use_sql_comments}</prop>
+				<prop key="hibernate.jdbc.fetch_size">${hibernate.jdbc.fetch_size}</prop>
+				<prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+
+				<!-- 二级缓存 -->
+				<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+				<prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
+				<prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
+
+				<!-- ehcache在2.5以后，CacheManager使用了Singleton，这样在创建多个CacheManager时就会产生错误，需加上下面配置 -->
+				<prop key="hibernate.cache.region.factory_class">
+					${hibernate.cache.region.factory_class}
+				</prop>
+
+				<prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory
+				</prop>
+			</props>
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.tdvm.*</value>
+			</list>
+		</property>
+
+		<!--处理 lob 字段 -->
+		<property name="lobHandler">
+			<ref local="lobHandler" />
+		</property>
+
+	</bean>
+	<!--transe lobtype -->
+	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"
+		lazy-init="true">
+	</bean>
+
+	<bean id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/" />
+		<property name="freemarkerSettings">
+			<props>
+				<!-- very important! -->
+				<prop key="defaultEncoding">UTF-8</prop>
+				<prop key="number_format">0.##</prop>
+				<prop key="date_format">yyyy-MM-dd</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="openSessionInViewInterceptor"
+		class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 定义TransactionManager -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 将所有具有@Transactional注解的Bean自动配置为声明式事务支持 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 支持上传文件 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="20000000000" />
+	</bean>
+
+	<!-- spring MVC 信息国际化 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource"
+		abstract="false" lazy-init="default">
+		<property name="basename" value="messageInfo" />
+	</bean>
+
+</beans>

@@ -1,0 +1,147 @@
+<#escape x as x?html>
+<form class="form-horizontal" role="form" id="modelconfig_edit_form" enctype="multipart/form-data">
+	<input type="hidden" name="m_id" id="m_id" value="${modelConfigBean.m_id}">
+	
+	<!-- 文件名称 -->
+	<div class="form-group">
+		<label for="" class="col-sm-3 control-label">文件名称</label>
+		<div class="col-sm-8">
+		    <label class="col-sm-3 control-label">${modelConfigBean.resObjOthers.others_name!''}</label>
+		</div>
+	</div>
+	<!-- 文件路径 -->
+	<div class="form-group">
+		<label for="" class="col-sm-3 control-label">文件路径</label>
+		<div class="col-sm-8">
+		<input type="text" readonly="readonly"  class="form-control"  value="${modelConfigBean.resObjOthers.others_path!''}" >
+<!-- 		<label class="col-sm-3 control-label">${modelConfigBean.resObjOthers.others_path!''}</label> -->
+		</div>
+	</div>
+		<div class="form-group">
+		<label for="" class="col-sm-3 control-label">纹理文件</label>
+		<div class="col-sm-8">
+		    <label class="col-sm-3 control-label">${modelConfigBean.resMtlOthers.others_name!''}</label>
+		</div>
+	</div>
+	<!-- 文件路径 -->
+	<div class="form-group">
+		<label for="" class="col-sm-3 control-label">纹理路径</label>
+		<div class="col-sm-8">
+			<input type="text"  readonly="readonly" class="form-control" value="${modelConfigBean.resMtlOthers.others_path!''}">
+		</div>
+	</div>
+	<!-- 状态 -->
+	<div class="form-group">
+		<label for="" class="col-sm-3 control-label">模型类别</label>
+		<div class="col-sm-8">
+			<select id="m_type" name="m_type" class="selectBoxIt">
+			   <#if modelConfigBean.m_type??>
+					<option value="1" <#if modelConfigBean.m_type=="1"> selected="selected" </#if> >地面</option>
+					<option value="2" <#if modelConfigBean.m_type=="2"> selected="selected" </#if> >建筑物</option>
+					<option value="3" <#if modelConfigBean.m_type=="3"> selected="selected" </#if> >天空盒</option>
+					<option value="4" <#if modelConfigBean.m_type=="4"> selected="selected" </#if> >指南针</option>
+					<option value="5" <#if modelConfigBean.m_type=="5"> selected="selected" </#if> >树</option>
+					<option value="6" <#if modelConfigBean.m_type=="6"> selected="selected" </#if> >浮标</option>
+					<option value="7" <#if modelConfigBean.m_type=="7"> selected="selected" </#if> >其他</option>
+			   <#else>
+			        <option value="" >请选择</option>
+					<option value="1">地面</option>
+					<option value="2">建筑物</option>
+					<option value="3">天空盒</option>
+					<option value="4">指南针</option>
+					<option value="5">树</option>
+					<option value="6">浮标</option>
+					<option value="7">其他</option>
+			   </#if>
+			        
+			</select>
+		</div>
+	</div>
+	<!-- 栏目类型 -->
+	<div class="form-group">
+		<label for="" class="col-sm-3 control-label">模型级次</label>
+		<div class="col-sm-8">
+			<select id="m_level" name="m_level" class="selectBoxIt">
+			   <#if modelConfigBean.m_level??>
+			        <option value="1" <#if modelConfigBean.m_level=="1"> selected="selected" </#if> >一级</option>
+					<option value="2" <#if modelConfigBean.m_level=="2"> selected="selected" </#if> >二级</option>
+					<option value="3" <#if modelConfigBean.m_level=="3"> selected="selected" </#if> >三级</option>
+					<option value="4" <#if modelConfigBean.m_level=="4"> selected="selected" </#if> >四级</option>
+			   <#else>
+			        <option value="" >请选择</option>
+			        <option value="1" >一级</option>
+					<option value="2" >二级</option>
+					<option value="3" >三级</option>
+					<option value="4" >四级</option>
+			   </#if>
+			        
+			</select>
+		</div>
+	</div>
+		<!-- 文件名称 -->
+	<div class="form-group">
+		<label for="" class="col-sm-3 control-label">模型编码</label>
+		<div class="col-sm-8">
+			<input type="text" name="m_code" class="form-control" id="m_code" value="${modelConfigBean.m_code!''}"  
+			    validate-tags="required" validate-minLength="2" maxLength="20" validate-message="{required:'此项必填!'}">
+		</div>
+	</div>
+	<!-- 文件路径 -->
+	<div class="form-group">
+		<label for="" class="col-sm-3 control-label">模型名称</label>
+		<div class="col-sm-8">
+			<input type="text" name="m_name" class="form-control" id="m_name" value="${modelConfigBean.m_name!''}"  
+			    validate-tags="required" validate-minLength="2" maxLength="20" validate-message="{required:'此项必填!'}">
+		</div>
+	</div>
+			<!-- 文件名称 -->
+	<div class="form-group">
+		<label for="" class="col-sm-3 control-label">距离</label>
+		<div class="col-sm-8">
+			<input type="text" name="m_distance" class="form-control" id="m_distance" value="${modelConfigBean.m_distance!''}"  
+			    validate-tags="required" validate-minLength="2" maxLength="20" validate-message="{required:'此项必填!'}">
+		</div>
+	</div>
+	<!-- 文件路径 -->
+	<div class="form-group">
+		<label for="" class="col-sm-3 control-label">位置坐标</label>
+		<div class="col-sm-8">
+			<input type="text" name="m_position" class="form-control" id="m_position" value="${modelConfigBean.m_position!''}"  
+			    validate-tags="required" validate-minLength="2" maxLength="20" validate-message="{required:'此项必填!'}">
+		</div>
+	</div>
+
+    <div class="form-group">
+		<label for="" class="col-sm-3 control-label">模型描述</label>
+		<div class="col-sm-8">
+			<textarea style="height: 130px; word-break:break-all; word-wrap:break-word; " 
+				class="form-control" name="m_description" id="m_description" placeholder="至多200个字"
+			 	onkeyup="showNumber()" onkeydown="showNumber()" 
+			 	validate-tags="required" validate-minLength="5" maxLength="200" >${modelConfigBean.m_description!}</textarea>
+		    <div id="info" style="text-align: left;margin-left: 3%;color: gray;size: 8px;">已输入0/200字</div>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">	
+	$(function(){
+		//初始化表单验证
+		$("#modelconfig_edit_form").validation();
+		$('#name').validateSingleField();
+		
+		$('.selectBoxIt').selectBoxIt();
+		
+		// 初始化描述字数提示
+   		var showNumber = "已输入" + $("#m_description").val().length + "/200字";
+   		$("#info").html(showNumber);
+   		
+	});
+	
+	//描述的输入字数提示方法
+	function showNumber(){
+		var showNumber = "已输入" + $("#m_description").val().length + "/200字";
+		$("#info").html(showNumber);
+	}
+</script>
+
+</#escape>

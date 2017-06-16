@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+
+   <!-- 样例代码 
+    <bean id="testDao"  class="org.mybatis.spring.mapper.MapperFactoryBean"  
+        scope="prototype">  
+        <property name="mapperInterface" value="com.zhou.dao.TestDao" />  
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />  
+    </bean>  
+    <bean id="testService" class="com.zhou.services.impl.TestServiceImpl"  
+        scope="prototype">  
+        <property name="testDao" ref="testDao" />  
+    </bean>-->  
+  
+    <!--action 注入service-->  
+    <bean id="loginAction" class="com.hisoft.xypj.login.action.LoginAction" scope="prototype">   
+    	<property name="service" ref="userInfoService"></property>
+    	<property name="evaluationStatusService" ref="evaluationStatusService"></property>
+    </bean>
+
+
+
+
+    <!-- Service -->
+    <bean id="userInfoService" class="com.hisoft.xypj.login.service.UserInfoServiceImp" scope="prototype">   
+    	<property name="userInfoDao" ref="userInfoDao"></property>
+    </bean>    
+    <bean id="evaluationStatusService" class="com.hisoft.xypj.login.service.EvaluationStatusServiceImp" scope="prototype">   
+        <property name="evaluationStatusDao" ref="evaluationStatusDao" /> 
+    </bean>
+
+
+
+
+    <!-- DAO -->
+    <bean id="evaluationStatusDao" class="com.hisoft.xypj.login.dao.EvaluationStatusDaoImp" scope="prototype">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+    <bean id="userInfoDao" class="com.hisoft.xypj.login.dao.UserInfoDaoImp" scope="prototype">   
+         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+</beans>

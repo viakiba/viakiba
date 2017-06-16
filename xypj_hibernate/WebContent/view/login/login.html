@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>登录</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+
+</head>
+<body>
+	<div class="container">
+      <form class="form-signin" role="form" action="${path}/Login/checkUserInfo.do" method="post">
+        <h2 class="form-signin-heading" style="text-align: center;">请登录</h2>
+        <input name="userName" type="text" class="form-control" placeholder="用户名" required autofocus value="">
+        <input name="password" type="password" class="form-control" placeholder="密码" required value=""
+               onpaste="return false;" oncopy="return false;" oncut="return false;" oncontextmenu="return false;">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+        <div style="text-align: center;color: red;padding-top: 15px; ">${msg ! ""}</div>
+      </form>
+    </div>
+</body>
+
+<link rel="stylesheet" href="${path}/theme/css/login/login.css">
+<script type="text/javascript" src="${path}/script/jquery-1.10.2.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<link rel="stylesheet" href="${path}/script/bootcss/3.2.0/css/bootstrap.min.css">
+<script type="text/javascript" src="${path}/script/bootcss/3.2.0/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="${path}/script/placeholder/placeholder.js"></script>
+<script type="text/javascript">
+	$(function(){
+		placeholder();
+	})
+</script>
+</html>

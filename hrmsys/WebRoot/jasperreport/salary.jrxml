@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="salary" language="groovy" pageWidth="950" pageHeight="842" columnWidth="910" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 3" whenResourceMissingType="Empty">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="empId" class="java.lang.String">
+			<fieldDescription><![CDATA[empId]]></fieldDescription>
+		</field>
+		<field name="empName" class="java.lang.String">
+			<fieldDescription><![CDATA[empName]]></fieldDescription>
+		</field>
+		<field name="salAbsenteeism" class="java.lang.Float">
+			<fieldDescription><![CDATA[salAbsenteeism]]></fieldDescription>
+		</field>
+		<field name="salAbsenteeismMoney" class="java.lang.Float">
+			<fieldDescription><![CDATA[salAbsenteeismMoney]]></fieldDescription>
+		</field>
+		<field name="salAll" class="java.lang.Float">
+			<fieldDescription><![CDATA[salAll]]></fieldDescription>
+		</field>
+		<field name="salAllowance" class="java.lang.Float">
+			<fieldDescription><![CDATA[salAllowance]]></fieldDescription>
+		</field>
+		<field name="salCheckDate" class="java.util.Date">
+			<fieldDescription><![CDATA[salCheckDate]]></fieldDescription>
+		</field>
+		<field name="salEateryfloat" class="java.lang.Float">
+			<fieldDescription><![CDATA[salEateryfloat]]></fieldDescription>
+		</field>
+		<field name="salEndowmentint" class="java.lang.Float">
+			<fieldDescription><![CDATA[salEndowmentint]]></fieldDescription>
+		</field>
+		<field name="salHospitalizationint" class="java.lang.Float">
+			<fieldDescription><![CDATA[salHospitalizationint]]></fieldDescription>
+		</field>
+		<field name="salId" class="java.lang.Integer">
+			<fieldDescription><![CDATA[salId]]></fieldDescription>
+		</field>
+		<field name="salJob" class="java.lang.Float">
+			<fieldDescription><![CDATA[salJob]]></fieldDescription>
+		</field>
+		<field name="salMoney" class="java.lang.Float">
+			<fieldDescription><![CDATA[salMoney]]></fieldDescription>
+		</field>
+		<field name="salNormal" class="java.lang.Float">
+			<fieldDescription><![CDATA[salNormal]]></fieldDescription>
+		</field>
+		<field name="salMonth" class="java.lang.Integer">
+			<fieldDescription><![CDATA[salMonth]]></fieldDescription>
+		</field>
+		<field name="salRevenue" class="java.lang.Float">
+			<fieldDescription><![CDATA[salRevenue]]></fieldDescription>
+		</field>
+		<field name="salTelephone" class="java.lang.Float">
+			<fieldDescription><![CDATA[salTelephone]]></fieldDescription>
+		</field>
+		<field name="salTrafficfloat" class="java.lang.Float">
+			<fieldDescription><![CDATA[salTrafficfloat]]></fieldDescription>
+		</field>
+		<field name="salUnemploymentint" class="java.lang.Float">
+			<fieldDescription><![CDATA[salUnemploymentint]]></fieldDescription>
+		</field>
+		<field name="salBasic" class="java.lang.Float">
+			<fieldDescription><![CDATA[salBasic]]></fieldDescription>
+		</field>
+		<field name="salBasic_1" class="java.lang.Float">
+			<fieldDescription><![CDATA[salBasic]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="salRevenue" class="java.lang.Float">
+		<fieldDescription><![CDATA[salRevenue]]></fieldDescription>
+	</field>
+	<field name="empId" class="java.lang.String">
+		<fieldDescription><![CDATA[empId]]></fieldDescription>
+	</field>
+	<field name="empName" class="java.lang.String">
+		<fieldDescription><![CDATA[empName]]></fieldDescription>
+	</field>
+	<field name="salAbsenteeism" class="java.lang.Float">
+		<fieldDescription><![CDATA[salAbsenteeism]]></fieldDescription>
+	</field>
+	<field name="salAbsenteeismMoney" class="java.lang.Float">
+		<fieldDescription><![CDATA[salAbsenteeismMoney]]></fieldDescription>
+	</field>
+	<field name="salAll" class="java.lang.Float">
+		<fieldDescription><![CDATA[salAll]]></fieldDescription>
+	</field>
+	<field name="salAllowance" class="java.lang.Float">
+		<fieldDescription><![CDATA[salAllowance]]></fieldDescription>
+	</field>
+	<field name="salBasic" class="java.lang.Float">
+		<fieldDescription><![CDATA[salBasic]]></fieldDescription>
+	</field>
+	<field name="salEateryfloat" class="java.lang.Float">
+		<fieldDescription><![CDATA[salEateryfloat]]></fieldDescription>
+	</field>
+	<field name="salEndowmentint" class="java.lang.Float">
+		<fieldDescription><![CDATA[salEndowmentint]]></fieldDescription>
+	</field>
+	<field name="salHospitalizationint" class="java.lang.Float">
+		<fieldDescription><![CDATA[salHospitalizationint]]></fieldDescription>
+	</field>
+	<field name="salJob" class="java.lang.Float">
+		<fieldDescription><![CDATA[salJob]]></fieldDescription>
+	</field>
+	<field name="salMoney" class="java.lang.Float">
+		<fieldDescription><![CDATA[salMoney]]></fieldDescription>
+	</field>
+	<field name="salMonth" class="java.lang.Integer">
+		<fieldDescription><![CDATA[salMonth]]></fieldDescription>
+	</field>
+	<field name="salNormal" class="java.lang.Float">
+		<fieldDescription><![CDATA[salNormal]]></fieldDescription>
+	</field>
+	<field name="salTelephone" class="java.lang.Float">
+		<fieldDescription><![CDATA[salTelephone]]></fieldDescription>
+	</field>
+	<field name="salUnemploymentint" class="java.lang.Float">
+		<fieldDescription><![CDATA[salUnemploymentint]]></fieldDescription>
+	</field>
+	<field name="salTrafficfloat" class="java.lang.Float">
+		<fieldDescription><![CDATA[salTrafficfloat]]></fieldDescription>
+	</field>
+	<field name="salId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[salId]]></fieldDescription>
+	</field>
+	<field name="salYear" class="java.lang.String">
+		<fieldDescription><![CDATA[salYear]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="64" splitType="Stretch">
+			<textField>
+				<reportElement x="36" y="41" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="21" width="42" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[员工号]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="78" y="41" width="41" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="78" y="21" width="41" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[员工名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="21" width="46" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[基本工资]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="119" y="41" width="46" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salBasic}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="165" y="21" width="43" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[岗位工资]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="165" y="41" width="43" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salJob}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="208" y="21" width="66" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[正常工作时间]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="208" y="41" width="66" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salNormal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="274" y="21" width="43" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[旷工时间]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="274" y="41" width="43" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salAbsenteeism}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="317" y="21" width="57" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[缺勤金额]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="317" y="41" width="57" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salAbsenteeismMoney}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="374" y="21" width="37" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[全勤奖]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="374" y="41" width="37" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salAll}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="413" y="21" width="50" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[养老保险]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="41" width="50" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salEndowmentint}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="463" y="21" width="46" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[医疗保险]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="463" y="41" width="46" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salHospitalizationint}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="509" y="21" width="45" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[失业保险]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="509" y="41" width="45" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salUnemploymentint}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="554" y="21" width="44" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[餐费补贴]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="554" y="41" width="44" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salEateryfloat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="598" y="21" width="43" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[交通补贴]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="598" y="41" width="43" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salTrafficfloat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="641" y="21" width="45" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[通讯补贴]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="641" y="41" width="45" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salTelephone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="686" y="21" width="45" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[其它补贴]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="686" y="41" width="45" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salAllowance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="731" y="21" width="50" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[个税]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="731" y="41" width="50" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salRevenue}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="781" y="41" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{salMoney}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="21" width="36" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[序号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="842" y="21" width="68" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[签名]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="41" width="36" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{salId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="781" y="21" width="61" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[实际工资]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="0" width="79" height="20"/>
+				<textElement>
+					<font fontName="宋体" size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[月份工资单]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="387" y="0" width="12" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{salMonth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="0" width="28" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{salYear}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="361" y="0" width="13" height="20"/>
+				<textElement>
+					<font fontName="宋体" size="14" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[年]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

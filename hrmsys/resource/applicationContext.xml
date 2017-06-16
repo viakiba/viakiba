@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<!-- ****************************************数据源*************************************************************** -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<!-- 指定连接数据库的驱动 -->
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<!-- 指定连接数据库的URL -->
+		<!-- &amp;zeroDateTimeBehavior=convertToNull是为了避免因数据库中为date类型的数据为0000-00-00,
+			若为此值hibernate会报错‘Cannot convert value '0000-00-00 00:00:00' from column 1 to TIMESTAMP’
+		 -->
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/db_hrmsys?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"/>
+		<!-- 指定连接数据库的用户名 -->
+		<property name="user" value="root"/>
+		<!-- 指定连接数据库的密码 -->
+		<property name="password" value="951357qaz"/>
+		<!-- 指定连接数据库连接池的最大连接数 -->
+		<property name="maxPoolSize" value="40"/>
+		<!-- 指定连接数据库连接池的最小连接数 -->
+		<property name="minPoolSize" value="10"/>
+		<!-- 指定连接数据库连接池的初始化连接数 -->
+		<property name="initialPoolSize" value="10"/>
+		<!-- 指定连接数据库连接池的连接的最大空闲时间 -->
+		<property name="maxIdleTime" value="20"/>
+		<property name="idleConnectionTestPeriod" value="18000"/>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/hrmsys/model/Recruitment.hbm.xml</value>
+				<value>com/hrmsys/model/Role.hbm.xml</value>
+				<value>com/hrmsys/model/Salary.hbm.xml</value>
+				<value>com/hrmsys/model/JobChange.hbm.xml</value>
+				<value>com/hrmsys/model/User.hbm.xml</value>
+				<value>com/hrmsys/model/Job.hbm.xml</value>
+				<value>com/hrmsys/model/Department.hbm.xml</value>
+				<value>com/hrmsys/model/EncouragePunish.hbm.xml</value>
+				<value>com/hrmsys/model/Train.hbm.xml</value>
+				<value>com/hrmsys/model/TrainRecord.hbm.xml</value>
+				<value>com/hrmsys/model/Employee.hbm.xml</value>
+				<value>com/hrmsys/model/Menu.hbm.xml</value>
+				<value>com/hrmsys/model/Revenue.hbm.xml</value>
+				<value>com/hrmsys/model/Boon.hbm.xml</value>
+				<value>com/hrmsys/model/SalaryBasic.hbm.xml</value>
+				<value>com/hrmsys/model/Permission.hbm.xml</value>
+				<value>com/hrmsys/model/RolePermission.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 配置事务 begin -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="*" read-only="false" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="bussinessService"
+			expression="execution(public * com.hrmsys.service.*.*(..))" />
+		<aop:advisor pointcut-ref="bussinessService"
+			advice-ref="txAdvice" />
+	</aop:config>
+	<!-- 配置事务 end -->
+	
+	<!-- 引入其它文件 -->
+	<import resource="applicationContext-dao.xml"/>
+	<import resource="applicationContext-service.xml"/>
+	<import resource="applicationContext-action.xml"/>
+</beans>

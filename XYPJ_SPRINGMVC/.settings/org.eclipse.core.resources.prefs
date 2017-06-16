@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//WebRoot/header.jsp=UTF-8
+encoding//WebRoot/index.jsp=UTF-8
+encoding//WebRoot/login.jsp=UTF-8
+encoding//WebRoot/menu.jsp=UTF-8
+encoding//WebRoot/view/user/add.html=UTF-8
+encoding//WebRoot/view/user/list.html=UTF-8
+encoding//src/com/hisoft/xypj/common/bean/PageInfo.java=UTF-8
+encoding//src/com/hisoft/xypj/tool/ControlUtil.java=UTF-8
+encoding//src/com/hisoft/xypj/tool/HelpFunctions.java=UTF-8

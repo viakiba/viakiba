@@ -1,0 +1,14 @@
+#Sat Apr 30 15:53:52 CST 2011
+eclipse.preferences.version=1
+encoding//WebRoot/index.jsp=UTF-8
+encoding//WebRoot/js/myjs/department/deptInfo.js=UTF-8
+encoding//WebRoot/js/myjs/department/jobInfo.js=UTF-8
+encoding//WebRoot/js/myjs/employee/empAdd.js=UTF-8
+encoding//WebRoot/js/myjs/employee/empInfo.js=UTF-8
+encoding//WebRoot/js/myjs/login.js=UTF-8
+encoding//WebRoot/js/myjs/main.js=UTF-8
+encoding//WebRoot/jsp/department/deptInfo.jsp=UTF-8
+encoding//WebRoot/jsp/first.jsp=UTF-8
+encoding//resource/log4j.properties=UTF-8
+encoding//src/com/hrmsys/action/UserAction.java=UTF-8
+encoding/<project>=UTF-8

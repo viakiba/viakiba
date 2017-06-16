@@ -1,0 +1,87 @@
+.add{
+	background-image: url(../img/add.gif) !important;
+}
+.search{
+	background-image: url(../img/search.png) !important;
+}
+.delete{
+	background-image: url(../img/delete.png) !important;
+}
+.update{
+	background-image: url(../img/edit.png) !important;
+}
+.detail{
+	background-image: url(../img/detail.png) !important;
+}
+.all{
+	background-image: url(../img/all.png) !important;
+}
+.cancel{
+	background-image: url(../img/cancel.png) !important;
+}
+.save{
+	background-image: url(../img/save.gif) !important;
+}
+.main{
+	background-image: url(../img/tab/main.gif) !important;
+}
+.role{
+	background-image: url(../img/tab/role.png) !important;
+}
+.graph{
+	background-image: url(../img/tab/graph.png) !important;
+}
+.deptInfo{
+	background-image: url(../img/tab/deptInfo.gif) !important;
+}
+.job{
+	background-image: url(../img/tab/job.gif) !important;
+}
+.employee{
+	background-image: url(../img/tab/employee.png) !important;
+}
+.change{
+	background-image: url(../img/tab/change.png) !important;
+}
+.recruitment{
+	background-image: url(../img/tab/recruitment.gif) !important;
+}
+.train{
+	background-image: url(../img/tab/train.gif) !important;
+}
+.trainRecord{
+	background-image: url(../img/tab/trainRecord.png) !important;
+}
+.epunish{
+	background-image: url(../img/tab/epunish.gif) !important;
+}
+.revenue{
+	background-image: url(../img/tab/revenue.gif) !important;
+}
+.boon{
+	background-image: url(../img/tab/boon.gif) !important;
+}
+.config{
+	background-image: url(../img/tab/config.gif) !important;
+}
+.salaryAdd{
+	background-image: url(../img/tab/salaryAdd.gif) !important;
+}
+.salary{
+	background-image: url(../img/tab/salary.gif) !important;
+}
+.user{
+	background-image: url(../img/tab/user.gif) !important;
+}
+.userReport{
+	background-image: url(../img/tab/userReport.png) !important;
+}
+.userUpdate{
+	background-image: url(../img/tab/userUpdate.gif) !important;
+}
+.money{
+	background-image: url(../img/tab/money.png) !important;
+}
+#author{
+	text-align: center;
+}

@@ -1,0 +1,90 @@
+package com.hisoft.xypj.login.action;
+
+import java.util.List;
+
+import com.hisoft.xypj.login.bean.UserInfo;
+import com.hisoft.xypj.login.service.UserInfoService;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class LoginAction extends ActionSupport{
+
+    /**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = 5345615269342419254L;
+
+
+sadfasdfasdf
+
+	/**
+	 * UserInfoService
+	 */
+	private UserInfoService service = null;
+	
+	// 用户信息
+	private UserInfo user = null;
+	
+	// 用户信息
+	private List<UserInfo> userList = null;
+	
+	/**
+	 * @param service the service to set
+	 */
+	public void setService(UserInfoService service) {
+		this.service = service;
+	}
+
+
+	/**
+	 * @return the user
+	 */
+	public UserInfo getUser() {
+		return user;
+	}
+
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(UserInfo user) {
+		this.user = user;
+	}
+	
+	
+    /**
+	 * @return the userList
+	 */
+	public List<UserInfo> getUserList() {
+		return userList;
+	}
+
+
+	/**
+	 * @param userList the userList to set
+	 */
+	public void setUserList(List<UserInfo> userList) {
+		this.userList = userList;
+	}
+
+
+	/* (non-Javadoc)
+     * @see com.opensymphony.xwork2.ActionSupport#execute()
+     */
+    public String execute() throws Exception {
+        // TODO Auto-generated method stub
+        
+    	UserInfo u = service.getUserInfo(user);
+
+    	if (null != u) {
+    		userList = service.getUserInfoList(u);
+    	} else {
+    		return "error"
+
+
+E:\xypj\06_政府招投标采购领域信用评估\03_Souce\XYPJE:\xypj\06_政府招投标采购领域信用评估\03_Souce\XYPJ;
+    	}
+    	
+    	System.out.println(user.getUserId());
+        return "success" ; 
+    }
+}

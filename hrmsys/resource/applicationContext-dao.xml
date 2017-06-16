@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<bean id="baseDAO" class="com.hrmsys.dao.impl.BaseDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="recruitmentDAO" class="com.hrmsys.dao.impl.RecruitmentDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="roleDAO" class="com.hrmsys.dao.impl.RoleDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="salaryDAO" class="com.hrmsys.dao.impl.SalaryDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="jobChangeDAO" class="com.hrmsys.dao.impl.JobChangeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="userDAO" class="com.hrmsys.dao.impl.UserDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="jobDAO" class="com.hrmsys.dao.impl.JobDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="departmentDAO" class="com.hrmsys.dao.impl.DepartmentDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="encouragePunishDAO"
+		class="com.hrmsys.dao.impl.EncouragePunishDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="trainDAO" class="com.hrmsys.dao.impl.TrainDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tRecordDAO" class="com.hrmsys.dao.impl.TrainRecordDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="employeeDAO" class="com.hrmsys.dao.impl.EmployeeDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="menuDAO" class="com.hrmsys.dao.impl.MenuDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="revenueDAO" class="com.hrmsys.dao.impl.RevenueDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="boonDAO" class="com.hrmsys.dao.impl.BoonDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="salaryBasicDAO" class="com.hrmsys.dao.impl.SalaryBasicDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="permissionDAO" class="com.hrmsys.dao.impl.PermissionDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="rolePermissionDAO" class="com.hrmsys.dao.impl.RolePermissionDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+</beans>

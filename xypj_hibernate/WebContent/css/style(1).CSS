@@ -1,0 +1,93 @@
+BODY
+{
+	FONT-SIZE: 100%;
+	FONT-FAMILY: "ËÎÌו";
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+TD
+{
+    FONT-SIZE: 11pt;
+    LINE-HEIGHT: 18pt
+}
+P
+{
+    FONT-SIZE: 11pt;
+    LINE-HEIGHT: 18pt
+}
+LI
+{
+    FONT-SIZE: 11pt;
+    LINE-HEIGHT: 18pt;
+    TEXT-ALIGN: center
+}
+BigFont
+{
+    FONT-SIZE: 11pt
+}
+SELECT.smallselsect
+{
+    FONT-SIZE: 11pt;
+    COLOR: #000080
+}
+INPUT.smallInput
+{
+    BORDER-TOP-WIDTH: 1px;
+    FONT-WEIGHT: normal;
+    BORDER-LEFT-WIDTH: 1px;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT-COLOR: black;
+    BORDER-BOTTOM-WIDTH: 1px;
+    BORDER-BOTTOM-COLOR: #000000;
+    COLOR: #000000;
+    BORDER-TOP-COLOR: black;
+    LINE-HEIGHT: normal;
+    FONT-STYLE: normal;
+    HEIGHT: 18px;
+    BACKGROUND-COLOR: #ffffff;
+    BORDER-RIGHT-WIDTH: 1px;
+    FONT-VARIANT: normal;
+    BORDER-RIGHT-COLOR: #000000
+}
+TEXTAREA.smallarea
+{
+    FONT-SIZE: 9pt;
+    COLOR: #000080;
+    LINE-HEIGHT: 18pt;
+    BACKGROUND-COLOR: white
+}
+INPUT.buttonface
+{
+    BORDER-TOP-WIDTH: 1px;
+    FONT-WEIGHT: normal;
+    BORDER-LEFT-WIDTH: 1px;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT-COLOR: black;
+    BORDER-BOTTOM-WIDTH: 1px;
+    BORDER-BOTTOM-COLOR: #000000;
+    COLOR: #000000;
+    BORDER-TOP-COLOR: black;
+    LINE-HEIGHT: normal;
+    FONT-STYLE: normal;
+    HEIGHT: 18px;
+    BACKGROUND-COLOR: #ffffff;
+    BORDER-RIGHT-WIDTH: 1px;
+    FONT-VARIANT: normal;
+    BORDER-RIGHT-COLOR: #000000
+}
+A
+{
+    COLOR: navy;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    COLOR: #ff0000;
+    TEXT-DECORATION: underline
+}
+TD.cls3
+{
+    BORDER-BOTTOM: #ffb811 2px solid
+}

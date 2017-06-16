@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<!-- follow is action bean -->
+	<bean id="userAction" class="com.hrmsys.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService"/>
+	</bean>
+	<bean id="menuAction" class="com.hrmsys.action.MenuAction" scope="prototype">
+		<property name="menuService" ref="menuService"/>
+	</bean>
+	<bean id="deptAction" class="com.hrmsys.action.DeptAction" scope="prototype">
+		<property name="deptService" ref="deptService"/>
+	</bean>
+	<bean id="jobAction" class="com.hrmsys.action.JobAction" scope="prototype">
+		<property name="jobService" ref="jobService"/>
+	</bean>
+	<bean id="empAction" class="com.hrmsys.action.EmpAction" scope="prototype">
+		<property name="empService" ref="empService"/>
+	</bean>
+	<bean id="recruitmentAction" class="com.hrmsys.action.RecruitmentAction" scope="prototype">
+		<property name="recruitmentService" ref="recruitmentService"/>
+	</bean>
+	<bean id="jobChangeAction" class="com.hrmsys.action.JobChangeAction" scope="prototype">
+		<property name="jobChangeService" ref="jobChangeService"/>
+	</bean>
+	<bean id="tRecordAction" class="com.hrmsys.action.TrainRecordAction" scope="prototype">
+		<property name="tRecordService" ref="tRecordService"/>
+	</bean>
+	<bean id="trainAction" class="com.hrmsys.action.TrainAction" scope="prototype">
+		<property name="trainService" ref="trainService"/>
+	</bean>
+	<bean id="ePunishAction" class="com.hrmsys.action.EncouragePunishAction" scope="prototype">
+		<property name="ePunishService" ref="ePunishService"/>
+	</bean>
+	<bean id="revenueAction" class="com.hrmsys.action.RevenueAction" scope="prototype">
+		<property name="revenueService" ref="revenueService"/>
+	</bean>
+	<bean id="boonAction" class="com.hrmsys.action.BoonAction" scope="prototype">
+		<property name="boonService" ref="boonService"/>
+	</bean>
+	<bean id="salaryBasicAction" class="com.hrmsys.action.SalaryBasicAction" scope="prototype">
+		<property name="salaryBasicService" ref="salaryBasicService"/>
+	</bean>
+	<bean id="salaryAction" class="com.hrmsys.action.SalaryAction" scope="prototype">
+		<property name="salaryService" ref="salaryService"/>
+	</bean>
+	<bean id="permissionAction" class="com.hrmsys.action.PermissionAction" scope="prototype">
+		<property name="permissionService" ref="permissionService"/>
+		<property name="menuService" ref="menuService"/>
+	</bean>
+	<bean id="rolePermissionAction" class="com.hrmsys.action.RolePermissionAction" scope="prototype">
+		<property name="rolePerService" ref="rolePermissionService"/>
+	</bean>
+	<bean id="roleAction" class="com.hrmsys.action.RoleAction" scope="prototype">
+		<property name="roleService" ref="roleService"/>
+	</bean>
+</beans>

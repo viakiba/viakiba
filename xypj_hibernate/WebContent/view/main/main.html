@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta http-equiv="cache-control" content="no-cache"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>-首页</title>
+
+	<style type="text/css">
+		@-ms-viewport{ width: device-width; }
+		body{overflow: hidden;}
+		.panel{margin-bottom: 0 !important;}
+		.panel-body{padding: 6px !important;}
+		.modal-body{overflow-y: auto;overflow-x:hidden; }
+		.modal-footer{margin-top: 0 !important;}
+	</style>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="${path!}/script/bootcss/3.2.0/css/bootstrap.css">
+    <!-- 管理平台样式 -->
+	<link rel="stylesheet" href="${path!}/theme/css/public/dashboard.css">
+	
+    <script src="${path!}/script/assets/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="${path!}/script/assets/html5shiv.min.js"></script>
+      <script src="${path!}/script/assets/respond.min.js"></script>
+    <![endif]-->
+    
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand glyphicon-cloud" href="${path!}/index.do">云三维可视化管理平台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+<!--             <li><a href="#">消息</a></li> -->
+<!--             <li><a href="#">设置</a></li> -->
+			<li><a href="#" onclick="changePwd(${ub.userId})" id="editSecret"><span class="glyphicon glyphicon-pencil">修改密码</span></a></li> 
+            <li><a href="${path!}/logout.do"><span class="glyphicon glyphicon-off">&nbsp;退出</span></a></li>
+<!--             <li><a href="#"><font id="tour-test3">帮助</font></a></li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 dashbord-sidebar">
+          <ul class="nav nav-sidebar metisFolder">
+			  <li>
+			    <a href="#">
+			    	<span class="glyphicon glyphicon-cloud"></span>  &nbsp;
+			    	系统管理
+			    	<span class="glyphicon arrow"></span>
+				</a>
+			    <ul>
+			    	 <li>
+			    	 	<a href="${path!}/user/toList.do">
+                          <span class="glyphicon glyphicon-cloud"></span>  &nbsp;
+                        	用户管理
+                        </a>
+                     </li>
+                     <li>
+			    	 	<a href="${path!}/ModelManager/toList.do">
+                        	<span class="glyphicon glyphicon-cloud"></span>  &nbsp;
+							模型管理
+                        </a>
+                     </li>
+                     <li>
+				    	 <a href="${path!}/hello.do">
+	                       <span class="glyphicon glyphicon-cloud"></span>  &nbsp;
+							场景管理
+	                     </a>
+                     </li>
+			    </ul>
+			  </li>
+          </ul>
+        </div>
+        <!-- 内容区 -->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 dashbord-main" id="contentAreaDiv">
+        	<h1>内容区</h1>
+        </div>  
+    </div>
+    </div>
+  </body>
+<!-- JavaScript================================================== -->
+<!-- 放到文档最后，页面加载更快 -->
+<!-- jquery -->
+<script type="text/javascript" src="${path!}/script/jquery-1.10.2.min.js"></script>
+<!-- bootstrap -->
+<script type="text/javascript" src="${path!}/script/bootcss/3.2.0/js/bootstrap.min.js"></script>
+<!-- <script src="${path!}/script/assets/docs.min.js"></script> -->
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="${path!}/script/assets/ie10-viewport-bug-workaround.js"></script>
+<!-- 菜单 -->
+<link rel="stylesheet" href="${path!}/script/metisMenu/metisMenu.css">
+<script src="${path!}/script/metisMenu/metisMenu.js"></script>
+<!-- jquery form -->
+<script type="text/javascript" src="${path!}/script/form/jquery.form.js"></script>
+<!-- 数据表格 -->
+<link rel="stylesheet" href="${path!}/script/dataTables/css/DT_bootstrap.css">
+<script type="text/javascript" src="${path!}/script/dataTables/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="${path!}/script/dataTables/js/DT_bootstrap.js"></script>
+<!-- 输入框占位符 -->
+<script type="text/javascript" src="${path!}/script/placeholder/placeholder.js"></script>
+<!-- 弹出框 -->
+<script type="text/javascript" src="${path!}/script/bootbox/bootbox.js"></script>
+<!-- 输入验证 -->
+<script type="text/javascript" src="${path!}/script/validate/validation.js"></script>
+<!-- 消息提醒 -->
+<link rel="stylesheet" href="${path!}/script/messenger/css/messenger.css">
+<link rel="stylesheet" href="${path!}/script/messenger/css/messenger-theme-air.css">
+<script type="text/javascript" src="${path!}/script/messenger/js/messenger.min.js"></script>
+
+<!-- 日期选择框 -->
+<link rel="stylesheet" href="${path!}/script/datepicker/css/datepicker.css">
+<script type="text/javascript" src="${path!}/script/datepicker/js/bootstrap-datepicker.js"></script>
+
+<!-- 时间选择框 -->
+<link rel="stylesheet" href="${path!}/script/timepicker/bootstrap-timepicker.min.css">
+<script type="text/javascript" src="${path!}/script/timepicker/bootstrap-timepicker.js"></script>
+
+<!-- 时间段选择框 -->
+<link rel="stylesheet" href="${path!}/script/daterangepicker/daterangepicker-bs2.css">
+<script type="text/javascript" src="${path!}/script/daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="${path!}/script/daterangepicker/daterangepicker.js"></script>
+
+<!-- 下拉选择框 -->
+<link type="text/css" rel="stylesheet" href="${path!}/script/selectBoxIt/jquery.selectBoxIt.css" />
+<script type="text/javascript" src="${path!}/script/jquery-ui/jquery-ui-widget.min.js"></script>
+<script type="text/javascript" src="${path!}/script/selectBoxIt/jquery.selectBoxIt.min.js"></script>
+
+<!-- 多选下拉框 -->
+<link type="text/css" rel="stylesheet" href="${path!}/script/multiselect/bootstrap-multiselect.css" />
+<script type="text/javascript" src="${path!}/script/multiselect/bootstrap-multiselect.js"></script>
+
+<!-- 日历 -->
+<link type="text/css" rel="stylesheet" href="${path!}/script/fullcalendar/fullcalendar.min.css" />
+<link type="text/css" rel="stylesheet" href="${path!}/script/fullcalendar/fullcalendar.print.css" media='print'/>
+<script type="text/javascript" src="${path!}/script/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="${path!}/script/fullcalendar/lang/zh-cn.js"></script>
+
+<!-- 时间线 -->
+<link type="text/css" rel="stylesheet" href="${path!}/script/timeline/timeline.css" />
+
+<!-- 聊天 -->
+<link type="text/css" rel="stylesheet" href="${path!}/script/chats/chats.css"/>
+
+<!-- wizard表单引导 -->
+<link rel="stylesheet" href="${path!}/script/wizard/wizard.css">
+<script type="text/javascript" src="${path!}/script/wizard/wizard.js"></script>
+
+<!-- Bootstrap Tour 快速构建产品介绍的Bootstrap提示框-->
+<link rel="stylesheet" href="${path!}/script/tour/css/bootstrap-tour.min.css" rel="stylesheet">
+<script type="text/javascript" src="${path!}/script/tour/js/bootstrap-tour.js"></script>
+
+<!-- ip输入控制 -->
+<script type="text/javascript" src="${path!}/script/inputmask/jquery.input-ip-address-control-1.0.js"></script>
+<!-- 其他输入控制 -->
+<script type="text/javascript" src="${path!}/script/inputmask/jquery.inputmask.js"></script>
+
+<!-- ON/OFF切换组件 -->
+<link rel="stylesheet" href="${path!}/script/switch/css/bootstrap-switch.min.css">
+<script type="text/javascript" src="${path!}/script/switch/js/bootstrap-switch.min.js"></script>
+
+<!-- 双重列表框组件（左右栏内容移动） -->
+<link rel="stylesheet" href="${path!}/script/duallistbox/bootstrap-duallistbox.min.css">
+<script type="text/javascript" src="${path!}/script/duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+
+<!-- 上传 -->
+<link rel="stylesheet" href="${path!}/script/fileupload/css/jquery.fileupload.css">
+<script type="text/javascript" src="${path!}/script/fileupload/js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="${path!}/script/fileupload/js/jquery.iframe-transport.js"></script>
+
+<!-- 图片展示 -->
+<link rel="stylesheet" href="${path!}/script/lightbox/bootstrap-lightbox.css">
+<script type="text/javascript" src="${path!}/script/lightbox/bootstrap-lightbox.js"></script>
+
+<!-- chart图表 -->
+<script type="text/javascript" src="${path!}/script/chart/Chart.js"></script>
+
+<!--富文本编辑器  -->
+<link rel="stylesheet" href="${path!}/script/kindeditor/4.1.10/themes/default/default.css" />
+<script charset="utf-8" src="${path!}/script/kindeditor/4.1.10/kindeditor-min.js"></script>
+<script charset="utf-8" src="${path!}/script/kindeditor/4.1.10/lang/zh_CN.js"></script>
+
+<script charset="utf-8" src="${path!}/script/uploadPreview.js"></script>
+
+<script type="text/javascript">
+
+//所有的ajax请求在sesstion超时的时候都自动跳转到登录页面
+$.ajaxSetup({
+	global: false,
+	complete:function(xhr, ts) {
+		if(xhr.status == 200) {
+			return;
+		}
+		
+		if(xhr.status === 500) {//500错误信息，后台异常
+			bootbox.alert('500:服务器内部错误');
+		} else if(xhr.status === 404) {//404错误
+			bootbox.alert('404:找不到页面');
+		} else if(xhr.status === 403) {//403错误
+			bootbox.alert('403:无权限访问');			
+		} else if(xhr.status === 666) {
+			//sessionTimeOut.jsp页面做过处理:response.setStatus(666);
+			var result = eval("(" + xhr.responseText + ")");
+			console.debug(result);
+			if(result.flag == 5) {//session超时
+				bootbox.alert(result.msg, function() {
+					top.location.href = "${path!}/login.do";
+				});
+			}
+		}
+	}
+});
+
+$(function(){
+	$('.metisFolder').metisMenu({});
+	placeholder();
+	
+	//TODO zxq 李博，在metisMenu.js中有代码$(obj.settings.loadPageContainer).load(href, null, function(response, status, xhr){
+	//负责打开子页面，在href后增加random即可，但是需要判断href是否已有参数,添加参数时可能是？random=也可能是&random=
+	//$('.menuLink').click(function(){
+		//var random = 'a' + Math.random()*100;
+		//random = random.substr(0,3);
+		//var url = $(this).attr('menuUrl') + "?random=" + random;
+		//var url = $(this).attr('menuUrl');
+		//$('.dashbord-main').load(url);
+	//});
+	
+	//默认首页内容区为选中第一部分的第一项
+	if($('.menuLink:first')){
+		$('.menuLink:first').parent().parent().prev().trigger('click');	
+		$('.menuLink:first').trigger('click');
+	}
+
+});
+	
+function changePwd(i){
+	ChangePwdDialog=bootbox.extDialog({
+		load:"${path!}/toChangePwd.do?loginUserId=" + i,
+		title: "修改登录密码",
+		width: 500,
+		height: 180,
+		buttons: {
+			success: {
+				label: "保存",
+				className: "btn-success",
+				callback: function() {
+					$("#chagePwd_form").ajaxSubmit({
+						url: "${path!}/changePwd.do",
+						type: "post",
+						beforeSubmit: function(formData, jqForm, options) {
+							var valid = jqForm.validate();
+							if(valid) {
+								loadingDialog = bootbox.loading("正在提交...");
+							}
+							return valid;
+						},
+						timeout: 6000,
+						success:function(response, status, xhr){
+								bootbox.hide(loadingDialog);
+								Messenger({extraClasses: 'messenger-fixed messenger-on-top'}).post({
+									message: response.message,
+									type: 'success',
+									hideAfter: 2
+								});
+								bootbox.hide(ChangePwdDialog);
+						}
+					});
+					return false;
+				}
+			},
+			danger: {
+				label: "取消",
+				className: "btn-danger"
+			}
+		}
+	});
+}
+</script>
+</html>

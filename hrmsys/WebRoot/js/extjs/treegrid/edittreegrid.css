@@ -1,0 +1,150 @@
+/*!
+ * Ext.ux.tree.EditTreeGrid v1.2
+ */
+/*
+ * Ext.grid.RowEditor CSS
+ */
+.ext-ie .x-row-editor .x-form-text {
+    margin:0 !important; 
+}
+.x-row-editor-header {
+    height:2px;
+    overflow:hidden;
+    background: transparent url(row-editor-bg.gif) repeat-x 0 0;
+}
+.x-row-editor-footer {
+    height:2px;
+    overflow:hidden;
+    background: transparent url(row-editor-bg.gif) repeat-x 0 -2px;
+}
+.ext-ie .x-row-editor-footer {
+    margin-top:-1px;
+}
+
+.x-row-editor-body {
+    overflow:hidden;
+    zoom:1;
+    background: #ebf2fb;
+    padding-top:2px;
+}
+.x-row-editor .x-btns {
+    position:absolute;
+    top:28px;
+    left:20px;
+    padding-left:5px;
+    background: transparent url(row-editor-btns.gif) no-repeat 0 0;
+}
+.x-row-editor .x-btns .x-plain-bwrap {
+    padding-right:5px;
+    background: transparent url(row-editor-btns.gif) no-repeat right -31px;
+}
+.x-row-editor .x-btns .x-plain-body {
+    background: transparent url(row-editor-btns.gif) repeat-x 0 -62px;
+    height:31px;
+}
+.x-row-editor .x-btns .x-table-layout-cell {
+    padding:3px;
+}
+
+/* Fixes for IE6/7 trigger fields */
+.ext-ie6 .x-row-editor .x-form-field-wrap .x-form-trigger, .ext-ie7 .x-row-editor .x-form-field-wrap .x-form-trigger {
+  top: 1px;
+}
+
+.ext-ie6 .x-row-editor .x-form-field-trigger-wrap, .ext-ie7 .x-row-editor .x-form-field-trigger-wrap {
+  margin-top: -1px;
+}
+
+.errorTip .x-tip-body ul{
+    list-style-type:disc;
+    margin-left:15px;
+}
+
+/*
+ * Ext.ux.tree.TreeGrid CSS
+ */
+.x-treegrid-root-table {
+	border-right: 1px solid;
+}
+
+.x-treegrid-root-node {
+	overflow: auto;
+}
+
+.x-treegrid-hd-hidden {
+	visibility: hidden;
+	border: 0;
+	width: 0;
+}
+
+.x-treegrid-col {
+	border-bottom: 1px solid;
+	height: 20px;
+	overflow: hidden;
+	vertical-align: top;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.x-treegrid-text {
+	padding-left: 4px;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+}
+
+.x-treegrid-resizer {
+	border-left: 1px solid;
+	border-right: 1px solid;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.x-treegrid-header-inner {
+	overflow: hidden;
+}
+
+.x-treegrid-root-table,.x-treegrid-col {
+	border-color: #ededed;
+}
+
+.x-treegrid-resizer {
+	border-left-color: #555;
+	border-right-color: #555;
+}
+
+/*
+ * Ext.ux.tree.EditTreeGrid CSS
+ */
+.x-treegrid-button .x-toolbar {
+	border: 0px solid;
+	background: url() !important;
+	padding: 0px 0px;
+}
+
+.x-treegrid-button-item {
+	float: left;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+}
+
+.x-treegrid-button-upgrade {
+	background-image: url(arrow_up.gif) !important;
+}
+
+.x-treegrid-button-degrade {
+	background-image: url(arrow_down.gif) !important;
+}
+
+.x-treegrid-button-add {
+	background-image: url(add.png) !important;
+}
+
+.x-treegrid-button-edit {
+	background-image: url(application_form_edit.png) !important;
+}
+
+.x-treegrid-button-remove {
+	background-image: url(remove.png) !important;
+}

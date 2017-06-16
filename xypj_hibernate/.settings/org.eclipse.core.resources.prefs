@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//WebContent/view/cjgl/modelconfig/list.html=UTF-8
+encoding//WebContent/view/cjgl/modelconfig/toEdit.html=UTF-8
+encoding//WebContent/view/cjgl/modelmanager/list.html=UTF-8
+encoding//WebContent/view/user/add.html=UTF-8
+encoding//WebContent/view/user/list.html=UTF-8
+encoding//src/com/tdvm/base/UpdateConst.java=UTF-8
+encoding//src/com/tdvm/bean/PageInfo.java=UTF-8
+encoding//src/com/tdvm/cjgl/bean/UserBean.java=UTF-8
+encoding//src/com/tdvm/cjgl/control/LoginControl.java=UTF-8
+encoding//src/com/tdvm/tool/ComparatorFileModifyTime.java=UTF-8
+encoding//src/com/tdvm/tool/ControlUtil.java=UTF-8
+encoding//src/com/tdvm/tool/HelpFunctions.java=UTF-8
+encoding/<project>=UTF-8

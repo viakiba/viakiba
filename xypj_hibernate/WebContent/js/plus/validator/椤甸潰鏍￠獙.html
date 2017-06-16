@@ -1,0 +1,189 @@
+<html>
+<head>
+<title>页面校验</title>
+<style type="text/css">
+body,td{
+	color: #333333;
+	font: normal 12px Verdana;
+}
+
+form{
+	display: inline;
+}
+
+input{
+	height: 20px;
+}
+
+input,textarea,select,td{
+	background: #FFFFFF;
+	border: 1px solid #999999;
+	color: #333333;
+	font: normal 12px Verdana;
+}
+
+table{
+	border-collapse: collapse;
+}
+
+td{
+	padding: 3px;
+}
+
+textarea{
+	height: 50px;
+	overflow: auto;
+	width: 80%;
+}
+</style>
+<script type="text/javascript" src="validator.js" charset="utf-8"></script>
+<script language="javascript">
+      function checkform(form) {
+           // @param {form} 表单form对象，如果只有一个form可通过document.forms[0]来取得该form对象
+           // @param {mode} : 校验模式，目前支持三种模式,具体值及涵义如下:
+           //				   不传 : 则以alert方式弹出校验提示信息
+          //				   2   : 以alert方式弹出校验提示信息,同时对select和textare标签内的字体红色显示
+           //				   3   : 则在相应的校验项右边以红色字体进行提示 
+           // @return boolean : true,通过校验; false:校验失败,并按照校验模式,给出不同的提示信息
+          return Validator.Validate(form,2);
+      }
+</script>
+</head>
+<body>
+<H1>——Validator对象校验组件</H1>
+<H4>Validator对象校验组件使用说明</H4>
+<pre>
+
+Validator对象主要用于页面级校验,开发人员可根据需要通过 
+
+&ltscript type="text/javascript" src="Validator.js"&gt;&lt/script&gt;
+
+方式将该js引入到相应的页面,通过在需校验的HTML标签上定义一些扩展属性即可,在Form提交事件中像如下方式调用来进行表单校验：
+
+&ltscript language="javascript"&gt;
+     function checkform(form) {
+       //@param {form} 表单form对象，如果只有一个form可document.forms[0]来取得该form对象
+       //@param {mode} : 校验模式，目前支持三种模式,具体值及涵义如下:
+                   2   : 以alert方式弹出校验提示信息,同时对select和textare标签内的字体红色显示
+                   3   : 则在相应的校验项右边以红色字体进行提示
+                      不传 : 则以alert方式弹出校验提示信息 
+      //@return boolean : true,通过校验; false:校验失败,并按照校验模式,给出不同的提示信息
+         return Validator.Validate(form,2);
+     }
+&lt/script&gt;
+
+该组件的调用还需要对需要校验的页面元素添加一些扩展属性，这些扩展属性有：
+
+require, dataType, msg, to, regexp, format, min, max, accept, operator，具体解释如下：
+request : 用来指定元素是否必输项，是和dataType配合使用
+           如果不指定，则默认为true，在表单提交时根据dataType进行校验；
+		  如果指定为false，则表示该项为非必输项，只有输入有值才根据dataType进行校验，否则不进行校验
+dataType : 指定校验的类型，目前支持的数据校验类型有：
+           IdCard | Chinese | Username | English | Url | SafeString | Repeat | Email | QQ | Range | Compare | Phone | Mobile | Date | Custom | Zip | Require | Group | Limit | LimitB | Filter
+             其中：dataType="Require"主要针对select进行校验，要求必须选择一项
+                dataType="Group"主要针对radio和checkbox进行分组校验
+                dataType="Username"主要真对用户名，其校验规则是第一个字符必须为a-z中的任意一个字符,后边必须是三个或者三个以上包括下划线的任何单词字符
+                dataType="SafeString"主要对密码的安全度进行校验
+                dataType="Chinese"主要校验是否中文
+                  其他dataType可参考对应的实例。
+ msg      : 提示信息
+ to       : 目标值或页面元素名称，当和dataType="Repeat"配合使用时，to指定目标元素的名称；当和dataType="Compare"配合使用时，to指定目标值
+ regexp  : 正则表达式，必须和Custom配合使用，当dataType指定为Custom时，将自动根据regexp指定的正则表达式来进行校验
+ format  : 和dataType="Date"配合使用，主要对日期进行格式化，目前支持两种格式ymd、dmy
+ min   : 和dataType="Group"、dataType="Limit"、dataType="LimitB"、dataType="Range"配合使用,分别指定对应类型的下限
+ max  : 和dataType="Group"、dataType="Limit"、dataType="LimitB"、dataType="Range"配合使用,分别指定对应类型的上限
+ accept :  和dataType="Filter"配合使用，指定过滤的文件扩展名，如accept="jpg, gif, png"，表示只支持三种类型文件的上传
+ operator : 和dataType="Compare"配合使用，指定比较方式。目前支持：NotEqual、GreaterThan、GreaterThanEqual、LessThan、LessThanEqual比较，如果不指定默认为是否相等比较
+
+页面调用，对应标签如：
+身份证号：&ltinput name="Card" dataType="IdCard" msg="身份证号错误"&gt;
+该对象同时具有良好的扩展性，可根据需要进行注册不同的校验方式或者通过自己写正则表达式来进行校验，如：
+    邮政编码：&ltinput name="Zip" dataType="Custom" regexp="^[1-9]\d{5}$" msg="邮政编码不存在"&gt;
+</pre>
+<H4>示例</H4>
+
+<P>下面的示例演示了 <B>Validator对象校验</B> 组件的用法。</P>
+
+  <form name="theForm" id="demo" method="get" onSubmit="checkform(this)">
+  <table align="left">
+  <tr>
+   <td>身份证号：</td><td><input name="Card" dataType="IdCard" msg="身份证号错误"></td>
+  </tr>
+    <tr>
+   <td>真实姓名：</td><td><input name="Name" dataType="Chinese" msg="真实姓名只允许中文"></td>
+  </tr>
+  <tr>
+   <td>ID：</td><td><input name="username" dataType="Username" msg="ID名不符合规定"></td>
+  </tr>
+  <tr>
+   <td>英文名：</td><td><input name="Nick" dataType="English" require="false" msg="英文名只允许英文字母"></td>
+  </tr>
+    <tr>
+   <td>主页：</td><td><input name="Homepage" require="false" dataType="Url"   msg="非法的Url"></td>
+  </tr>
+  <tr>
+   <td>密码：</td><td><input name="Password" dataType="SafeString"   msg="密码不符合安全规则" type="password"></td>
+  </tr>
+  <tr>
+   <td>重复：</td><td><input name="Repeat" dataType="Repeat" to="Password" msg="两次输入的密码不一致" type="password"></td>
+  </tr>
+  <tr>
+   <td>信箱：</td><td><input name="Email" dataType="Email" msg="信箱格式不正确"></td>
+  </tr>
+    <tr>
+   <td>信箱：</td><td><input name="Email" dataType="Repeat" to="Email" msg="两次输入的信箱不一致"></td>
+  </tr>
+  <tr>
+   <td>QQ：</td><td><input name="QQ" require="false" dataType="QQ" msg="QQ号码不存在"></td>
+  </tr>
+    <tr>
+   <td>身份证：</td><td><input name="Card" dataType="IdCard" msg="身份证号码不正确"></td>
+  </tr>
+  <tr>
+   <td>年龄：</td><td><input name="Year" dataType="Range" msg="年龄必须在18~28之间" min="18" max="28"></td>
+  </tr>
+   <tr>
+   <td>年龄1：</td><td><input name="Year1" require="false" dataType="Compare" msg="年龄必须在18以上" to="18" operator="GreaterThanEqual"></td>
+  </tr>
+   <tr>
+   <td>电话：</td><td><input name="Phone" require="false" dataType="Phone" msg="电话号码不正确"></td>
+  </tr>
+   <tr>
+   <td>手机：</td><td><input name="Mobile" require="false" dataType="Mobile" msg="手机号码不正确"></td>
+  </tr>
+     <tr>
+   <td>生日：</td><td><input name="Birthday" dataType="Date" format="ymd" msg="生日日期不存在"></td>
+  </tr>
+   <tr>
+   <td>邮政编码：</td><td><input name="Zip" dataType="Custom" regexp="^[1-9]\d{5}$" msg="邮政编码不存在"></td>
+  </tr>
+  <tr>
+   <td>邮政编码：</td><td><input name="Zip1" dataType="Zip" msg="邮政编码不存在"></td>
+  </tr>
+  <tr>
+   <td>操作系统：</td><td><select name="Operation" dataType="Require"  msg="未选择所用操作系统" ><option value="">选择您所用的操作系统</option><option value="Win98">Win98</option><option value="Win2k">Win2k</option><option value="WinXP">WinXP</option></select></td>
+  </tr>
+  <tr>
+   <td>所在省份：</td><td>广东<input name="Province" value="1" type="radio">陕西<input name="Province" value="2" type="radio">浙江<input name="Province" value="3" type="radio">江西<input name="Province" value="4" type="radio" dataType="Group"  msg="必须选定一个省份" ></td>
+  </tr>
+  <tr>
+   <td>爱好：</td><td>运动<input name="Favorite" value="1" type="checkbox">上网<input name="Favorite" value="2" type="checkbox">听音乐<input name="Favorite" value="3" type="checkbox">看书<input name="Favorite" value="4" type="checkbox"" dataType="Group" min="2" max="3"  msg="必须选择2~3种爱好"></td>
+  </tr>
+  <tr>
+   <td>自我介绍：</td><td><textarea name="Description" dataType="Limit" max="10"  msg="自我介绍内容必须在10个字之内">中文是一个字</textarea></td>
+  </tr>
+  <tr>
+     <td>自传：</td><td><textarea name="History" dataType="LimitB" min="3" max="10"  msg="自传内容必须在[3,10]个字节之内">中文是两个字节t</textarea></td>
+  </tr>
+    <tr>
+   <td>相片上传：</td><td><input name="up" dataType="Filter" msg="非法的文件格式" type="file" accept="jpg, gif, png"></td>
+  </tr>
+  <tr>
+   <td colspan="2"><input name="Submit" type="submit" value="确定提交"><input onClick="Validator.Validate(document.getElementById('demo'))" value="检验模式1" type="button">
+   <input onClick="Validator.Validate(document.getElementById('demo'),2)" value="检验模式2" type="button">
+   <input onClick="Validator.Validate(document.getElementById('demo'),3)" value="检验模式3" type="button"></td>
+  </tr>
+ </table>
+ </form>
+</body>
+</html>

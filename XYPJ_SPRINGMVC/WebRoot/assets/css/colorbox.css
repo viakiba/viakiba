@@ -1,0 +1,175 @@
+/*
+    Colorbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none; -ms-interpolation-mode:bicubic;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+#colorbox, #cboxContent, #cboxLoadedContent{box-sizing:content-box; -moz-box-sizing:content-box; -webkit-box-sizing:content-box;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of Colorbox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay{background:url(images/overlay.png) repeat 0 0;}
+#colorbox{outline:0;}
+    #cboxTopLeft{width:21px; height:21px; background:url(images/controls.png) no-repeat -101px 0;}
+    #cboxTopRight{width:21px; height:21px; background:url(images/controls.png) no-repeat -130px 0;}
+    #cboxBottomLeft{width:21px; height:21px; background:url(images/controls.png) no-repeat -101px -29px;}
+    #cboxBottomRight{width:21px; height:21px; background:url(images/controls.png) no-repeat -130px -29px;}
+    #cboxMiddleLeft{width:21px; background:url(images/controls.png) left top repeat-y;}
+    #cboxMiddleRight{width:21px; background:url(images/controls.png) right top repeat-y;}
+    #cboxTopCenter{height:21px; background:url(images/border.png) 0 0 repeat-x;}
+    #cboxBottomCenter{height:21px; background:url(images/border.png) 0 -29px repeat-x;}
+    #cboxContent{background:#fff; overflow:hidden;}
+        .cboxIframe{background:#fff;}
+        #cboxError{padding:50px; border:1px solid #ccc;}
+        #cboxLoadedContent{margin-bottom:28px;}
+        #cboxTitle{position:absolute; bottom:4px; left:0; text-align:center; width:100%; color:#949494;}
+        #cboxCurrent{position:absolute; bottom:4px; left:58px; color:#949494;}
+        #cboxLoadingOverlay{background:url(images/loading_background.png) no-repeat center center;}
+        #cboxLoadingGraphic{background:url(images/loading.gif) no-repeat center center;}
+
+        /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+        #cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {border:0; padding:0; margin:0; overflow:visible; width:auto; background:none; }
+        
+        /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+        #cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {outline:0;}
+
+        #cboxSlideshow{position:absolute; bottom:4px; right:30px; color:#0092ef;}
+        #cboxPrevious{position:absolute; bottom:0; left:0; background:url(images/controls.png) no-repeat -75px 0; width:25px; height:25px; text-indent:-9999px;}
+        #cboxPrevious:hover{background-position:-75px -25px;}
+        #cboxNext{position:absolute; bottom:0; left:27px; background:url(images/controls.png) no-repeat -50px 0; width:25px; height:25px; text-indent:-9999px;}
+        #cboxNext:hover{background-position:-50px -25px;}
+        #cboxClose{position:absolute; bottom:0; right:0; background:url(images/controls.png) no-repeat -25px 0; width:25px; height:25px; text-indent:-9999px;}
+        #cboxClose:hover{background-position:-25px -25px;}
+
+/*
+  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to or needed in IE9.
+  See: http://jacklmoore.com/notes/ie-transparency-problems/
+*/
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+}
+
+
+
+
+@charset "UTF-8";
+/* rem */
+@media only screen and (max-width:1080px),only screen and (max-device-width:1080px){
+    html{font-size:33.75px;}
+}
+@media only screen and (max-width:960px),only screen and (max-device-width:960px){
+    html{font-size:30px;}
+}
+@media only screen and (max-width:800px),only screen and (max-device-width:800px){
+    html{font-size:25px;}
+}
+@media only screen and (max-width:720px),only screen and (max-device-width:720px){
+    html{font-size:22.5px;}
+}
+@media only screen and (max-width:640px),only screen and (max-device-width:640px){
+    html{font-size:20px;}
+}
+@media only screen and (max-width:600px),only screen and (max-device-width:600px){
+    html{font-size:18.75px;}
+}
+@media only screen and (max-width:540px),only screen and (max-device-width:540px){
+    html{font-size:16.875px;}
+}
+@media only screen and (max-width:480px),only screen and (max-device-width:480px){
+    html{font-size:15px;}
+}
+@media only screen and (max-width:414px),only screen and (max-device-width:414px){
+    html{font-size:12.9375px;}
+}
+@media only screen and (max-width:400px),only screen and (max-device-width:400px){
+    html{font-size:12.5px;}
+}
+@media only screen and (max-width:375px),only screen and (max-device-width:375px){
+    html{font-size:11.71875px;}
+}
+@media only screen and (max-width:360px),only screen and (max-device-width:360px){
+    html{font-size:11.25px;}
+}
+@media only screen and (max-width:320px),only screen and (max-device-width:320px){
+    html{font-size:10px;}
+}
+@media only screen and (max-width:320px) and (max-height:416px),only screen and (max-device-width:320px) and (max-device-height:480px){
+    html.narrow-screen{font-size:8.5px;}/* 窄屏 */
+}
+@media only screen and (max-width:240px),only screen and (max-device-width:240px){
+    html{font-size:7.5px;}
+}
+/* ============================================================
+   样式重置
+   ============================================================ */
+body,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,fieldset,legend,input,select,textarea,button,th,td{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+ul,dl,ol{list-style:none;}
+img,fieldset,input[type="submit"]{border:0 none;}
+img{display:inline-block;overflow:hidden;vertical-align:top;}
+em{font-style:normal;}
+strong{font-weight:normal;}
+table{border-collapse:collapse;border-spacing:0;}
+button,input[type="button"]{cursor:pointer;border:0 none;}
+textarea{word-wrap:break-word;resize:none;}  /* word-wrap for opera, resize for webkit */
+menu{margin:0;padding:0;}
+body{-webkit-user-select:none;-webkit-text-size-adjust:100%!important;font-family:Helvetica;}
+input[type="number"]{-webkit-user-select:text;}
+a,button,input,img{-webkit-touch-callout:none;}/* 1.ios 长按时不触发系统的菜�?2.禁止长按时下载图�?*/
+input,select,textarea{outline:none;}
+/* 去除android4.0以下 a/button/input标签被点击时产生的边�?因为边框引起了不少bug */
+a,button,input,label{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+/* Android4.0下不识别选择�?webkit-transform-3d 使用它可做Android4.0下版本兼�?*/
+@media all and (-webkit-transform-3d){
+    /* android4.0+ ios4+ 恢夁按钮被点击时产生的效�?*/
+    a,button,input,label{-webkit-tap-highlight-color:rgba(130,130,130,.52);outline: none;}
+}
+html,body{height:100%;margin: 0 auto;max-width: 640px;background-color: #eaeaee;}
+a{text-decoration:none;}
+.clear{clear:both;}
+.clearleft{float:left;display: inline;}
+.clearright{float:right;display: inline;}
+.hide{display: none!important;}
+
+
+.demo{
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #D5D5D6;
+	border-radius: 3px;
+	padding: 12px;
+	font-size: 20px;
+	color: #666;
+	text-align: center;
+}
+
+
+/* flex */
+.flex{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}
+.flex-v{-webkit-box-orient:vertical;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}
+.flex-1{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;}
+.flex-align-center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;}
+.flex-pack-center{-webkit-box-pack:center;-webkit-justify-content:flex-start;-ms-flex-pack:center;justify-content:flex-start;}
+.flex-pack-justify{-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}
+.flex-box { display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-moz-box-orient: horizontal;-webkit-box-orient: horizontal;-o-box-orient: horizontal;box-orient: horizontal;}
+/*遮罩*/
+.mask{position: fixed;width: 100%;height: 100%;left: 0;top: 0;bottom: 0;background-color: rgba(0,0,0,0.8);z-index: 999;}
+

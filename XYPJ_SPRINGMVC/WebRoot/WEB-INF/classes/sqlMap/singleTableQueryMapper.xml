@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="User">
+	<resultMap type="com.hisoft.xypj.common.bean.UserInfo" id="userInfo">
+		<result property="userId" column="userId" javaType="java.lang.Integer"
+			jdbcType="INTEGER" /><!-- 用户ID -->
+		<result property="userName" column="userName" javaType="java.lang.String"
+			jdbcType="VARCHAR" /><!-- 用户名 -->
+		<result property="userPassword" column="userPassword" javaType="java.lang.String"
+			jdbcType="CHAR" /><!-- 密码 -->
+		<result property="right" column="right" javaType="java.lang.String"
+			jdbcType="CHAR" /><!-- 权限（0：超级管理员，1：评审用户，2：评价机构负责人，3：评价机构职员） -->
+		<result property="mechanismId" column="mechanismId" javaType="java.lang.Integer"
+			jdbcType="INTEGER" /><!-- 所属机构ID，信用协会人员则为\'00000000\' -->
+		<result property="createUserId" column="createUserId" javaType="java.lang.Integer"
+			jdbcType="INTEGER" /><!-- 创建人 -->
+		<result property="createTime" column="createTime" javaType="java.util.Date"
+			jdbcType="TIMESTAMP" /><!-- 创建时间 -->
+		<result property="updateTime" column="updateTime" javaType="java.util.Date"
+			jdbcType="TIMESTAMP" /><!-- 更新时间 -->
+	</resultMap>
+
+
+	<!-- 删除用户页面的table -->
+	<resultMap type="com.hisoft.xypj.common.bean.DeleteUserBean"
+		id="deleteUser">
+		<result property="userId" column="userId" javaType="java.lang.Integer"
+			jdbcType="INTEGER" /><!-- 用户ID -->
+		<result property="userName" column="userName" javaType="java.lang.String"
+			jdbcType="VARCHAR" /><!-- 用户名 -->
+		<result property="mechanismName" column="mechanismName"
+			javaType="java.lang.String" jdbcType="VARCHAR" /><!-- 机构名称 -->
+		<result property="mechanismId" column="mechanismId" javaType="java.lang.Integer"
+			jdbcType="INTEGER" /><!-- 机构ID -->
+		<result property="right" column="right" javaType="java.lang.String"
+			jdbcType="CHAR" /><!-- 权限（0：超级管理员，1：评审用户，2：评价机构负责人，3：评价机构职员） -->
+	</resultMap>
+
+
+	<!-- 添加机构 -->
+	<resultMap type="com.hisoft.xypj.common.bean.Mechanism" id="Mechanism">
+		<result property="mechanismId" column="mechanismId" javaType="java.lang.Integer"
+			jdbcType="INTEGER" /><!-- 机构ID -->
+		<result property="mechanismName" column="mechanismName"
+			javaType="java.lang.String" jdbcType="VARCHAR" /><!-- 机构名称 -->
+		<result property="address" column="address" javaType="java.lang.String"
+			jdbcType="VARCHAR" /><!-- 机构地址 -->
+		<result property="telephone" column="telephone" javaType="java.lang.String"
+			jdbcType="VARCHAR" /><!-- 联系电话 -->
+		<result property="responsibleUserId" column="responsibleUserId"
+			javaType="java.lang.Integer" jdbcType="INTEGER" /><!-- 负责人ID -->
+		<result property="createUserId" column="createUserId" javaType="java.lang.Integer"
+			jdbcType="INTEGER" /><!-- 创建人ID -->
+		<result property="createTime" column="createTime" javaType="java.util.Date"
+			jdbcType="TIMESTAMP" /><!-- 创建时间 -->
+		<result property="updateTime" column="updateTime" javaType="java.util.Date"
+			jdbcType="TIMESTAMP" /><!-- 更新时间 -->
+	</resultMap>
+
+	<!-- 企业类型 -->
+<!-- 	<resultMap type="com.hisoft.xypj.common.bean.CompanyTypeBean" -->
+<!-- 		id="companyType"> -->
+<!-- 		<result property="companytypeId" column="companytypeId" -->
+<!-- 			javaType="java.lang.Integer" jdbcType="INTEGER" />企业类型ID -->
+<!-- 		<result property="companytype" column="companytype" javaType="java.lang.String" -->
+<!-- 			jdbcType="VARCHAR" />企业类型name -->
+<!-- 	</resultMap> -->
+
+	<!-- 登录 -->
+	<select id="getUserInfo" parameterType="com.hisoft.xypj.common.bean.UserInfo"
+		resultMap="userInfo">
+		select * from userinfo where userName=#{userName} and
+		userPassword=#{userPassword}
+	</select>
+	
+	<!-- 添加用户 -->
+	<select id="addUserInfo" parameterType="com.hisoft.xypj.common.bean.UserInfo"
+		resultType="int">
+		INSERT INTO userinfo (
+		userName,
+		userPassword,
+		`right`,
+		mechanismId,
+		createUserId
+		)
+		VALUES
+		(#{userName}, #{userPassword},
+		#{right},#{mechanismId},10001)
+	</select>
+	
+	<!-- 添加用户页面的下拉框（取机构id、name） -->
+	<select id="beforeAddUser" resultType="com.hisoft.xypj.common.bean.Mechanism">
+		SELECT
+		mechanismId,
+		mechanismName
+		FROM
+		mechanism
+	</select>
+	
+	<!-- 删除用户页面的table -->
+	<select id="getUMR" parameterType="com.hisoft.xypj.common.bean.UserInfo"
+		resultMap="deleteUser">
+		SELECT u.userName 'userName',u.userId 'userId',u.right
+		'right',m.mechanismName 'mechanismName',m.mechanismId 'mechanismId'
+		FROM mechanism AS m,userinfo as u
+		WHERE u.mechanismId = m.mechanismId
+		and u.right != '0';
+	</select>
+
+	<!-- 删除用户 -->
+	<select id="deleteUser" parameterType="com.hisoft.xypj.common.bean.DeleteUserBean"
+		resultType="int">
+		delete from userinfo where userId=#{userId}
+	</select>
+
+	<!-- 添加机构信息 -->
+	<select id="addMechanism" parameterType="com.hisoft.xypj.common.bean.Mechanism"
+		resultType="int">
+		INSERT INTO mechanism (
+		mechanismName,
+		address,
+		telephone,
+		responsibleUserId,
+		createUserId
+		) VALUES (
+		#{mechanismName},
+		#{address},
+		#{telephone},
+		#{responsibleUserId},
+		10001
+		)
+
+	</select>
+	
+	<!-- 查询所有评审用户 -->
+	<select id="getPingShenList" parameterType="com.hisoft.xypj.common.bean.UserInfo"
+		resultType="com.hisoft.xypj.common.bean.UserInfo">
+		SELECT
+		*
+		FROM
+		userinfo
+		WHERE
+		`right` = 1
+	</select>
+
+	<!-- 查询机构信息 -->
+	<select id="getMechanism" parameterType="com.hisoft.xypj.common.bean.Mechanism"
+		resultMap="Mechanism">
+		SELECT * FROM mechanism
+	</select>
+
+	<!-- 删除机构信息 -->
+	<select id="deleteMechanism" parameterType="com.hisoft.xypj.common.bean.Mechanism"
+		resultMap="Mechanism">
+		DELETE from mechanism where mechanismId = #{id}
+	</select>
+
+	<!-- 查询未完善企业信息的企业 -->
+	<select id="getEndCompanyInfoList" parameterType="com.hisoft.xypj.common.bean.CompanyInfo"
+		resultType="com.hisoft.xypj.common.bean.CompanyInfo">
+
+	</select>
+
+	<!-- 添加企业基本信息 -->
+	<select id="addCompany" parameterType="com.hisoft.xypj.common.bean.CompanyInfo"
+		resultType="int">
+		INSERT INTO companyinfo (
+		companyName,
+		companyAdd,
+		corporate,
+		regCapital,
+		economy,
+		createDay,
+		icrn,
+		orgCode,
+		businessScope,
+		account,
+		postcode,
+		taxNumber,
+		social,
+		loanNumber
+		)
+		VALUES
+		(
+		#{companyName},
+		#{companyAdd},
+		#{corporate},
+		#{regCapital},
+		#{economy},
+		#{createDay},
+		#{icrn},
+		#{orgCode},
+		#{businessScope},
+		#{account},
+		#{postcode},
+		#{taxNumber},
+		#{social},
+		#{loanNumber}
+		);
+	</select>
+
+<!-- 	 查询企业类型 --> 
+<!-- 	<select id="companyType" resultMap="companyType"> -->
+<!-- 		select companytype from companytype; -->
+<!-- 	</select> -->
+</mapper> 
