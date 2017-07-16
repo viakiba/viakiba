@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="gralearn:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="gralearn.war">
-      <element id="artifact" artifact-name="gralearn:war exploded" />
-    </root>
-  </artifact>
-</component>
