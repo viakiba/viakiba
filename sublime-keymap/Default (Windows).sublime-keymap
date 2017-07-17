@@ -1,0 +1,84 @@
+[
+    /**
+     * 常用快捷键(Sublime默认)
+     * --------------
+     * 
+     * 光标一个单词一个单词的移动
+     * { "keys": ["ctrl+left"], "command": "move", "args": {"by": "words", "forward": false} },
+     * 按住shift来选文字时, 一个个单词的选而不是一个个字母
+     * { "keys": ["ctrl+shift+left"], "command": "move", "args": {"by": "words", "forward": false, "extend": true} },
+     *
+     * 类似光标一个个单词的移动
+     * { "keys": ["alt+left"], "command": "move", "args": {"by": "subwords", "forward": false} },
+     * { "keys": ["alt+shift+right"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
+     *
+     * 缩进
+     * { "keys": ["ctrl+]"], "command": "indent" },
+     * { "keys": ["ctrl+["], "command": "unindent" },
+     *
+     * 删除整个单词
+     * { "keys": ["ctrl+backspace"], "command": "delete_word", "args": { "forward": false } },
+     * { "keys": ["ctrl+delete"], "command": "delete_word", "args": { "forward": true } },
+     *
+     * 行排序(例如选中几个JSON字段, 让这些字段名按字母顺序排序)
+     * { "keys": ["f9"], "command": "sort_lines", "args": {"case_sensitive": false} },
+     *
+     * 参考
+     * ----------------------
+     * Using Sublime Text as your IDE
+     * http://www.chromium.org/developers/sublime-text
+     *
+     * Web Development With Sublime Text 2
+     * http://www.paulund.co.uk/web-development-with-sublime-text-2
+     */
+
+    // editor配置
+    { "keys": ["ctrl+v"], "command": "paste_and_indent" },
+    { "keys": ["ctrl+shift+v"], "command": "paste" },
+
+    /**
+     * 适配eclipse快捷键
+     *
+     * 下面这位仁兄早就有了这个想法
+     * Eclipse shortcuts for Sublime Text 2
+     * http://icoloma.blogspot.com/2011/10/eclipse-shortcuts-for-sublime-text-2.html
+     */
+    { "keys": ["alt+/"], "command": "auto_complete" },
+    { "keys": ["ctrl+i"], "command": "reindent" },
+    // 当前行和下面一行交互位置
+    { "keys": ["alt+up"], "command": "swap_line_up" },
+    { "keys": ["alt+down"], "command": "swap_line_down" },
+    // 复制当前行到上一行
+    { "keys": ["ctrl+alt+up"], "command": "duplicate_line" },
+    // 复制当前行到下一行
+    { "keys": ["ctrl+alt+down"], "command": "duplicate_line" },
+    // 删除整行
+    { "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete Line.sublime-macro"} },
+    // 光标移动到指定行
+    { "keys": ["ctrl+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+    // 快速定位到选中的文字
+    { "keys": ["ctrl+k"], "command": "find_under_expand_skip" },
+    // { "keys": ["ctrl+shift+x"], "command": "swap_case" },
+    { "keys": ["ctrl+shift+x"], "command": "upper_case" },
+    { "keys": ["ctrl+shift+y"], "command": "lower_case" },
+    // 在当前行的下一行插入空行(这时鼠标可以在当前行的任一位置, 不一定是最后)
+    { "keys": ["shift+enter"], "command": "run_macro_file", "args": {"file": "Packages/Default/Add Line.sublime-macro"} },
+    // 定位到对于的匹配符(譬如{})(从前面定位后面时,光标要在匹配符里面,后面到前面,则反之)
+    { "keys": ["ctrl+shift+p"], "command": "move_to", "args": {"to": "brackets"} },
+    // 这个命令默认使用的是ctrl+shift+p
+    { "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
+    // outline
+    { "keys": ["ctrl+o"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+    // 当前文件中的关键字(方便快速查找内容)
+    { "keys": ["ctrl+alt+o"], "command": "show_overlay", "args": {"overlay": "goto", "text": "#"} },
+    // open resource
+    { "keys": ["ctrl+shift+r"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+    // 文件内查找/替换
+    { "keys": ["ctrl+f"], "command": "show_panel", "args": {"panel": "replace"} },
+    // 全局查找/替换, 在查询结果中双击跳转到匹配位置
+    {"keys": ["ctrl+h"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+
+    // plugin配置
+    { "keys": ["alt+a"], "command": "alignment" },
+    {"keys": ["ctrl+shift+f"], "command": "js_format"}
+]

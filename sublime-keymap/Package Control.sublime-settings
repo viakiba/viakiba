@@ -1,0 +1,26 @@
+{
+    "auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"Alignment",
+		"AutoFileName",
+		"BracketHighlighter",
+		"Color Highlighter",
+		"DocBlockr",
+		"EditorConfig",
+		"Emmet",
+		"jQuery",
+		"JsFormat",
+		"JSLint",
+		"MarkdownEditing",
+		"Package Control",
+		"PlainTasks",
+		"SideBarEnhancements",
+		"SmartMarkdown",
+		"SublimeBlockCursor",
+		"SublimeCodeIntel",
+		"Tag",
+		"Theme - Soda",
+		"ToggleQuotes"
+	]
+}
