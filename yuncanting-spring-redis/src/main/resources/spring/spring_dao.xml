@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:cache="http://www.springframework.org/schema/cache"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	<!-- 开启注解配置 -->
+	<context:annotation-config />
+
+	<!-- Use spring servlet for all requests, including static resources -->
+	<mvc:default-servlet-handler/>
+
+	<!-- 开启 @MVC annotations（注解配置） -->
+	<mvc:annotation-driven />
+
+	<!-- 开启 @Controller, @Service... annotations（注解配置） com.yuncanting下的所有层级的包都会被扫描 -->
+	<context:component-scan base-package="com.yuncanting"/>
+
+	<!-- 设置加载properties 配置文件的方式-->
+	<util:properties id="settings" location="classpath*:param.properties"></util:properties>
+
+	<!-- properties配置文件的位置 -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	    <property name="locations">    
+	        <list>   <!-- 可以多个 -->
+	            <value>classpath*:param.properties</value>
+	        </list>    
+	    </property>    
+	</bean>
+
+	<!-- 加载properties key之对应的参数值 -->
+    <bean id="pooledDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    	<property name="url" value="${db.jdbcurl}" />
+     	<property name="username" value="${db.username}" />
+     	<property name="password" value="${db.password}" />
+		<property name="driverClassName" value="${db.driverClassName}"/>
+    </bean>
+
+	<!-- session 工厂 指定mybatis的配置文件的位置-->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis.xml"></property>
+		<property name="dataSource" ref="pooledDataSource" />
+	</bean>
+	<!-- 指定 dao 接口的位置 避免实体类的编写-->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.yuncanting.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	<!-- 事务管理器 -->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="pooledDataSource"></property>
+    </bean>
+
+	<!-- 指定切面方法的事务方式 -->
+    <tx:advice id="tx" transaction-manager="dataSourceTransactionManager">
+    	<tx:attributes>
+    		<tx:method name="query*" read-only="true"/>
+			<tx:method name="*" rollback-for="Throwable"/>
+    	</tx:attributes> 
+    </tx:advice>
+
+	<!--事务切面 指定那些方法进行事务管理-->
+    <aop:config>
+    	<aop:pointcut expression="execution(* com.yuncanting.service.*.*(..))" id="serviceOperation"/>
+    	<aop:advisor advice-ref="tx" pointcut-ref="serviceOperation"/>
+    </aop:config>
+
+</beans>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!-- Thymeleaf View Resolver - implementation of Spring's ViewResolver interface -->
+	<bean id="viewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+		<property name="templateEngine" ref="templateEngine"/>
+		<!--  设置编码为 utf-8 -->
+		<property name="characterEncoding" value="UTF-8"/>
+	</bean>
+
+	<bean id="templateEngine"  class="org.thymeleaf.spring4.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver"/>
+		<property name="enableSpringELCompiler" value="true"></property>
+	</bean>
+
+	<!--配置thymeleaf-->
+	<bean id="templateResolver"  class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
+		<!-- 调试时关闭缓存,正式环境打开 -->
+		<property name="cacheable" value="${thymleaf.cache}"/>
+		<!-- 设置编码 为 utf-8 -->
+		<property name="characterEncoding" value="UTF-8"/>
+		<!-- 路径的前缀-->
+		<property name="prefix" value="/"/>
+		<!--路径的后缀-->
+		<property name="suffix" value=".html"/>
+		<property name="templateMode" value="HTML"/>
+	</bean>
+	
+	<!-- 拦截器 -->
+    <!-- <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path=""/>
+    		<bean class="com.wxccase.interceptor.ExceptionInterceptor"/>
+    	</mvc:interceptor>
+    </mvc:interceptors> -->
+    
+    <!-- 上传组件 -->
+     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		 <!-- 上传文件大小的-->
+	   	<property name="maxUploadSize" value="62914560"></property>
+    </bean> 
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+        <property name="exceptionMappings">  
+            <props>
+				<!-- 超过大小后 跳转到 指定页面 提示文件过大-->
+                <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">WEB-INF/error_fileupload</prop>  
+            </props>
+        </property>  
+    </bean>  
+</beans>
+
+

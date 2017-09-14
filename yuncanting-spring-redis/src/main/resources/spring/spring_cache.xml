@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cache="http://www.springframework.org/schema/cache"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/cache
+		http://www.springframework.org/schema/cache/spring-cache-4.3.xsd">
+
+	<cache:annotation-driven cache-manager="cacheManager" />
+
+	<!-- 连接池配置 会注入到redis 服务中心中 -->
+	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig" >
+		<!-- 空闲时间 -->
+		<property name="maxIdle" value="${redis.maxIdle}" />
+		<!-- 最大等待时间 -->
+		<property name="maxWaitMillis" value="${redis.maxWait}" />
+		<property name="testOnBorrow" value="${redis.testOnBorrow}" />
+	</bean >
+
+	<!--redis服务器中心 主要是建立redis连接 会指定连接的ip 密码 端口 等信息-->
+	<bean id="redisConnectionFactory"  class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" >
+		<property name="poolConfig" ref="poolConfig" />
+		<property name="port" value="${redis.port}" />
+		<property name="hostName" value="${redis.host}" />
+		<property name="password" value="${redis.password}" />
+		<property name="timeout" value="${redis.timeout}" />
+	</bean >
+
+	<!-- 一个序列化的方式 用于 存入数据的 key的标识-->
+	<bean id="stringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+
+	<bean id="jackson2JsonRedisSerializer"  class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer"/>
+	<!-- 主要是指定数据 持久化 存入 redis的方式 以及存入的目标redis -->
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate" >
+		<!-- 目标 redis-->
+		<property name="connectionFactory" ref="redisConnectionFactory" />
+		<!-- 是否打开redis 的事务支持-->
+		<property name="enableTransactionSupport" value="true"/>
+		<!-- 默认的序列化策略-->
+		<property name="defaultSerializer" ref="jackson2JsonRedisSerializer"/>
+		<!-- 对于普通K-V操作时，key采取的序列化策略 -->
+		<property name="keySerializer" ref="stringRedisSerializer"/>
+		<!-- 在hash数据结构中，hash-key的序列化策略 -->
+		<property name="hashKeySerializer" ref="stringRedisSerializer"/>
+		<!-- 对于普通K-V操作时，value采取的序列化策略 -->
+		<property name="valueSerializer" ref="jackson2JsonRedisSerializer"/>
+		<!-- 在hash数据结构中，hash-value的序列化策略 -->
+		<property name="hashValueSerializer" ref="jackson2JsonRedisSerializer"/>
+	</bean >
+
+	<!-- 缓存管理 可以多个  注解中指定 适应不同的失效策略 也可加上失效策略 -->
+	<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+		<constructor-arg name="redisOperations" ref="redisTemplate" />
+		<property name="defaultExpiration" value="${rediscatch.defaultCacheExpireTime}"/>
+	</bean>
+
+	<bean id="cacheManagers" class="org.springframework.data.redis.cache.RedisCacheManager">
+		<constructor-arg name="redisOperations" ref="redisTemplate" />
+		<property name="defaultExpiration" value="${rediscatch.defaultCacheExpireTimes}"/>
+	</bean>
+
+	<!-- 缓存中 key 的生成策略  自定义 注解中指定 -->
+	<bean id="SimpleKey" class="com.yuncanting.utils.SimpleKey"/>
+</beans>
