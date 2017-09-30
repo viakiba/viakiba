@@ -1,0 +1,2 @@
+# SSMTest
+Spring+SpringMVC+MyBatis

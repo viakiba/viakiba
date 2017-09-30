@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:websocket="http://www.springframework.org/schema/websocket"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://www.springframework.org/schema/context  
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+    http://www.springframework.org/schema/mvc  
+    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+
+	<!-- 注解扫描包 -->
+	<context:component-scan base-package="com.vk.websocket" />
+
+	<!-- 开启注解 -->
+	<mvc:annotation-driven />
+
+	<bean id="websocket" class="com.vk.websocket.demo.WebSocketHander" />
+
+	<websocket:handlers>
+		<websocket:mapping path="/echo" handler="websocket" />
+		<websocket:handshake-interceptors>
+			<bean class="com.vk.websocket.demo.HandshakeInterceptor" />
+		</websocket:handshake-interceptors>
+	</websocket:handlers>
+</beans>  
