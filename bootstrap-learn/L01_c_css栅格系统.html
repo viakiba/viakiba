@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<!--设置语言-->
+<head lang="zh-cn">
+    <!--设置编码-->
+    <meta charset="UTF-8">
+    <title>css概览</title>
+    <!--确保适当绘制和触屏缩放 在head增加如下标签 -->
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1">-->
+
+    <!--下面这个设置禁止缩放，就只能通过 滚动屏幕了-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!--加载css-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--加载js  jquery放前面  bootstrap放后面-->
+    <script rel="script" src="js/jquery-3.1.1.min.js"></script>
+    <script rel="script" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--  媒体查询  -->
+<!--可以设置width 而且支持响应式布局-->
+<!--
+/* 超小屏幕（手机，小于 768px） */
+/* 没有任何媒体查询相关的代码，因为这在 Bootstrap 中是默认的（还记得 Bootstrap 是移动设备优先的吗？） */
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: @screen-sm-min) { ... }
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: @screen-md-min) { ... }
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: @screen-lg-min) { ... }
+-->
+
+<!--
+@media (max-width: @screen-xs-max) { ... }
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }
+@media (min-width: @screen-lg-min) { ... }
+-->
+<!--从堆叠到水平排列-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+        <div class="col-md-1">col-md</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+    </div>
+
+</div>
+<!--加载container 占有100%  流式布局容器-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+        <div class="col-sm-1">sm</div>
+    </div>
+</div>
+<!--   栅格参数   -->
+<!--移动设备和桌面屏幕-->
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="row">
+    <!-- 如果是xs屏幕  则按照两行显示 每行12列 6列-->
+    <!-- 如果是md屏幕  则按照一行显示 8列 4列-->
+    <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="row">
+    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+<!-- Columns are always 50% wide, on mobile and desktop -->
+<div class="row">
+    <div class="col-xs-6">.col-xs-6</div>
+    <div class="col-xs-6">.col-xs-6</div>
+</div>
+
+<div class="row" >
+    <div class="col-md-4 col-xs-6">1</div>
+    <div class="col-md-4 col-xs-6">2</div>
+    <div class="col-md-4 col-xs-6">3</div>
+</div>
+
+
+</body>
+</html>

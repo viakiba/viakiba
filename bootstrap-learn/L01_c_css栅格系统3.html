@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>栅格系统3</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.1.1.min.js" rel="script"></script>
+    <script rel="script" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--列偏移-->
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">4</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">.col-md-4</div>
+            <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+            <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+        </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+    </div>
+    </div>
+
+<!--  嵌套列 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">Level 1: .col-sm-9
+                <div class="row">
+                    <div class="col-xs-8 col-sm-6">Level 2: .col-xs-8 .col-sm-6</div>
+                    <div class="col-xs-4 col-sm-6">Level 2: .col-xs-4 .col-sm-6</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row">
+                你好
+                <div class="row">
+                    <div class="col-md-6">hello</div>
+                    <div class="col-md-6">world</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- 列排序 -->
+<div class="container">
+    <div class="row">
+        <!--  后三位  push   前九位 push   只作用于一行  接下来如果跟push 则是换行 如果说pull 则在一行进行排列-->
+        <div class="col-md-9 col-md-push-6">.col-md-9 .col-md-push-3</div>
+        <!-- 往后推三位 占九列 （后九列）-->
+        <div class="col-md-9 col-md-push-3">.col-md-9 -3</div>
+        <!-- 往前推六列  占三列 （后九列）-->
+        <div class="col-md-6 col-md-pull-6">.col-md-3 .col-md-pull-6</div>
+    </div>
+</div>
+</body>
+</html>

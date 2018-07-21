@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>内联文本元素</title>
+    <meta name="viewport" content="width=device-width,init-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script rel="script" src="js/jquery-3.1.1.min.js" ></script>
+    <script rel="script" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!--Marked text  标记高亮-->
+    <div class="container">
+        <p align="center">You can use the mark tag to <mark>highlight</mark> text.</p>
+    </div>
+    <!--被删除的文本-->
+    <div class="container">
+        <del>hello</del>
+    </div>
+    <!--无用文本-->
+    <s>world</s>
+
+    <!--插入文本-->
+    <ins>
+        hello world
+    </ins>
+    <div>
+
+    </div>
+    <u>
+        你好
+    </u>
+<p>
+    你好
+</p>
+
+<!--小号文本-->
+hello <small>world</small>
+    <!--斜体文本-->
+    <em>world</em><br>
+    <!--Alternate elements-->
+    <!--
+    在 HTML5 中可以放心使用 <b> 和 <i> 标签。
+    <b> 用于高亮单词或短语，不带有任何着重的意味；
+    而 <i> 标签主要用于发言、技术词汇等。
+    -->
+    <b>hello</b><br>
+    <i>hello</i><br>
+    <!--对齐-->
+    <!--example-->
+    <p class="text-left">Left aligned text.</p><br>
+    <p class="text-center">Center aligned text.</p><br>
+    <p class="text-right">Right aligned text.</p><br>
+    <p class="text-justify">Justified text.</p><br>
+    <p class="text-nowrap">No wrap text.</p><br>
+    <div class="container">
+    <!--改变大小写-->
+        <div class="container">
+            <p class="text-lowercase">Lowercased text.</p>
+            <p class="text-uppercase">Uppercased text.</p>
+            <p class="text-capitalize">Capitalized text.</p>
+        </div>
+         <!--缩略语-->
+        <div class="container">
+            <!--鼠标指向attr 则显示title的value值-->
+            <abbr title="attribute">attr</abbr>
+        </div>
+        <!--首字母缩略语-->
+        <div class="container">
+            <!--要自己写  initialism  变得紧凑 -->
+            <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
+        </div>
+        <!--地址-->
+        <div class="container">
+            <!--地址 -->
+            <address><strong>Twitter, Inc.</strong><br>
+                795 Folsom Ave, Suite 600<br>
+                San Francisco, CA 94107<br>
+                <!---->
+                <!--  abbr   标签 -->
+                <abbr title="Phone">P:</abbr> (123) 456-7890
+            </address>
+            <address>
+                <strong>Full Name</strong><br>
+                <!--邮件 mailto  -->
+                <a href="mailto:#">first.last@example.com</a>
+            </address>
+        </div>
+        <!--引用-->
+        <blockquote>
+            <!-- blockquote -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        </blockquote>
+        <!--Blockquote options-->
+        <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <!-- 脚标题 -->
+            <footer>Someone famous in
+                <!- cite标签 ？？ -->
+                <cite title="Source Title">Source Title</cite>
+            </footer>
+        </blockquote>
+    </div>
+</body>
+</html>

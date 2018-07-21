@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>排版</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="javascript" src="js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width,init-scale=1">
+</head>
+<body>
+    <div class="container">
+        <!--标题-->
+       <h1 class="h1">hello world</h1>
+       <h3 class="h3">hello world</h3>
+       <div class="h1">hello world</div>
+       <div class="h3">hello world</div>
+    </div>
+    <!--标题 加上small样式-->
+    <div class="container">
+        <div class="h2">
+            hello <small>world</small>
+        </div>
+    </div>
+
+    <!--
+
+    页面主体
+        中心内容
+        使用 Less 工具构建
+    -->
+    <!--
+    Bootstrap 将全局 font-size 设置为 14px，line-height 设置为 1.428。
+    这些属性直接赋予 <body> 元素和所有段落元素。另外，<p>（段落）元素
+    还被设置了等于 1/2 行高（即 10px）的底部外边距（margin）。
+    -->
+
+    <!--中心内容-->
+    <p class="lead">hello</p>
+    <!--使用 Less 工具构建-->
+    <!--
+    variables.less 文件中定义的两个 Less 变量决定了排版尺寸：
+    @font-size-base 和 @line-height-base。
+    第一个变量定义了全局 font-size 基准，第二个变量是 line-height 基准。
+    我们使用这些变量和一些简单的公式计算出其它所有页面元素的 margin、 padding 和 line-height。
+    自定义这些变量即可改变 Bootstrap 的默认样式。
+    -->
+</body>
+</html>
