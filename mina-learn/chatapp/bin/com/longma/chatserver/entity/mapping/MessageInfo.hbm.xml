@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.longma.chatserver.entity.MessageInfo" table="message_info" lazy="false">
+        <id name="mid" type="string">
+            <column name="mid" length="32" not-null="true" unique="true"/>
+        </id>
+        <property name="tag" type="string">
+            <column name="tag" length="32" not-null="true" unique="true" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="255" not-null="true" />
+        </property>
+        <property name="userid" type="string">
+            <column name="userid" length="32" not-null="true"/>
+        </property>
+        <property name="tuserid" type="string">
+            <column name="tuserid" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>
