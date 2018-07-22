@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="classes" thread-count="1">
+
+    <test verbose="1" preserve-order="true" name="SequenceTest">
+
+        <groups>
+            <define name="eatOne" >
+                <include name="eatOne"/>
+            </define>
+            <define name="eatTen">
+                <include name="eatTen"/>
+            </define>
+
+            <define name="eatOneTen">
+                <include name="eatOne"/>
+                <include name="eatTen"/>
+            </define>
+
+            <run>
+                <include name="eatTen"/>
+                <!--<include name="eatOneTen"/>-->
+            </run>
+        </groups>
+
+        <classes>
+            <!-- 可以多个 -->
+            <class name="org.vk.test.springtest_testng.EatServiceTest" />
+        </classes>
+    </test>
+
+</suite>

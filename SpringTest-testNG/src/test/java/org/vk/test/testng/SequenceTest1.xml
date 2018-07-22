@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="classes" thread-count="3">
+
+    <test verbose="2" preserve-order="true" name="SequenceTest">
+        <!--
+            group 筛选执行样例
+                这里的run标签可以只存在include/exclude
+                    对于测试类而言，如果只存在exclude则除了exclude的方法其他类中存在的都会执行。
+                    存在include则只执行include包含的。
+        -->
+        <groups>
+
+            <define name="filter_group">
+                <include name="filter1"/>
+                <include name="filter2"/>
+            </define>
+
+            <define name="filter_group1">
+                <include name="filter1"/>
+            </define>
+
+            <define name="filter_group2">
+                <include name="filter2"/>
+            </define>
+
+
+            <run>
+                <include name="filter_group"/>
+                <exclude name="filter_group2"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="org.vk.test.testng.SequenceTest" >
+            </class>
+        </classes>
+    </test>
+
+</suite>

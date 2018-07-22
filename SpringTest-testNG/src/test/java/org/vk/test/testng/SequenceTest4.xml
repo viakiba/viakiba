@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="classes" thread-count="3">
+
+    <test verbose="2" preserve-order="true" name="SequenceTest">
+        <!--这里参数声明对于整个测试suite都有效-->
+        <groups>
+
+            <define name="before">
+                <include name="before"/>
+            </define>
+
+            <run>
+                <include name="before"></include>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="org.vk.test.testng.SequenceTest" >
+            </class>
+        </classes>
+    </test>
+
+</suite>

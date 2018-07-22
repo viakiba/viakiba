@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="classes" thread-count="3">
+
+    <parameter name="testParam" value="11"></parameter>
+
+    <test verbose="2" preserve-order="true" name="SequenceTest">
+
+        <groups>
+
+            <define name="filter_group">
+                <include name="filter1"/>
+                <include name="filter2"/>
+            </define>
+
+            <define name="filter_group1">
+                <include name="filter1"/>
+            </define>
+
+            <define name="filter_group2">
+                <include name="filter2"/>
+            </define>
+
+            <define name="filter_group3">
+                <include name="filter3"/>
+            </define>
+
+
+            <run>
+                <include name="filter_group">
+                    <exclude name="filter3"/>
+                    <!--<exclude name="filter_group3"/>-->
+                    <!--上下等效-->
+                </include>
+                <exclude name="filter_group2"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="org.vk.test.testng.SequenceTest" >
+            </class>
+        </classes>
+    </test>
+
+</suite>

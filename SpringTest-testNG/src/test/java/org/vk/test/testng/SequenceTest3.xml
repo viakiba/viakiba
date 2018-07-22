@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="classes" thread-count="3">
+
+    <test verbose="2" preserve-order="true" name="SequenceTest">
+        <parameter name="testParam" value="12" />
+        <!--这里参数声明对于整个测试suite都有效-->
+        <groups>
+
+            <define name="param_group">
+                <include name="param"/>
+            </define>
+
+            <run>
+                <include name="param_group"></include>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="org.vk.test.testng.SequenceTest" >
+                <!--此处声明的参数的值优先级更高 仅对这个类有效-->
+                <!--<parameter name="testParam" value="11"/>-->
+            </class>
+        </classes>
+    </test>
+
+</suite>
