@@ -1,0 +1,13 @@
+package org.viakiba.di.listdipro.bean;
+
+/**
+ * @author viakiba
+ * @description
+ * @date Create in 10:23 2018/8/4
+ */
+public class Bean2 implements BeanInter2{
+    @Override
+    public String toString() {
+        return "Bean1{}"+NAME;
+    }
+}
