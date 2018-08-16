@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <!-- 本地开发使用 -->
+    <!--<property name="log_home" value="${user.dir}/"/>-->
+
+    <!-- 测试商用环境使用 -->
+    <property name="log_home" value="${user.dir}"/>
+
+    <property name="projectName" value="JOSE-USE-DEMO"/>
+
+    <!-- 负责写日志,控制台日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>${projectName}|%d{yyyy-MM-dd HH:mm:ss.SSS}|%-5level|%X{index}|%msg%n
+            </Pattern>
+            <Charset>UTF-8</Charset>
+        </encoder>
+        <!-- <target>System.err</target> 字符串 System.out 或者 System.err ，默认 System.out -->
+
+    </appender>
+
+    <appender name="FILEDEBUG"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_home}/logs/log-debug.log</file> <!-- 日志名称 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--在工程目录下自动生成../log文件夹 -->
+            <FileNamePattern>${log_home}/logs/log-debug.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>${projectName}|%d{yyyy-MM-dd HH:mm:ss.SSS}|%-5level|%X{index}|%msg%n
+                </Pattern>
+            </layout>
+            <Charset>UTF-8</Charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 不同級別的文件記錄在不同的日誌文件中 -->
+    <appender name="FILEINFO"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_home}/logs/log-info.log</file> <!-- 日志名称 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件生成路径 -->
+            <FileNamePattern>${log_home}/logs/log-info.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>${projectName}|%d{yyyy-MM-dd HH:mm:ss.SSS}|%-5level|%X{index}|%msg%n
+                </Pattern>
+            </layout>
+            <Charset>UTF-8</Charset>
+        </encoder>
+    </appender>
+
+    <appender name="FILEERROR"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_home}/logs/log-error.log</file> <!-- 日志名称 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--在工程目录下自动生成../log文件夹 -->
+            <FileNamePattern>${log_home}/logs/log-error.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>${projectName}|%d{yyyy-MM-dd HH:mm:ss.SSS}|%-5level|%X{index}|%msg%n
+                </Pattern>
+            </layout>
+            <Charset>UTF-8</Charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILEDEBUG"/>
+        <appender-ref ref="FILEINFO"/>
+        <appender-ref ref="FILEERROR"/>
+    </root>
+</configuration>

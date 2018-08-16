@@ -1,0 +1,21 @@
+package org.vk.constant;
+
+/**
+ * @author viakiba
+ * @description
+ * @date Create in 22:30 2018/7/30
+ */
+public class JoseConstants {
+
+    public final static int RSA_KEY_RADIX = 16;
+
+    /* PRIVATE_EXPONENT 一般是不提供的，这里为了解释就把私钥关键信息提供出来 16进制 */
+    public final static String PUBLIC_MODULUS = "00c6a2d057f4067dd43a14a4db8589039f817e97aaf89191fdb0db5cebb0ea6027224ae1226626a73cf15fc8d4defb264a90568abd24d10182dbe191b8eae49c21900258a35761208f4146df4238f1dd3fb9ae47e50653656919b40a3edfb4d1fae7b111b3cd78c913ee60ce50b3e749d693f9bf7577d1ef0001f8b04a6f5a10b07106efcca1c69f280e152327f6744ba7d0e11dbbb8031f35c8838ea49c6fa9ac2f6992c605f3272b0edf445116b6d27606d471a026c4bf1aa3382c8ab20d2d161f6d188f415006deb8529738aa2c2ce343815e59bffc1ba23293d5aae06a523d30692d96fa669794733a5fb280bc20a0f08aada2e8d5a47e4104ea4db65cd11f";
+    public final static String PUBLIC_EXPONENT = "10001";
+    public final static String PRIVATE_EXPONENT = "00a2eb7d88f63cb0cdf60962a22ee78f522f8b1e68fbd1a1f57b2ea10b2ba340d4383b4466cb741ead4ca8ac7774a077eaa67264fef808797dd44d3211828f9943a9f352b23e840a899517c51c72ca6616d37c0fb9d83364b50c80effa5bcfda7e39b4b0f951a924fbb5042f945fca6f7491104229ddea116667378b98b1b62482afcc3633f50602e4f3d2e8a50e14636518fed11f7bc79a9ad9ffd40c1a69a423de5de3316601a344efb4b4a86944fd13d1d4409bc4a1a57238f8d2bf9c756349c5e8c9cc51832661eca3fc51ecffd7a42273262f5e3c6405284fff565ccc67e348dc94cfd4043dc670497c39e967c4a4d5fc1458ac1965d92068fb951a7729d1";
+    public final static String UTF_8 = "UTF-8";
+
+
+
+
+}
