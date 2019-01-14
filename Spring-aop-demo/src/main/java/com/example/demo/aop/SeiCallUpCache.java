@@ -9,8 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class SeiCallUpCache {
 
-    @After(value = "within(com.example.demo.controller..*) && @annotation(com.example.demo.annotation.UpCacheCallTsmAnnotation)")
-    public void upCache() throws Exception {
-        System.out.println("打算大苏打");
+    @AfterReturning(value = "within(com.example.demo.controller..*) && @annotation(com.example.demo.annotation.UpCacheCallTsmAnnotation)" , returning = "str")
+    public void upCache(JoinPoint joinPoint, Object str) throws Exception {
+        UpCacheCallTsmAnnotation upCacheCallTsmAnnotation = ((MethodSignature)joinPoint.getSignature()).getMethod().getAnnotation(UpCacheCallTsmAnnotation.class);
+        String type = systemLog.type();
+        System.out.println("类型"+type+"str"+str);
     }
 }

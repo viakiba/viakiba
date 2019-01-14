@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DemoController {
 
-    @UpCacheCallTsmAnnotation
+    @UpCacheCallTsmAnnotation()
     public String string(String x){
         System.out.println(x);
         return x+"???";
