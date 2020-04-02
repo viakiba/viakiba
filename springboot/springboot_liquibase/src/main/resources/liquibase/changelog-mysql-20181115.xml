@@ -1,0 +1,17 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <preConditions>
+        <dbms type="mysql" />
+        <runningAs username="root" />
+    </preConditions>
+    <changeSet id="1" author="viakiba">
+        <preConditions onFail="WARN">
+            <sqlCheck expectedResult="0">select count(*) from user</sqlCheck>
+        </preConditions>
+        <comment>前置条件通过会执行删表操作 expectedResult 是 SQL 执行的预期值,符合删表</comment>
+        <dropTable tableName="user"/>
+    </changeSet>
+</databaseChangeLog>

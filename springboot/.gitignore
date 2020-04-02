@@ -1,0 +1,11 @@
+/RemoteSystemsTempFiles
+/.recommenders
+/.metadata
+### springbootredis ###
+/springbootredis/target
+/springbootredis/.apt_generated
+/springbootredis/.classpath
+/springbootredis/.factorypath
+/springbootredis/.project
+/springbootredis/.settings
+/springbootredis/.springBeans
