@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="hotload:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3c478208-8da5-4e2c-ae3d-98fee7aad4d2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Zk6m8uQtjIHGDoH22iOFua5Vj7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="ToolWindowDebug.ShowToolbar" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/company" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.company.hotreload" />
+      <recent name="com.company" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\89264\Desktop\hotload\src\com\company" />
+      <recent name="C:\Users\89264\Desktop\hotload\lib" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.HotLoadTest">
+    <configuration name="HotLoadTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.HotLoadTest" />
+      <module name="hotload" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimePrint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.TimePrint" />
+      <module name="hotload" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.bean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HotLoadTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotload" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.company" />
+      <option name="MAIN_CLASS_NAME" value="com.company.HotLoadTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimePrint.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotload" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.bean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.company" />
+      <option name="MAIN_CLASS_NAME" value="com.company.TimePrint" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TimePrint.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotload" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.bean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.company" />
+      <option name="MAIN_CLASS_NAME" value="com.company.TimePrint" />
+      <option name="METHOD_NAME" value="test2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.TimePrint" />
+      <item itemvalue="JUnit.TimePrint.test1" />
+      <item itemvalue="JUnit.TimePrint.test2" />
+      <item itemvalue="JUnit.HotLoadTest.test1" />
+      <item itemvalue="Application.HotLoadTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HotLoadTest" />
+        <item itemvalue="JUnit.HotLoadTest.test1" />
+        <item itemvalue="JUnit.TimePrint.test2" />
+        <item itemvalue="JUnit.TimePrint.test1" />
+        <item itemvalue="Application.TimePrint" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3c478208-8da5-4e2c-ae3d-98fee7aad4d2" name="Default Changelist" comment="" />
+      <created>1585370900832</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585370900832</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585373196669">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="414" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585373196669" />
+    <state x="765" y="261" key="#com.intellij.ide.util.MemberChooser" timestamp="1585386814783">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="765" y="261" key="#com.intellij.ide.util.MemberChooser/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585386814783" />
+    <state x="2610" y="502" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585537147571">
+      <screen x="1920" y="199" width="1920" height="1040" />
+    </state>
+    <state x="2610" y="502" key="#com.intellij.ide.util.TreeClassChooserDialog/0.40.1920.1040/1920.199.1920.1040@1920.199.1920.1040" timestamp="1585537147571" />
+    <state x="2180" y="199" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585390715552">
+      <screen x="1920" y="199" width="1920" height="1040" />
+    </state>
+    <state x="497" y="40" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585388513603" />
+    <state x="2180" y="199" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.40.1920.1040/1920.199.1920.1040@1920.199.1920.1040" timestamp="1585390715552" />
+    <state x="690" y="306" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585379967723">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="690" y="306" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585379967723" />
+    <state width="1004" height="466" key="DebuggerActiveHint" timestamp="1585374214765">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1004" height="466" key="DebuggerActiveHint/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585374214765" />
+    <state width="1877" height="159" key="GridCell.Tab.0.bottom" timestamp="1585540894422">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="159" key="GridCell.Tab.0.bottom/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585540894422" />
+    <state width="1877" height="201" key="GridCell.Tab.0.bottom/0.40.1920.1040/1920.199.1920.1040@1920.199.1920.1040" timestamp="1585540178526" />
+    <state width="1877" height="159" key="GridCell.Tab.0.center" timestamp="1585540894421">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="159" key="GridCell.Tab.0.center/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585540894421" />
+    <state width="1877" height="201" key="GridCell.Tab.0.center/0.40.1920.1040/1920.199.1920.1040@1920.199.1920.1040" timestamp="1585540178526" />
+    <state width="1877" height="159" key="GridCell.Tab.0.left" timestamp="1585540894421">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="159" key="GridCell.Tab.0.left/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585540894421" />
+    <state width="1877" height="201" key="GridCell.Tab.0.left/0.40.1920.1040/1920.199.1920.1040@1920.199.1920.1040" timestamp="1585540178526" />
+    <state width="1877" height="159" key="GridCell.Tab.0.right" timestamp="1585540894421">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="159" key="GridCell.Tab.0.right/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585540894421" />
+    <state width="1877" height="201" key="GridCell.Tab.0.right/0.40.1920.1040/1920.199.1920.1040@1920.199.1920.1040" timestamp="1585540178526" />
+    <state width="1877" height="107" key="GridCell.Tab.1.bottom" timestamp="1585391741007">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="107" key="GridCell.Tab.1.bottom/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585391741007" />
+    <state width="1877" height="107" key="GridCell.Tab.1.center" timestamp="1585391741007">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="107" key="GridCell.Tab.1.center/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585391741007" />
+    <state width="1877" height="107" key="GridCell.Tab.1.left" timestamp="1585391741007">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="107" key="GridCell.Tab.1.left/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585391741007" />
+    <state width="1877" height="107" key="GridCell.Tab.1.right" timestamp="1585391741007">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="107" key="GridCell.Tab.1.right/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585391741007" />
+    <state x="2360" y="293" key="SettingsEditor" timestamp="1585537165025">
+      <screen x="1920" y="199" width="1920" height="1040" />
+    </state>
+    <state x="440" y="134" key="SettingsEditor/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585373208147" />
+    <state x="2360" y="293" key="SettingsEditor/0.40.1920.1040/1920.199.1920.1040@1920.199.1920.1040" timestamp="1585537165025" />
+    <state x="658" y="453" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1585373369651">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="658" y="453" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585373369651" />
+    <state x="592" y="175" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585387203681">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="592" y="175" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585387203681" />
+    <state x="2536" y="419" key="run.anything.popup" timestamp="1585540650519">
+      <screen x="1920" y="199" width="1920" height="1040" />
+    </state>
+    <state x="616" y="260" key="run.anything.popup/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585374244377" />
+    <state x="2536" y="419" key="run.anything.popup/0.40.1920.1040/1920.199.1920.1040@1920.199.1920.1040" timestamp="1585540650519" />
+    <state x="2543" y="424" width="670" height="676" key="search.everywhere.popup" timestamp="1585391425092">
+      <screen x="1920" y="199" width="1920" height="1040" />
+    </state>
+    <state x="623" y="265" width="670" height="676" key="search.everywhere.popup/0.40.1920.1040/1920.199.1920.1040@0.40.1920.1040" timestamp="1585372765928" />
+    <state x="2543" y="424" width="670" height="676" key="search.everywhere.popup/0.40.1920.1040/1920.199.1920.1040@1920.199.1920.1040" timestamp="1585391425092" />
+  </component>
+</project>
