@@ -1,0 +1,41 @@
+/**index.wxss**/
+.class_all{
+  margin-top: 30px;
+  text-align:center;
+  align-items: center;
+}
+
+.userinfo {
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 80px;
+  height: 80px;
+  margin: 30px;
+  border-radius: 70%;
+}
+
+.title_text {
+  margin-top: 50px;
+
+  
+}
+
+.user-motto {
+  margin-top: 20px;
+}
+
+.button_css {
+  display: flex;
+  margin-top: 100px;
+  border-radius: 20px;
+  font-size: 24px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+
+

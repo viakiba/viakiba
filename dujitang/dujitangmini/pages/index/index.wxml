@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="class_all">
+    <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      </block>
+    </view>
+
+  <view class="title_text">
+        <text class="title_text">{{motto}}</text>
+  </view>
+
+  <view class="button_css">
+    <i-button type="primary" bind:click="handleClick">手气不错</i-button>
+  </view>
+
+</view>
