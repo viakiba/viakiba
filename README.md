@@ -1,6 +1,6 @@
 :wave: Hello!
 
-欢迎你来到我的主页!
+* 欢迎你来到我的GitHub主页!
 
 :memo: Working On KaiXin Game
 
