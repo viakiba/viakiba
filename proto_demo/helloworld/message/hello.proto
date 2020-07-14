@@ -1,0 +1,9 @@
+syntax = "proto3"; //1. 双斜杠后面可以加注释  2. 设置语法 可选 proto3 、 proto2 
+package hello.world.example;// package 声明有助于防止不同项目之间的命名冲突。 
+
+message Person {
+    string name = 1;
+}
+
+// 在 Java 中，包名用作Java包。你也可以指定 java_package 参数 () 来定义包路径。
+// java_package 参数可以与 package 共存 从而避免在 Protocol Buffers 名称空间和非Java语言中发生名称冲突。
