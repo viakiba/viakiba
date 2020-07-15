@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package org.example.protobuf.message;
+option java_package = "org.example.protobuf.message";
+
+message Adress{
+    string adressName = 1;
+}

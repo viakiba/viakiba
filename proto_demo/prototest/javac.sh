@@ -1,0 +1,1 @@
+protoc -I=D:\\PersonCode\\viakiba\\proto_demo\\prototest\\ --java_out=D:\\PersonCode\\viakiba\\proto_demo\\prototest\\src\\main\\java\\ D:\\PersonCode\\viakiba\\proto_demo\\prototest\\message\\filedemo\\adress.proto

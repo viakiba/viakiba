@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+//外部文件导入
+import "message/filedemo/adress.proto";
+/**
+ proto中的 import 导入 要根据 projectPath 的设置进行制定
+ 假如文件是 D:\\PersonCode\\viakiba\\proto_demo\\prototest\\message\\filedemo\\adress.proto
+ proto_path (-I) 参数是 projectPath （D:\\PersonCode\\viakiba\\proto_demo\\prototest\\）
+ 则 import 要写 import "message/filedemo/adress.proto"; 拼接上就是绝对路径
+*/
+package org.example.protobuf.message;
+
+option java_package = "org.example.protobuf.message";
+option java_outer_classname = "PersonMessage";
+
+//枚举消息类型，使用enum关键词定义,一个性别的枚举类型
+enum SexType {
+    man = 0; //proto3版本中，首成员必须为0，成员不应有相同的值
+    woman = 1;
+}
+
+//同文件嵌入
+message Sex{
+    SexType sexType = 1;
+}
+
+message Person {
+    //保留字段号
+    reserved 9 to 11;
+    //内部嵌入
+    message High{
+        int32 heighNum = 1;
+    }
+    //这里是一个数组或者list
+    repeated string name = 1;
+    //消息嵌入
+    Sex sex = 2;
+    //消息嵌入
+    High high = 3;
+    //外部文件引入 import
+    Adress Adress = 4;
+    //map 类型
+    map<string,string> bag = 5;
+}
+
+
+
