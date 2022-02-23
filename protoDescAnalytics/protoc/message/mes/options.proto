@@ -1,0 +1,9 @@
+syntax = "proto3";
+import "google/protobuf/descriptor.proto";
+
+option java_package = "org.viakiba.protobuf.message.mes";
+option java_outer_classname = "Options";
+
+extend google.protobuf.MessageOptions {
+  int32 msgId = 54321;
+}

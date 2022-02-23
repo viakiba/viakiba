@@ -1,0 +1,12 @@
+syntax ="proto3";
+
+import "options.proto";
+
+option java_package = "org.viakiba.protobuf.message.mes";
+option java_outer_classname = "DemoMessage";
+
+//公用proto用于协议返回额外返回的一部分
+message Server {
+  option (msgId) = 100010;
+  int64 Time = 1;
+}

@@ -1,0 +1,1 @@
+./protoc/mac/protoc --descriptor_set_out=./protoc/desc/test.desc -I=./protoc/message/mes ./protoc/message/mes/*.proto

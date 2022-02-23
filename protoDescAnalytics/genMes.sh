@@ -1,0 +1,1 @@
+./protoc/mac/protoc -I=./protoc/message/mes --java_out=./src/main/java ./protoc/message/mes/*.proto
