@@ -10,7 +10,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>4.3.3</spring.version>
+    <spring.version>5.3.18</spring.version>
   </properties>
 
   <dependencies>
@@ -191,7 +191,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>${spring.version}.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <!-- thymeleaf -->
     <dependency>
