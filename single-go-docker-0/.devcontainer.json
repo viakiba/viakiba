@@ -1,0 +1,23 @@
+{
+    "dockerFile": "Dockerfile",
+    "appPort": [
+        "8000:8001" //vscode 也会自动映射端口  端口就不用指定 指定端口的第一种方式 而且实时生效
+    ],
+    // 容器监听端口 8001 映射到本地端口 8000
+    "extensions": [
+        "ms-vscode.go",
+        "GitHub.copilot",
+        "golang.go",
+        "mrcrowl.hg",
+        "oderwat.indent-rainbow",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "mohsen1.prettify-json",
+        "johnstoncode.svn-scm",
+        "zxh404.vscode-proto3"
+    ],
+    "runArgs":[
+        // --publish=8000:8001 //vscode 也会自动映射端口  端口就不用指定 指定端口的第二种方式 而且实时生效
+        "--network=test-redis-net"
+    ]
+}
+// https://code.visualstudio.com/docs/remote/devcontainerjson-reference
