@@ -2,6 +2,8 @@
 
 * 欢迎你来到我的GitHub主页!
 
+![Github Stats](https://github-readme-stats.vercel.app/api?username=viakiba&show_icons=true)
+
 :memo: Working On Century Games
 
 * [Blog](https://viakiba.github.io "blog") 这里是我日常写Blog的仓库，欢迎访问我的主页 
