@@ -1,0 +1,31 @@
+version: '3.8'
+
+volumes:
+  redis-data:
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+        - .env
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    network_mode: service:redis
+    # forward_port:
+    #   80:80
+    # Adding the "ports" property to this file will not forward from a Codespace.
+  redis:
+    image: redis:7.0.2
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    environment:
+      - TZ=Asia/Shanghai
+    env_file:
+      - .env
+    # forwardPorts:
+    #   - "6379:6379"
+

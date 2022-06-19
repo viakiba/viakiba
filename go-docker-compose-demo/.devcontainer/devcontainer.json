@@ -1,0 +1,59 @@
+// https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_general-devcontainerjson-properties
+// https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_docker-compose-specific-properties
+// https://code.visualstudio.com/docs/remote/devcontainerjson-reference
+{	
+	"name": "Go & Redis",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	// Indicates whether VS Code and other devcontainer.json supporting tools should stop the containers when the related tool window is closed / shut down. Values are none, stopContainer (default for image or Dockerfile), and stopCompose (default for Docker Compose).
+	//"shutdownAction": "stopCompose",
+	//配置工具特定的属性。
+	//在创建容器时添加要安装的扩展的 ID。
+	"extensions": [
+		"golang.Go",
+		"ms-vscode.go",
+		"GitHub.copilot",
+		"mrcrowl.hg",
+		"oderwat.indent-rainbow",
+		"VisualStudioExptTeam.vscodeintellicode",
+		"mohsen1.prettify-json",
+		"johnstoncode.svn-scm",
+		"zxh404.vscode-proto3"
+	],
+	"settings": { 
+		"go.toolsManagement.checkForUpdates": "local",
+		"go.useLanguageServer": true,
+		"go.gopath": "/go",
+		"go.goroot": "/usr/local/go"
+	},
+	"customizations": {
+		"vscode": {
+			// 在容器创建时设置 *default*容器特定的 settings.json 值
+			"settings": { 
+				// "go.toolsManagement.checkForUpdates": "local",
+				// "go.useLanguageServer": true,
+				// "go.gopath": "/go",
+				// "go.goroot": "/usr/local/go"
+			},
+			"extensions": [
+				// "golang.Go",
+				// "ms-vscode.go",
+				// "GitHub.copilot",
+				// "mrcrowl.hg",
+				// "oderwat.indent-rainbow",
+				// "VisualStudioExptTeam.vscodeintellicode",
+				// "mohsen1.prettify-json",
+				// "johnstoncode.svn-scm",
+				// "zxh404.vscode-proto3"
+			]
+		}
+	}
+	// 使用 "forwardPorts" 在宿主机可以访问 端口映射
+	// "forwardPorts": [5432],
+	// 创建容器后使用 "postCreateCommand" 运行命令。
+	// "postCreateCommand": "go version",
+	// 远程访问默认以 root 用户访问，打开注释以 vscode 用户访问。https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode"
+}
+
